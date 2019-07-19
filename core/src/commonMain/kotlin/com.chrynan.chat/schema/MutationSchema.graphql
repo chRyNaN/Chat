@@ -1,0 +1,49 @@
+scalar InputUri
+scalar InputFile
+
+input InputAccount {
+    accountID: ID!
+    accountHandle: String!
+    providerID: ID!
+    providerUri: InputUri!
+}
+
+input Handshake {
+    key: String!
+    value: String!
+}
+
+type HandshakeResult {
+    handshakeKey: String!
+    handshakeValue: String!
+    payloadID: ID!
+}
+
+input MessagePayload {
+    payloadID: ID!
+    providerUri: InputUri!
+    sender: InputAccount!
+    recipients: [InputAccount!]!
+    textContent: String
+    files: [InputFile!]
+}
+
+input PostPayload {
+    payloadID: ID!
+    providerUri: InputUri!
+    sender: InputAccount!
+    recipients: [InputAccount!]!
+    isPublic: Boolean!
+    textContent: String
+    files: [InputFile!]
+    referencesPostID: ID!
+    mentions: [InputAccount!]
+}
+
+type Mutation {
+    sendMessage(key: Handshake!, payload: MessagePayload!, conversationID: ID!): HandshakeResult!
+    sendMessageTo(key: Handshake!, payload: MessagePayload!, recipients: [InputAccount!]!): HandshakeResult!
+    sendPost(key: Handshake!, payload: PostPayload!, recipients: [InputAccount!]!): HandshakeResult!
+    sendPublicPost(key: Handshake!, payload: PostPayload!): HandshakeResult!
+    verifyHandshake(handshakeKey: String!, payloadID: ID!, recipients: [InputAccount!]!): HandshakeResult!
+}

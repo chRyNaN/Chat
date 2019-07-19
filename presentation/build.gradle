@@ -1,0 +1,30 @@
+apply plugin: 'kotlin-multiplatform'
+
+apply plugin: 'maven-publish'
+
+group 'com.chrynan'
+version rootProject.appVersion
+
+kotlin {
+    targets {
+        jvm()
+    }
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
+
+                api project(':core')
+            }
+        }
+        jvmMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+            }
+        }
+    }
+}
+
+configurations {
+    compileClasspath
+}

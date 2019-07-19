@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/menu_bottom_feed"
+            android:title="@string/menu_bottom_title_feed" />
+
+    <item
+            android:id="@+id/menu_bottom_conversations"
+            android:title="@string/menu_bottom_title_conversations" />
+
+    <item
+            android:id="@+id/menu_bottom_settings"
+            android:title="@string/menu_bottom_title_settings" />
+
+</menu>

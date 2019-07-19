@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name">Chat</string>
+
+    <string name="menu_bottom_title_feed">Feed</string>
+    <string name="menu_bottom_title_conversations">Conversations</string>
+    <string name="menu_bottom_title_settings">Settings</string>
+
+    <string name="app_bar_title_feed">Feed</string>
+    <string name="app_bar_title_conversations">Conversations</string>
+    <string name="app_bar_title_settings">Settings</string>
+
+    <string name="widget_message_editor_hint">Enter message</string>
+
+</resources>

@@ -1,0 +1,283 @@
+scalar Cursor
+scalar Time
+
+interface Node {
+    id: ID!
+}
+
+interface Edge {
+    cursor: Cursor!
+}
+
+interface Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+}
+
+type ConnectionInfo {
+    startCursor: Cursor
+    endCursor: Cursor
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+}
+
+type Uri {
+    scheme: String!
+    authority: String
+    userInfo: String
+    host: String
+    port: Int
+    path: String!
+    query: String
+    fragment: String
+}
+
+type Message implements Node {
+    id: ID!
+    sender: UserWithAccount!
+    provider: Provider!
+    sentAt: Time!
+    textContent: String
+    threadedMessages(first: Int! = 10, after: Cursor = null): MessageConnection!
+    reactions(first: Int! = 10, after: Cursor = null): ReactionConnection!
+    attachments(first: Int! = 10, after: Cursor = null): FileConnection!
+}
+
+type MessageConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [Message!]!
+    edges: [MessageEdge!]!
+}
+
+type MessageEdge implements Edge {
+    cursor: Cursor!
+    node: Message!
+}
+
+type User implements Node {
+    id: ID!
+    firstName: String
+    lastName: String
+    fullName: String
+    nickname: String
+    userAssignedScopedName: String
+    image: Uri
+    isBot: Boolean!
+    conversations(first: Int! = 10, after: Cursor = null): ConversationConnection!
+    groups(first: Int! = 10, after: Cursor = null): GroupConnection!
+    contacts(first: Int! = 10, after: Cursor = null): UserConnection!
+    following(first: Int! = 10, after: Cursor = null): UserConnection!
+    accounts(first: Int! = 10, after: Cursor = null): AccountConnection!
+    posts(first: Int! = 10, after: Cursor = null): PostConnection!
+    invites(first: Int! = 10, after: Cursor = null): InviteConnection!
+}
+
+type UserConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [User!]!
+    edges: [UserEdge!]!
+}
+
+type UserEdge implements Edge {
+    cursor: Cursor!
+    node: User!
+}
+
+type Provider implements Node {
+    id: ID!
+    name: String!
+    uri: Uri!
+}
+
+type Conversation implements Node {
+    id: ID!
+    name: String!
+    userAssignedScopedName: String!
+    participants(first: Int! = 10, after: Cursor = null): UserWithAccountConnection!
+    messages(first: Int! = 10, after: Cursor = null): MessageConnection!
+    owner: UserWithAccount!
+    invites(first: Int! = 10, after: Cursor = null): InviteConnection!
+    createdAt: Time!
+    lastUpdatedAt: Time!
+    canParticipantsInvite: Boolean!
+}
+
+type ConversationConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [Conversation!]!
+    edges: [ConversationEdge!]!
+}
+
+type ConversationEdge implements Edge {
+    cursor: Cursor!
+    node: Conversation!
+}
+
+type Invite implements Node {
+    id: ID!
+    inviter: UserWithAccount
+    invitee: UserWithAccount
+}
+
+type InviteConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [Invite!]!
+    edges: [Invite!]!
+}
+
+type InviteEdge implements Edge {
+    cursor: Cursor!
+    node: Invite!
+}
+
+type Reaction implements Node {
+    id: ID!
+    name: String!
+    content: String!
+    senders: UserWithAccountConnection!
+}
+
+type ReactionConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [Reaction!]!
+    edges: [ReactionEdge!]!
+}
+
+type ReactionEdge implements Edge {
+    cursor: Cursor!
+    node: Reaction!
+}
+
+enum FileType {
+    IMAGE,
+    VIDEO,
+    AUDIO,
+    FILE
+}
+
+type File implements Node {
+    id: ID!
+    name: String!
+    mimeType: String!
+    encoding: String!
+    uri: Uri!
+    type: FileType!
+}
+
+type FileConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [File!]!
+    edges: [FileEdge!]!
+}
+
+type FileEdge implements Edge {
+    cursor: Cursor!
+    node: File
+}
+
+type Group implements Node {
+    id: ID!
+    name: String!
+    members(first: Int! = 10, after: Cursor = null): UserWithAccountConnection
+}
+
+type GroupConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [Group!]!
+    edges: [GroupEdge!]!
+}
+
+type GroupEdge implements Edge {
+    cursor: Cursor!
+    node: Group!
+}
+
+type Account implements Node {
+    id: ID!
+    userHandle: String!
+    provider: Provider!
+    email: String
+    phoneNumber: String
+    name: String
+    createdAt: Time!
+}
+
+type AccountConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [Account!]!
+    edges: [AccountEdge!]!
+}
+
+type AccountEdge implements Edge {
+    cursor: Cursor!
+    node: Account!
+}
+
+type UserWithAccount implements Node{
+    id: ID!
+    user: User!
+    account: Account!
+}
+
+type UserWithAccountConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [UserWithAccount!]!
+    edges: [UserWithAccountEdge!]!
+}
+
+type UserWithAccountEdge implements Edge {
+    cursor: Cursor!
+    node: UserWithAccount!
+}
+
+type Post implements Node {
+    id: ID!
+    message: Message!
+    createdAt: Time!
+    lastUpdatedAt: Time!
+    isPublic: Boolean!
+    isAd: Boolean!
+    adInfo: AdInfo
+    references: Post
+    mentions(first: Int! = 10, after: Cursor = null): UserWithAccountConnection!
+    participants(first: Int! = 10, after: Cursor = null): UserWithAccountConnection!
+    excludedFromThreading(first: Int! = 10, after: Cursor = null): UserConnection!
+}
+
+type PostConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [Post!]!
+    edges: [PostEdge!]!
+}
+
+type PostEdge implements Edge {
+    cursor: Cursor!
+    node: Post!
+}
+
+type AdInfo implements Node {
+    id: ID!
+    adProviderName: String!
+    adProviderUri: Uri!
+    name: String
+    description: String
+    uri: Uri
+    image: Uri
+    isPersonalized: Boolean!
+}
+
+type Query {
+    viewer: User!
+    feed(first: Int! = 10, after: Cursor = null): PostConnection!
+    feedFrom(ids: [ID!]!, first: Int! = 10, after: Cursor = null): PostConnection!
+}

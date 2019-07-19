@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.chrynan.chat.ui.widget.ConversationListItemWidget xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:paddingStart="@dimen/spacing_horizontal_default"
+        android:paddingTop="@dimen/spacing_vertical_default"
+        android:paddingEnd="@dimen/spacing_horizontal_default"
+        android:paddingBottom="@dimen/spacing_vertical_default" />

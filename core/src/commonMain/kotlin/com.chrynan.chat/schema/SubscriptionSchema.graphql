@@ -1,0 +1,5 @@
+type Subscription {
+    subscribeToConversation(id: ID!): Conversation!
+    subscribeToFeed(first: Int! = 10, after: Cursor = null): PostConnection!
+    subscribeToFeedFrom(ids: [ID!]!, first: Int! = 10, after: Cursor = null): PostConnection!
+}
