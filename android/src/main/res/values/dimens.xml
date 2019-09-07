@@ -31,4 +31,6 @@
     <dimen name="message_item_image_max_size">120dp</dimen>
     <dimen name="message_item_image_min_size">60dp</dimen>
 
+    <dimen name="user_image_view_default_size">48dp</dimen>
+
 </resources>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="cd_conversation_list_item">Image for conversation.</string>
     <string name="cd_attachment_image">Attachment Image.</string>
     <string name="cd_attachment_badge_remove_item">Remove attachment.</string>
+    <string name="cd_user_image_view">User Image</string>
 
 </resources>

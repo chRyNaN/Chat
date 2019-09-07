@@ -4,12 +4,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <ImageView
+    <com.chrynan.chat.ui.widget.UserImageView
             android:id="@+id/listItemImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/cd_conversation_list_item"
-            android:src="@drawable/bg_launcher"
+            android:layout_width="@dimen/user_image_view_default_size"
+            android:layout_height="@dimen/user_image_view_default_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

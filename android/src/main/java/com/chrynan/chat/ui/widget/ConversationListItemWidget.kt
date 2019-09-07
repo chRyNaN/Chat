@@ -3,7 +3,6 @@ package com.chrynan.chat.ui.widget
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.chrynan.chat.R
@@ -16,17 +15,24 @@ class ConversationListItemWidget @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs),
     ConversationListItemView {
 
-    init {
-        LayoutInflater.from(context).inflate(R.layout.widget_conversation_list_item, this, true)
-    }
-
     private val titleTextView by lazy { findViewById<TextView>(R.id.titleTextView) }
     private val descriptionTextView by lazy { findViewById<TextView>(R.id.descriptionTextView) }
     private val timeTextView by lazy { findViewById<TextView>(R.id.timeTextView) }
-    private val imageView by lazy { findViewById<ImageView>(R.id.listItemImageView) }
+    private val imageView by lazy { findViewById<UserImageView>(R.id.listItemImageView) }
 
     override var title by textView { titleTextView }
     override var description by textView { descriptionTextView }
     override var formattedDateTime by textView { timeTextView }
     override var imageUri: String? = null
+
+    init {
+        LayoutInflater.from(context).inflate(R.layout.widget_conversation_list_item, this, true)
+
+        imageView.userImage = UserImageView.UserImage(
+            name = "Chris",
+            backgroundColorInt = resources.getColor(R.color.white),
+            textColorInt = resources.getColor(R.color.black),
+            imageUri = null
+        )
+    }
 }
