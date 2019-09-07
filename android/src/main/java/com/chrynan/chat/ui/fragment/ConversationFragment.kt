@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.chrynan.aaaah.ManagerRecyclerViewAdapter
 import com.chrynan.chat.R
 import com.chrynan.chat.model.HorizontalPosition
 import com.chrynan.chat.ui.adapter.TextMessageListItemAdapter
+import com.chrynan.chat.ui.adapter.adapterWith
 import com.chrynan.chat.viewmodel.TextMessageListItemViewModel
-import com.chrynan.chat.viewmodel.ViewModel
 
 class ConversationFragment : BaseFragment() {
 
@@ -37,14 +36,9 @@ class ConversationFragment : BaseFragment() {
 
         toolbar.title = "Conversation"
 
-        val textMessageAdapter = TextMessageListItemAdapter()
-        val adapter =
-            ManagerRecyclerViewAdapter<ViewModel>(
-                adapters = setOf(
-                    textMessageAdapter.startAdapter(),
-                    textMessageAdapter.endAdapter()
-                )
-            )
+        val adapter = adapterWith {
+            +TextMessageListItemAdapter()
+        }
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
