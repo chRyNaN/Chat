@@ -21,5 +21,6 @@ data class TextMessageListItemViewModel(
 data class ImageMessageListItemViewModel(
     override val messageID: ID,
     override val formattedTime: String,
-    val imageUri: String
+    val imageUri: String,
+    val side: HorizontalPosition
 ) : MessageListItemViewModel()

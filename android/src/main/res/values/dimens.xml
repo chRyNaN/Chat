@@ -26,6 +26,9 @@
     <dimen name="attachment_badge_elevation">4dp</dimen>
 
     <dimen name="message_item_horizontal_margin">64dp</dimen>
-    <dimen name="message_item_corner_radius">8dp</dimen>
+    <dimen name="message_item_min_corner_radius">8dp</dimen>
+    <dimen name="message_item_corner_radius">16dp</dimen>
+    <dimen name="message_item_image_max_size">120dp</dimen>
+    <dimen name="message_item_image_min_size">60dp</dimen>
 
 </resources>

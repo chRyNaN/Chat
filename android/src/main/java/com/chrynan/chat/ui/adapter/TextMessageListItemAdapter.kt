@@ -35,7 +35,7 @@ class TextMessageListItemAdapter : BaseHorizontalAdapter<TextMessageListItemView
 
         val view = LayoutInflater.from(parent.context).inflate(layoutResId, parent, false)
         val cornerRadius =
-            view.resources.getDimensionPixelSize(R.dimen.message_item_corner_radius).toFloat()
+            view.resources.getDimensionPixelSize(R.dimen.message_item_min_corner_radius).toFloat()
 
         view.findViewById<TextView>(R.id.textMessageTextView).apply {
             outlineProvider = TextViewBubbleViewOutlineProvider(
