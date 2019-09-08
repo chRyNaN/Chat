@@ -9,4 +9,5 @@ object AdapterViewTypes {
     const val START_IMAGE_MESSAGE_LIST_ITEM = 4
     const val END_IMAGE_MESSAGE_LIST_ITEM = 5
     const val SETTINGS_CELL_LIST_ITEM = 6
+    const val SETTINGS_HEADER_CELL_LIST_ITEM = 7
 }
