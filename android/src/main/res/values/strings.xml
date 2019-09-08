@@ -12,4 +12,10 @@
 
     <string name="widget_message_editor_hint">Enter message</string>
 
+    <string name="open_source_licenses_title">Open Source Licenses</string>
+    <string name="open_source_licenses_group_common">Common</string>
+    <string name="open_source_licenses_group_android">Android</string>
+    <string name="open_source_licenses_item_kotlin">Kotlin</string>
+    <string name="open_source_licenses_item_android_support">Android Support</string>
+
 </resources>

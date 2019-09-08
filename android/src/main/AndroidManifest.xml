@@ -42,6 +42,10 @@
                 android:name=".ui.activity.WebActivity"
                 android:screenOrientation="portrait" />
 
+        <activity
+                android:name=".ui.activity.OpenSourceLicensesActivity"
+                android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

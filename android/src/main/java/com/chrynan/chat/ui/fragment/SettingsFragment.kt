@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chrynan.chat.R
+import com.chrynan.chat.ui.activity.OpenSourceLicensesActivity
 import com.chrynan.chat.ui.activity.WebActivity
 import com.chrynan.chat.ui.adapter.SettingsCellItemAdapter
 import com.chrynan.chat.ui.adapter.SettingsHeaderCellItemAdapter
@@ -60,7 +61,9 @@ class SettingsFragment : BaseFragment() {
                         )
                     )
                 }
-                cell(title = "Open Source Licenses")
+                cell(title = "Open Source Licenses") {
+                    startActivity(OpenSourceLicensesActivity.newIntent(context!!))
+                }
                 cell(title = "App Code")
             }
         }
