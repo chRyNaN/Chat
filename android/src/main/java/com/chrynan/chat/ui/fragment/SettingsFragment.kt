@@ -10,8 +10,7 @@ import com.chrynan.chat.R
 import com.chrynan.chat.ui.adapter.SettingsCellItemAdapter
 import com.chrynan.chat.ui.adapter.SettingsHeaderCellItemAdapter
 import com.chrynan.chat.ui.adapter.adapterWith
-import com.chrynan.chat.viewmodel.SettingsCellItemViewModel
-import com.chrynan.chat.viewmodel.SettingsHeaderCellItemViewModel
+import com.chrynan.chat.ui.adapter.settings
 import com.google.android.material.appbar.CollapsingToolbarLayout
 
 class SettingsFragment : BaseFragment() {
@@ -46,9 +45,15 @@ class SettingsFragment : BaseFragment() {
 
         recyclerView.adapter = adapter
 
-        adapter.items = listOf(
-            SettingsHeaderCellItemViewModel(title = "Settings Header"),
-            SettingsCellItemViewModel(title = "Title", description = "Description")
-        )
+        adapter.items = settings {
+            group(title = "Account") {
+                cell(title = "Accounts")
+            }
+            group(title = "Legal") {
+                cell(title = "License")
+                cell(title = "Open Source Licenses")
+                cell(title = "App Code")
+            }
+        }
     }
 }
