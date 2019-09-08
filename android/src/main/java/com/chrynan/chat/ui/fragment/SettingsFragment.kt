@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chrynan.chat.R
+import com.chrynan.chat.ui.activity.WebActivity
 import com.chrynan.chat.ui.adapter.SettingsCellItemAdapter
 import com.chrynan.chat.ui.adapter.SettingsHeaderCellItemAdapter
 import com.chrynan.chat.ui.adapter.adapterWith
@@ -50,7 +51,15 @@ class SettingsFragment : BaseFragment() {
                 cell(title = "Accounts")
             }
             group(title = "Legal") {
-                cell(title = "License")
+                cell(title = "License") {
+                    startActivity(
+                        WebActivity.newIntent(
+                            context = context!!,
+                            url = "https://github.com/chRyNaN/Chat/blob/master/LICENSE",
+                            title = "License"
+                        )
+                    )
+                }
                 cell(title = "Open Source Licenses")
                 cell(title = "App Code")
             }
