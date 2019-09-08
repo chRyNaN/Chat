@@ -20,5 +20,6 @@
     <color name="attachment_badge_background_color">@color/colorAccent</color>
 
     <color name="bottom_navbar_icon_color">@color/black</color>
+    <color name="bottom_navbar_icon_selected_color">@color/colorAccent</color>
 
 </resources>
