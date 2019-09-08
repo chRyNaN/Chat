@@ -3,7 +3,6 @@ package com.chrynan.chat.ui.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import com.chrynan.chat.R
 import com.chrynan.chat.ui.fragment.ConversationListFragment
 import com.chrynan.chat.ui.fragment.FeedFragment
@@ -45,15 +44,5 @@ class MainActivity : BaseActivity() {
             }
         }
         bottomNavigationView.setOnNavigationItemReselectedListener { menuItem -> }
-    }
-
-    private fun goToFragment(fragment: Fragment) {
-        supportFragmentManager.let {
-            it.beginTransaction().apply {
-                replace(R.id.fragmentContainer, fragment)
-
-                commitNow()
-            }
-        }
     }
 }
