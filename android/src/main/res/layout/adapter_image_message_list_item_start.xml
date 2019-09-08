@@ -17,15 +17,15 @@
             android:importantForAccessibility="no"
             android:maxWidth="@dimen/message_item_image_max_size"
             android:maxHeight="@dimen/message_item_image_max_size"
-            android:minWidth="@dimen/message_item_image_min_size"
-            android:minHeight="@dimen/message_item_image_min_size"
             android:padding="@dimen/spacing_xsmall"
             android:src="@drawable/bg_launcher"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_min="@dimen/message_item_image_min_size"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_min="@dimen/message_item_image_min_size" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
