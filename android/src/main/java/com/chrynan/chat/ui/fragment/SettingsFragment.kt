@@ -49,7 +49,11 @@ class SettingsFragment : BaseFragment() {
 
         adapter.items = settings {
             group(title = "Account") {
-                cell(title = "Accounts")
+                cell(title = "Account Info")
+                cell(title = "Contacts")
+            }
+            group(title = "App") {
+                cell(title = "App Info")
             }
             group(title = "Legal") {
                 cell(title = "License") {
@@ -64,7 +68,15 @@ class SettingsFragment : BaseFragment() {
                 cell(title = "Open Source Licenses") {
                     startActivity(OpenSourceLicensesActivity.newIntent(context!!))
                 }
-                cell(title = "App Code")
+                cell(title = "App Code") {
+                    startActivity(
+                        WebActivity.newIntent(
+                            context = context!!,
+                            url = "https://github.com/chRyNaN/Chat",
+                            title = "App Code"
+                        )
+                    )
+                }
             }
         }
     }

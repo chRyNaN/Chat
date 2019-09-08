@@ -18,4 +18,6 @@
     <string name="open_source_licenses_item_kotlin">Kotlin</string>
     <string name="open_source_licenses_item_android_support">Android Support</string>
 
+    <string name="app_info_version_title">Version</string>
+
 </resources>
