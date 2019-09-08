@@ -30,8 +30,12 @@ class WebActivity : BaseActivity() {
 
         val title = intent.extras?.getString(KEY_TITLE)
 
-        toolbar.visibility = if (title != null) View.VISIBLE else View.GONE
-        toolbar.title = title
+        toolbar.apply {
+            visibility = if (title != null) View.VISIBLE else View.GONE
+            this.title = title
+            setNavigationIcon(R.drawable.ic_toolbar_back)
+            setNavigationOnClickListener { goBack() }
+        }
 
         intent.extras?.getString(KEY_URL)?.let {
             goToFragment(WebFragment.newInstance(url = it))
