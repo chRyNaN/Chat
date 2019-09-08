@@ -3,9 +3,12 @@ package com.chrynan.chat.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.chrynan.aaaah.ViewType
 import com.chrynan.chat.R
 import com.chrynan.chat.model.HorizontalPosition
+import com.chrynan.chat.ui.widget.outline.RoundedCornerViewOutlineProvider
+import com.chrynan.chat.utils.withOutline
 import com.chrynan.chat.viewmodel.ImageMessageListItemViewModel
 
 class ImageMessageListItemAdapter : BaseHorizontalAdapter<ImageMessageListItemViewModel>() {
@@ -32,6 +35,12 @@ class ImageMessageListItemAdapter : BaseHorizontalAdapter<ImageMessageListItemVi
         }
 
         val view = LayoutInflater.from(parent.context).inflate(layoutResId, parent, false)
+
+        val imageView = view.findViewById<ImageView>(R.id.messageImageView)
+
+        val cornerRadius = view.resources.getDimension(R.dimen.message_item_corner_radius)
+
+        imageView.withOutline(RoundedCornerViewOutlineProvider(cornerRadius))
 
         return view
     }

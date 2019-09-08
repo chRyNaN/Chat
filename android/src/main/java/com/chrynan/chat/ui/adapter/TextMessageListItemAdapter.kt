@@ -7,7 +7,7 @@ import android.widget.TextView
 import com.chrynan.aaaah.ViewType
 import com.chrynan.chat.R
 import com.chrynan.chat.model.HorizontalPosition
-import com.chrynan.chat.ui.widget.TextViewBubbleViewOutlineProvider
+import com.chrynan.chat.ui.widget.outline.TextViewBubbleViewOutlineProvider
 import com.chrynan.chat.viewmodel.TextMessageListItemViewModel
 
 class TextMessageListItemAdapter : BaseHorizontalAdapter<TextMessageListItemViewModel>() {

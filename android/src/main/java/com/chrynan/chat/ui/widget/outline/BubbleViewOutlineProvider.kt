@@ -1,4 +1,4 @@
-package com.chrynan.chat.ui.widget
+package com.chrynan.chat.ui.widget.outline
 
 import android.graphics.Outline
 import android.view.View

@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import coil.api.load
 import com.chrynan.chat.R
 import com.chrynan.chat.model.ColorInt
+import com.chrynan.chat.ui.widget.outline.OvalViewOutlineProvider
 
 class UserImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     ConstraintLayout(context, attrs) {
