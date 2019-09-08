@@ -12,6 +12,7 @@ import coil.api.load
 import com.chrynan.chat.R
 import com.chrynan.chat.model.ColorInt
 import com.chrynan.chat.ui.widget.outline.OvalViewOutlineProvider
+import com.chrynan.chat.utils.withOutline
 
 class UserImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     ConstraintLayout(context, attrs) {
@@ -36,17 +37,16 @@ class UserImageView @JvmOverloads constructor(context: Context, attrs: Attribute
             }
         }
 
-    private val defaultBackgroundColor by lazy { resources.getColor(R.color.white, null) }
-
     private val imageView: ImageView? by lazy { findViewById<ImageView>(R.id.userImageView) }
     private val textView: TextView? by lazy { findViewById<TextView>(R.id.userTextView) }
 
     init {
         LayoutInflater.from(context).inflate(R.layout.widget_user_image_view, this, true)
 
-        outlineProvider = OvalViewOutlineProvider()
-        clipToOutline = true
-        setBackgroundColor(defaultBackgroundColor)
+        withOutline(
+            viewOutlineProvider = OvalViewOutlineProvider(),
+            defaultBackgroundColorResId = R.color.accent_three_color
+        )
     }
 
     data class UserImage(

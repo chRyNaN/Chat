@@ -30,8 +30,8 @@ class ConversationListItemWidget @JvmOverloads constructor(
 
         imageView.userImage = UserImageView.UserImage(
             name = "Chris",
-            backgroundColorInt = resources.getColor(R.color.white),
-            textColorInt = resources.getColor(R.color.black),
+            backgroundColorInt = resources.getColor(R.color.accent_three_color),
+            textColorInt = resources.getColor(R.color.primary_dark_color),
             imageUri = null
         )
     }
