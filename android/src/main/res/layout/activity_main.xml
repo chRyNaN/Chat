@@ -18,6 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:background="@color/bottom_navbar_background_color"
             app:itemIconTint="@color/bottom_navbar_icon_selector"
             app:itemTextColor="@color/bottom_navbar_icon_selector"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -1,25 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-
+    <!-- Color Palette -->
+    <color name="primary_color">#262833</color>
+    <color name="primary_light_color">#4e505c</color>
+    <color name="primary_dark_color">#00000c</color>
+    <color name="accent_one_color">#FFAF5F</color>
+    <color name="accent_two_color">#4ACFAC</color>
+    <color name="accent_three_color">#7E8CE0</color>
+    <color name="accent_four_color">#36C7D0</color>
+    <color name="accent_five_color">#FFA48E</color>
+    <color name="accent_six_color">#2652ff</color>
+    <color name="error_color">#FC4422</color>
     <color name="white">#FFFFFF</color>
+    <color name="off_white_color">#F5F5F5</color>
     <color name="black">#000000</color>
 
-    <color name="text_dark_color">#000000</color>
-    <color name="text_dark_secondary_color">#80000000</color>
-    <color name="text_light_color">#FFFFFF</color>
-    <color name="text_light_secondary_color">#80FFFFFF</color>
-    <color name="text_error_color">#D81B60</color>
-    <color name="text_accent_color">#D81B60</color>
+    <!-- Android Colors -->
+    <color name="colorPrimary">@color/primary_color</color>
+    <color name="colorPrimaryDark">@color/primary_dark_color</color>
+    <color name="colorAccent">@color/accent_four_color</color>
+    <color name="textColorPrimary">@color/white</color>
+    <color name="windowBackground">@color/off_white_color</color>
+    <color name="navigationBarColor">@color/primary_dark_color</color>
+
+    <!-- Transparent Colors -->
+    <color name="white_50_percent_transparent_color">#80FFFFFF</color>
+    <color name="black_50_percent_transparent_color">#80000000</color>
+
+    <!-- Color Extensions -->
+
+    <color name="text_dark_color">@color/black</color>
+    <color name="text_dark_secondary_color">@color/black_50_percent_transparent_color</color>
+    <color name="text_light_color">@color/white</color>
+    <color name="text_light_secondary_color">@color/white_50_percent_transparent_color</color>
+    <color name="text_error_color">@color/error_color</color>
+    <color name="text_accent_color">@color/accent_one_color</color>
 
     <color name="message_editor_background_color">@color/white</color>
 
     <color name="attachment_badge_background_color">@color/colorAccent</color>
 
-    <color name="bottom_navbar_icon_color">@color/black</color>
+    <color name="bottom_navbar_icon_color">@color/white</color>
     <color name="bottom_navbar_icon_selected_color">@color/colorAccent</color>
+    <color name="bottom_navbar_background_color">@color/primary_color</color>
 
 </resources>

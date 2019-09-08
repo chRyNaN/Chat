@@ -37,6 +37,7 @@ class ConversationFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         toolbar.title = "Conversation"
+        toolbar.setTitleTextAppearance(context!!, R.style.TextAppearance_Subheader_Light)
 
         val adapter = adapterWith {
             +TextMessageListItemAdapter()

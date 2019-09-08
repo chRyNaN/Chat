@@ -11,9 +11,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            app:collapsedTitleTextAppearance="@style/TextAppearance.Subheader.Dark"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.Subheader.Light"
             app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleTextAppearance="@style/TextAppearance.Header.Dark"
+            app:expandedTitleTextAppearance="@style/TextAppearance.Header.Light"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
         <ImageView
