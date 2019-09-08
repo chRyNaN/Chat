@@ -23,5 +23,6 @@ class SettingsCellItemAdapter : BaseAdapter<SettingsCellItemViewModel>() {
 
         titleTextView.text = item.title
         descriptionTextView.text = item.description
+        descriptionTextView.visibility = if (item.description == null) View.GONE else View.VISIBLE
     }
 }
