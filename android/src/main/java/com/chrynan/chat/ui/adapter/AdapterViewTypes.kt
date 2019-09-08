@@ -8,4 +8,5 @@ object AdapterViewTypes {
     const val END_TEXT_MESSAGE_LIST_ITEM = 3
     const val START_IMAGE_MESSAGE_LIST_ITEM = 4
     const val END_IMAGE_MESSAGE_LIST_ITEM = 5
+    const val SETTINGS_CELL_LIST_ITEM = 6
 }
