@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chrynan.chat.R
+import com.chrynan.chat.ui.activity.BaseActivity
 import com.chrynan.chat.ui.activity.OpenSourceLicensesActivity
 import com.chrynan.chat.ui.activity.WebActivity
 import com.chrynan.chat.ui.adapter.SettingsCellItemAdapter
@@ -53,7 +54,9 @@ class SettingsFragment : BaseFragment() {
                 cell(title = "Contacts")
             }
             group(title = "App") {
-                cell(title = "App Info")
+                cell(title = "App Info"){
+                    (activity as? BaseActivity)?.goToFragment(AppInfoFragment.newInstance())
+                }
             }
             group(title = "Legal") {
                 cell(title = "License") {

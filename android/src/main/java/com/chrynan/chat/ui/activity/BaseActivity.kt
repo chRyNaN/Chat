@@ -47,7 +47,7 @@ abstract class BaseActivity : FragmentActivity(),
         this.onBackPressed()
     }
 
-    protected fun goToFragment(
+    fun goToFragment(
         fragment: Fragment,
         fragmentContainerId: Int = R.id.fragmentContainer
     ) {

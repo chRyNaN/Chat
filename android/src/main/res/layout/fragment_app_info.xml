@@ -39,7 +39,6 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.Title.Dark"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/versionDescriptionTextView" />

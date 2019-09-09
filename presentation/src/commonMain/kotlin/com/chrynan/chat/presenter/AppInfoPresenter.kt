@@ -13,7 +13,7 @@ class AppInfoPresenter(
     fun getInfo() {
         val model = AppInfoViewModel(
             version = "1.0.0",
-            newestVersion = "1.0.0",
+            updateDescription = "All up to date",
             isUpToDate = true
         )
 
