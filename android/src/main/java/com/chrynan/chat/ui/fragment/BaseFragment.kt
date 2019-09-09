@@ -46,6 +46,8 @@ abstract class BaseFragment : Fragment(),
         super.onDestroyView()
     }
 
+    fun onRefresh() {}
+
     private fun bindToPresenter() {
         if (presenter?.isBound == false) {
             presenter?.bind()
