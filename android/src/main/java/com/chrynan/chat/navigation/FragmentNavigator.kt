@@ -2,6 +2,7 @@ package com.chrynan.chat.navigation
 
 import androidx.fragment.app.FragmentManager
 import com.chrynan.chat.R
+import com.chrynan.chat.collections.stackOf
 import com.chrynan.chat.ui.fragment.BaseFragment
 
 class FragmentNavigator<T : Tab>(
@@ -13,6 +14,7 @@ class FragmentNavigator<T : Tab>(
         private set
 
     private val backStack = FragmentBackStack<T, BaseFragment>()
+    private val actionStack = stackOf<FragmentBackStackAction<T>>()
 
     fun addFragmentToCurrentTab(
         fragment: BaseFragment,
