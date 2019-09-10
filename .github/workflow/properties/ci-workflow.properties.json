@@ -1,9 +1,0 @@
-{
-  "name": "continuous-integration-workflow",
-  "description": "Build the Chat application project with Gradle.",
-  "iconName": "kotlin",
-  "categories": [
-    "Kotlin",
-    "Mobile"
-  ]
-}
