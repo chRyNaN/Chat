@@ -1,6 +1,7 @@
-package com.chrynan.chat.navigation
+package com.chrynan.chat.navigation.root
 
 import com.chrynan.chat.R
+import com.chrynan.chat.navigation.core.Tab
 
 enum class RootTab(override val id: Int) : Tab {
 
