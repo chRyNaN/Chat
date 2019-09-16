@@ -11,3 +11,5 @@ data class SwitchTabAction<T : Tab>(
     val from: T,
     val to: T
 ) : TabStackAction<T>()
+
+data class DefaultTabAction<T : Tab>(val tab: T) : TabStackAction<T>()

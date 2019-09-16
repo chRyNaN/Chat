@@ -4,7 +4,7 @@ class MultipleStack<K : Any, V : Any> : Collection<MultipleStackResult<K, V>>,
     Queue<MultipleStackResult<K, V>>,
     MutableQueue<MultipleStackResult<K, V>> {
 
-    private val mapOfStacks = LinkedHashMap<K, Stack<V>>()
+    private val mapOfStacks = LinkedHashMap<K, MutableStack<V>>()
 
     override val size: Int
         get() = mapOfStacks.size
@@ -60,9 +60,9 @@ class MultipleStack<K : Any, V : Any> : Collection<MultipleStackResult<K, V>>,
 
     fun containsKey(key: K) = mapOfStacks.containsKey(key)
 
-    fun get(key: K): Stack<V> = mapOfStacks[key]!!
+    fun get(key: K): MutableStack<V> = mapOfStacks[key]!!
 
-    fun getOrNull(key: K): Stack<V>? = mapOfStacks[key]
+    fun getOrNull(key: K): MutableStack<V>? = mapOfStacks[key]
 
     fun remove(key: K): MultipleStackResult<K, V> {
         val item = mapOfStacks.remove(key)

@@ -1,6 +1,7 @@
 package com.chrynan.chat.navigation.core
 
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.chrynan.chat.collections.Stack
 
 fun <T : Tab> List<TabStackListener<T>>.onTabSwitched(from: T, to: T) =
@@ -21,5 +22,11 @@ fun FragmentTransactionHandler.removeFragmentsExceptForBottomOfStack(stack: Stac
         }
     }
 
-    return removeFragments(fragmentsToRemove = fragmentsToRemove, fragmentToShow = fragmentToShow!!)
+    return removeFragmentsThenAddFragment(
+        fragmentsToRemove = fragmentsToRemove,
+        fragmentToShow = fragmentToShow!!
+    )
 }
+
+fun FragmentManager.findFragmentByInfo(info: FragmentInfo): Fragment? =
+    findFragmentByTag(info.asFragmentTag())

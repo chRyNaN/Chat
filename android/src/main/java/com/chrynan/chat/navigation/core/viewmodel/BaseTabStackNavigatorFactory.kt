@@ -17,18 +17,19 @@ class BaseTabStackNavigatorFactory<T : Tab, B : Fragment> : TabStackNavigatorFac
         containerId: Int,
         factory: TabStackFactory<T, B>
     ): BaseTabStackNavigator<T, B> {
-        val viewModelFactory = BaseTabStackNavigatorViewModelFactory(
-            factory = factory,
-            manager = activity.supportFragmentManager,
-            containerId = containerId
-        )
+        val viewModelFactory = BaseTabStackNavigatorViewModelFactory(factory = factory)
 
-        val navigator =
-            ViewModelProviders.of(activity, viewModelFactory)
-                .get(BaseTabStackNavigator::class.java)
-                .apply {
-                    this.activity = activity
-                }
+        val viewModel = ViewModelProviders.of(activity, viewModelFactory)
+            .get(BaseTabStackNavigatorViewModel::class.java)
+
+        val navigator = viewModel.navigator.apply {
+            this.activity = activity
+            this.handler = FragmentTransactionHandler(
+                manager = activity.supportFragmentManager,
+                containerId = containerId
+            )
+            setupDefault()
+        }
 
         return navigator as BaseTabStackNavigator<T, B>
     }

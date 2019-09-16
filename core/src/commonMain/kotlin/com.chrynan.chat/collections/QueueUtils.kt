@@ -24,5 +24,26 @@ fun <T : Any> emptyStack(): Queue<T> = EmptyStack
 inline fun <T : Any> Stack<T>.toMutableStack(): MutableStack<T> =
     if (this is LIFOQueue<T>) this else LIFOQueue<T>().apply { addAll(this) }
 
-inline operator fun <T : Any> Stack<T>.plus(other: T): Stack<T> =
-    toMutableStack().apply { push(other) }
+inline fun <T : Any> mutableDequeOf(vararg elements: T): MutableDeque<T> =
+    MutableListDeque<T>().apply { addAllFirst(elements.toList()) }
+
+inline fun <T : Any> MutableQueue<T>.clear() {
+    val s = size
+    for (i in s..0) {
+        pop()
+    }
+}
+
+inline fun <T : Any> MutableDeque<T>.clear() {
+    val s = size
+    for (i in s..0) {
+        removeLastOrNull()
+    }
+}
+
+inline fun <T : Any> MutableQueue<T>.removeAllExceptForLast() {
+    val s = size
+    for (i in s..1) {
+        pop()
+    }
+}
