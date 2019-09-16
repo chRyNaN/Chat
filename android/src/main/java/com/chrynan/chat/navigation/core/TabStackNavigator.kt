@@ -7,9 +7,9 @@ interface TabStackNavigator<T : Tab, B : Fragment> {
 
     val currentTab: T
 
-    val boundToActivity: FragmentActivity
+    val activity: FragmentActivity
 
-    var listener: TabStackListener<T>?
+    val listeners: MutableList<TabStackListener<T>>
 
     fun switchTab(tab: T)
 
@@ -17,5 +17,5 @@ interface TabStackNavigator<T : Tab, B : Fragment> {
 
     fun goBack()
 
-    fun refreshRootFragment()
+    fun reset()
 }
