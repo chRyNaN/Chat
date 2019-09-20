@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @Parcelize
-class FragmentInfo private constructor(
+data class FragmentInfo private constructor(
     val className: String,
     val id: String
 ) : Parcelable {

@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.chrynan.chat.R
-import com.chrynan.chat.ui.fragment.ConversationListFragment
-import com.chrynan.chat.ui.fragment.FeedFragment
-import com.chrynan.chat.ui.fragment.SettingsFragment
+import com.chrynan.chat.navigation.core.viewmodel.getTabStackNavigatorWith
+import com.chrynan.chat.navigation.root.RootTab
+import com.chrynan.chat.navigation.root.RootTabFragmentFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : BaseActivity() {
@@ -22,27 +22,28 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        goToFragment(ConversationListFragment.newInstance())
+        val navigator = getTabStackNavigatorWith(
+            activity = this,
+            containerId = R.id.fragmentContainer,
+            factory = RootTabFragmentFactory()
+        )
 
         bottomNavigationView.selectedItemId = R.id.menu_bottom_conversations
 
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.menu_bottom_feed -> {
-                    goToFragment(FeedFragment.newInstance())
-                    true
-                }
-                R.id.menu_bottom_conversations -> {
-                    goToFragment(ConversationListFragment.newInstance())
-                    true
-                }
-                R.id.menu_bottom_settings -> {
-                    goToFragment(SettingsFragment.newInstance())
-                    true
-                }
-                else -> false
+            val tab = RootTab.fromId(menuItem.itemId)
+
+            tab?.let {
+                navigator.switchTab(tab = it)
+                true
+            } ?: false
+        }
+        bottomNavigationView.setOnNavigationItemReselectedListener { menuItem ->
+            val tab = RootTab.fromId(menuItem.itemId)
+
+            tab?.let {
+                navigator.switchTab(tab = it)
             }
         }
-        bottomNavigationView.setOnNavigationItemReselectedListener { menuItem -> }
     }
 }

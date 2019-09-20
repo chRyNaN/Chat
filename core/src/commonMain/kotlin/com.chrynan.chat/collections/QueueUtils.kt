@@ -42,8 +42,10 @@ inline fun <T : Any> MutableDeque<T>.clear() {
 }
 
 inline fun <T : Any> MutableQueue<T>.removeAllExceptForLast() {
-    val s = size
-    for (i in s..1) {
-        pop()
+    if (size > 1) {
+        val s = size
+        for (i in 2..s) {
+            pop()
+        }
     }
 }
