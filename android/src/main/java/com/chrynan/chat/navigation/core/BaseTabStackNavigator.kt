@@ -1,13 +1,8 @@
 package com.chrynan.chat.navigation.core
 
-import android.util.Log
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.chrynan.chat.collections.MultipleStack
-import com.chrynan.chat.collections.MultipleStackResult
-import com.chrynan.chat.collections.clear
-import com.chrynan.chat.collections.mutableStackOf
 
 open class BaseTabStackNavigator<T : Tab, B : Fragment> internal constructor(private val factory: TabStackFactory<T, B>) :
     TabStackNavigator<T, B> {
@@ -23,7 +18,7 @@ open class BaseTabStackNavigator<T : Tab, B : Fragment> internal constructor(pri
     lateinit var handler: FragmentTransactionHandler
         internal set
 
-    private val backStack = MultipleStack<T, B>()
+    private val backStack = mutableMapOf<T, MutableList<B>>()
     private val actionStack = mutableListOf<TabStackAction<T>>()
 
     override fun selectTab(tab: T) {
@@ -35,49 +30,41 @@ open class BaseTabStackNavigator<T : Tab, B : Fragment> internal constructor(pri
     }
 
     override fun goToFragment(fragment: B) {
-        Log.w("STACK", "Navigator: goToFragment: fragment = $fragment")
-
-        handler.addFragmentToStack(fragment)
-
-        val stack = backStack.get(currentTab).apply {
+        val stack = backStack[currentTab]?.apply {
             push(fragment)
         }
 
-        backStack.push(MultipleStackResult(key = currentTab, value = stack))
-        actionStack.push(FragmentPushAction(on = currentTab, fragment = fragment))
+        if (stack != null) {
+            handler.addFragmentToStack(fragment)
+
+            backStack[currentTab] = stack
+            actionStack.push(FragmentPushAction(on = currentTab, fragment = fragment))
+        }
     }
 
     override fun goBack(): Boolean {
-        Log.w("STACK", "Navigator: goBack")
-
         when (val lastAction = actionStack.popOrNull() ?: return false) {
             is DefaultTabAction -> {
-                Log.w("STACK", "Navigator: goBack: DefaultTabAction: action = $lastAction")
-
                 // We are on the default root fragment, so return false because we can't go back further
                 return false
             }
             is SwitchTabAction -> {
-                Log.w("STACK", "Navigator: goBack: SwitchTabAction: action = $lastAction")
-
                 // Remove the current back stack of fragments, then add the previous tabs back stack
-                val fragmentsToShow = backStack.get(lastAction.from)
+                val fragmentsToShow = backStack[lastAction.from] ?: return false
 
                 handler.showFragmentStack(fragmentsToShow)
 
                 return true
             }
             is FragmentPushAction -> {
-                Log.w("STACK", "Navigator: goBack: FragmentPushAction: action = $lastAction")
-
                 // Remove the previously added fragment
                 handler.popFragmentStack()
 
-                val stack = backStack.get(lastAction.on).apply {
-                    pop()
-                }
+                val stack = backStack[lastAction.on]?.apply {
+                    popOrNull()
+                } ?: return false
 
-                backStack.push(MultipleStackResult(key = lastAction.on, value = stack))
+                backStack[lastAction.on] = stack
 
                 return true
             }
@@ -103,12 +90,12 @@ open class BaseTabStackNavigator<T : Tab, B : Fragment> internal constructor(pri
 
     private fun refreshCurrentTab() {
         val fragment =
-            if (backStack.containsKey(currentTab) && backStack.get(currentTab).isNotEmpty()) {
-                val stack = backStack.get(currentTab)
+            if (backStack.containsKey(currentTab) && backStack[currentTab]!!.isNotEmpty()) {
+                val stack = backStack[currentTab]!!
 
-                val root = stack.last()
+                val root = stack.first()
 
-                backStack.push(MultipleStackResult(key = currentTab, value = mutableStackOf(root)))
+                backStack[currentTab] = mutableListOf(root)
 
                 handler.showFragmentStack(listOf(root))
 
@@ -121,19 +108,12 @@ open class BaseTabStackNavigator<T : Tab, B : Fragment> internal constructor(pri
     }
 
     private fun switchToNewTab(tab: T) {
-        Log.w("STACK", "Navigator: switchToNewTab: tab = $tab; currentTab = $currentTab")
+        if (backStack.containsKey(tab) && backStack[tab]!!.isNotEmpty()) {
 
-        if (backStack.containsKey(tab) && backStack.get(tab).isNotEmpty()) {
-            Log.w("STACK", "Navigator: switchToNewTab: contains tab: tab = $tab")
-
-            val stack = backStack.get(tab)
-
-            Log.w("STACK", "Navigator: switchToNewTab: contains tab: stack = $stack")
+            val stack = backStack[tab]!!
 
             handler.showFragmentStack(stack)
         } else {
-            Log.w("STACK", "Navigator: switchToNewTab: does not contain tab: tab = $tab")
-
             createAndAddRootFragmentForTab(tab = tab)
         }
 
@@ -145,20 +125,13 @@ open class BaseTabStackNavigator<T : Tab, B : Fragment> internal constructor(pri
     }
 
     private fun createAndAddRootFragmentForTab(tab: T): B {
-        Log.w("STACK", "Navigator: createAndAddRootFragmentForTab: tab = $tab")
-
         val rootFragment = factory.createRootFragment(tab)
 
-        val stack = mutableStackOf(rootFragment)
+        val stack = mutableListOf(rootFragment)
 
         handler.showFragmentStack(stack)
 
-        backStack.push(MultipleStackResult(key = tab, value = stack))
-
-        Log.w(
-            "STACK",
-            "Navigator: createAndAddRootFragmentForTab: tab = $tab; fragment = $rootFragment"
-        )
+        backStack[tab] = stack
 
         return rootFragment
     }
