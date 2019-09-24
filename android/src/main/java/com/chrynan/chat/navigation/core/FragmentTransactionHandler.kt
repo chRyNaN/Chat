@@ -6,171 +6,65 @@ import androidx.fragment.app.FragmentManager
 import com.chrynan.chat.R
 
 class FragmentTransactionHandler(
-    private val manager: FragmentManager,
-    private val containerId: Int = R.id.fragmentContainer
+    val manager: FragmentManager,
+    val containerId: Int = R.id.fragmentContainer
 ) {
 
-    fun clear() {
-        Log.w("STACK", "Transaction: clear")
+    fun clear() = manager.clearEntireBackStack()
 
-        val transaction = manager.beginTransaction()
+    fun popFragmentStack() {
+        Log.w("STACK", "Transaction: popFragmentStack: fragments = ${manager.fragments}")
 
-        transaction.setReorderingAllowed(true)
-
-        for (fragment in manager.fragments) {
-            transaction.remove(fragment)
-        }
-
-        transaction.commitNow()
+        manager.popBackStack()
     }
 
-
-    fun addFragmentToCurrentTab(fragment: Fragment): FragmentInfo {
-        Log.w("STACK", "Transaction: addFragmentToCurrentTab: fragment = $fragment")
+    fun addFragmentToStack(fragment: Fragment) {
+        Log.w("STACK", "Transaction: addFragmentToStack: fragment = $fragment")
+        Log.w("STACK", "Transaction: addFragemntToStack: fragments = ${manager.fragments}")
 
         val transaction = manager.beginTransaction()
 
-        transaction.setReorderingAllowed(true)
+        transaction.replace(containerId, fragment)
 
-        val info = FragmentInfo.fromFragment(fragment)
-
-        Log.w("STACK", "Transaction: addFragmentToCurrentTab: fragment = $fragment; info = $info")
-
-        transaction.replace(containerId, fragment, info.asFragmentTag())
-
-        transaction.addToBackStack(info.asFragmentTag())
+        transaction.addToBackStack(null)
 
         transaction.commit()
 
-        return info
+        manager.executePendingTransactions()
     }
 
-    fun goBackOnCurrentTab() {
-        Log.w("STACK", "Transaction: goBackOnCurrentTab")
+    fun showFragmentStack(fragments: Iterable<Fragment>) {
+        Log.w("STACK", "Transaction: showFragmentStack: fragments = $fragments")
+        Log.w(
+            "STACK",
+            "Transaction: showFragmentStack: before popBackStackImmediate(): manager fragments = ${manager.fragments}"
+        )
 
-        manager.popBackStackImmediate()
-    }
+        manager.clearEntireBackStack()
 
-    fun goToRootTabFragment(tabFragments: List<FragmentInfo>) {
-        Log.w("STACK", "goToRootTabFragment: tabFragments = $tabFragments")
+        Log.w(
+            "STACK",
+            "Transaction: showFragmentStack: after popBackStackImmediate(): manager fragments = ${manager.fragments}"
+        )
 
-        if (tabFragments.isNotEmpty()) {
-            val first = tabFragments.first()
-            val last = tabFragments.last()
+        val transaction = manager.beginTransaction()
 
-            val index = manager.getBackStackIndexByFragmentName(first.asFragmentTag())
-
-            val backStackFragmentsFromIndex = manager.getFragmentsInBackStackFromIndex(index)
-            val bottomOfStackFragments = mutableListOf<Fragment>()
-            val topOfStackFragments = mutableListOf<Fragment>()
-            var pastTopFragments = false
-
-            for (fragment in backStackFragmentsFromIndex) {
-                when {
-                    pastTopFragments -> bottomOfStackFragments.add(fragment)
-                    last.asFragmentTag() == fragment.tag -> {
-                        pastTopFragments = true
-                    }
-                    first.asFragmentTag() == fragment.tag -> topOfStackFragments.add(fragment)
-                    else -> {
-                    }
-                }
-            }
-
-            val transaction = manager.beginTransaction()
-
-            manager.popBackStackImmediate(
-                first.asFragmentTag(),
-                FragmentManager.POP_BACK_STACK_INCLUSIVE
-            )
-
+        for (fragment in fragments) {
             transaction.setReorderingAllowed(true)
 
-            (bottomOfStackFragments + topOfStackFragments).forEach {
-                transaction.replace(containerId, it, it.tag)
-                transaction.addToBackStack(it.tag)
-            }
+            transaction.replace(containerId, fragment)
 
-            transaction.commit()
-        }
-    }
-
-    fun goToNewTab(tabFragments: List<Fragment>): List<FragmentInfo> {
-        Log.w("STACK", "Transaction: goToNewTab: tabFragments = $tabFragments")
-
-        val infoList = mutableListOf<FragmentInfo>()
-
-        if (tabFragments.isNotEmpty()) {
-            val transaction = manager.beginTransaction()
-
-            transaction.setReorderingAllowed(true)
-
-            tabFragments.forEach {
-                val info = FragmentInfo.fromFragment(it)
-                transaction.replace(containerId, it, info.asFragmentTag())
-                transaction.addToBackStack(info.asFragmentTag())
-                infoList.add(info)
-            }
-
-            transaction.commit()
+            transaction.addToBackStack(null)
         }
 
-        Log.w("STACK", "Transaction: goToNewTab: infoList = $infoList")
+        transaction.commit()
 
-        return infoList
+        manager.executePendingTransactions()
     }
 
-    fun goToExistingTab(tabFragments: List<FragmentInfo>) {
-        Log.w("STACK", "Transaction: goToExistingTab: tabFragments = $tabFragments")
-
-        if (tabFragments.isNotEmpty()) {
-            val first = tabFragments.first()
-            val last = tabFragments.last()
-
-            val index = manager.getBackStackIndexByFragmentName(first.asFragmentTag())
-
-            Log.w("STACK", "Transaction: goToExistingTab: allFragments = ${manager.fragments}")
-            Log.w("STACK", "Transaction: goToExistingTab: index = $index")
-
-            val backStackFragmentsFromIndex = manager.getFragmentsInBackStackFromIndex(index)
-            val bottomOfStackFragments = mutableListOf<Fragment>()
-            val topOfStackFragments = mutableListOf<Fragment>()
-            var pastTopFragments = false
-
-            Log.w(
-                "STACK",
-                "Transaction: goToExistingTab: backStackFragmentsFromIndex = $backStackFragmentsFromIndex"
-            )
-
-            for (fragment in backStackFragmentsFromIndex) {
-                when {
-                    pastTopFragments -> bottomOfStackFragments.add(fragment)
-                    last.asFragmentTag() == fragment.tag -> {
-                        pastTopFragments = true
-                        topOfStackFragments.add(fragment)
-                    }
-                    else -> topOfStackFragments.add(fragment)
-                }
-            }
-
-            Log.w("STACK", "Transaction: goToExistingTab: bottomOfStack = $bottomOfStackFragments")
-            Log.w("STACK", "Transaction: goToExistingTab: topOfStack = $topOfStackFragments")
-
-            val transaction = manager.beginTransaction()
-
-            manager.popBackStackImmediate(
-                first.asFragmentTag(),
-                FragmentManager.POP_BACK_STACK_INCLUSIVE
-            )
-
-            transaction.setReorderingAllowed(true)
-
-            (bottomOfStackFragments + topOfStackFragments).forEach {
-                transaction.replace(containerId, it, it.tag)
-                transaction.addToBackStack(it.tag)
-            }
-
-            transaction.commit()
+    private fun FragmentManager.clearEntireBackStack() {
+        while (backStackEntryCount > 0) {
+            popBackStackImmediate()
         }
     }
 }

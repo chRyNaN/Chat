@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.chrynan.chat.R
+import com.chrynan.chat.navigation.core.TabStackNavigator
 import com.chrynan.chat.navigation.core.viewmodel.getTabStackNavigatorWith
 import com.chrynan.chat.navigation.root.RootTab
 import com.chrynan.chat.navigation.root.RootTabFragmentFactory
+import com.chrynan.chat.ui.fragment.BaseFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : BaseActivity() {
@@ -18,11 +20,13 @@ class MainActivity : BaseActivity() {
 
     private val bottomNavigationView by lazy { findViewById<BottomNavigationView>(R.id.bottomNavigationView) }
 
+    private lateinit var navigator: TabStackNavigator<RootTab, BaseFragment>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val navigator = getTabStackNavigatorWith(
+        navigator = getTabStackNavigatorWith(
             activity = this,
             containerId = R.id.fragmentContainer,
             factory = RootTabFragmentFactory()
@@ -34,7 +38,7 @@ class MainActivity : BaseActivity() {
             val tab = RootTab.fromId(menuItem.itemId)
 
             tab?.let {
-                navigator.switchTab(tab = it)
+                navigator.selectTab(tab = it)
                 true
             } ?: false
         }
@@ -42,8 +46,14 @@ class MainActivity : BaseActivity() {
             val tab = RootTab.fromId(menuItem.itemId)
 
             tab?.let {
-                navigator.switchTab(tab = it)
+                navigator.selectTab(tab = it)
             }
+        }
+    }
+
+    override fun onBackPressed() {
+        if (!navigator.goBack()) {
+            super.onBackPressed()
         }
     }
 }

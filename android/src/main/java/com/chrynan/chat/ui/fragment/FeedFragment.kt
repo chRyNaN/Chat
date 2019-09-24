@@ -14,7 +14,8 @@ class FeedFragment : BaseFragment() {
         fun newInstance() = FeedFragment()
     }
 
-    private val collapsingToolbarLayout by lazy { view!!.findViewById<CollapsingToolbarLayout>(R.id.collapsingToolbarLayout) }
+    private val collapsingToolbarLayout
+        get() = view!!.findViewById<CollapsingToolbarLayout>(R.id.collapsingToolbarLayout)
 
     private val titleText by lazy { getString(R.string.app_bar_title_feed) }
 

@@ -23,8 +23,10 @@ class SettingsFragment : BaseFragment() {
         fun newInstance() = SettingsFragment()
     }
 
-    private val collapsingToolbarLayout by lazy { view!!.findViewById<CollapsingToolbarLayout>(R.id.collapsingToolbarLayout) }
-    private val recyclerView by lazy { view!!.findViewById<RecyclerView>(R.id.recyclerView) }
+    private val collapsingToolbarLayout
+        get() = view!!.findViewById<CollapsingToolbarLayout>(R.id.collapsingToolbarLayout)
+    private val recyclerView
+        get() = view!!.findViewById<RecyclerView>(R.id.recyclerView)
 
     private val titleText by lazy { getString(R.string.app_bar_title_settings) }
 
@@ -54,7 +56,7 @@ class SettingsFragment : BaseFragment() {
                 cell(title = "Contacts")
             }
             group(title = "App") {
-                cell(title = "App Info"){
+                cell(title = "App Info") {
                     (activity as? BaseActivity)?.goToFragment(AppInfoFragment.newInstance())
                 }
             }

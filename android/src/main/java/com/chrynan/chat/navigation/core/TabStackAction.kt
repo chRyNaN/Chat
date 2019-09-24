@@ -1,10 +1,12 @@
 package com.chrynan.chat.navigation.core
 
+import androidx.fragment.app.Fragment
+
 sealed class TabStackAction<T : Tab>
 
 data class FragmentPushAction<T : Tab>(
     val on: T,
-    val info: FragmentInfo
+    val fragment: Fragment
 ) : TabStackAction<T>()
 
 data class SwitchTabAction<T : Tab>(

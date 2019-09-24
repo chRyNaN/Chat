@@ -10,9 +10,9 @@ interface TabStackNavigator<T : Tab, B : Fragment> {
 
     val activity: FragmentActivity
 
-    val listeners: MutableList<TabStackListener<T>>
+    val listeners: MutableList<TabStackListener<T, B>>
 
-    fun switchTab(tab: T)
+    fun selectTab(tab: T)
 
     fun goToFragment(fragment: B)
 
