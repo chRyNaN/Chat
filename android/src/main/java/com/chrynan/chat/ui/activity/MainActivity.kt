@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.chrynan.chat.R
 import com.chrynan.chat.navigation.core.TabStackNavigator
-import com.chrynan.chat.navigation.core.viewmodel.getTabStackNavigatorWith
+import com.chrynan.chat.navigation.core.navigatorWith
 import com.chrynan.chat.navigation.root.RootTab
 import com.chrynan.chat.navigation.root.RootTabFragmentFactory
 import com.chrynan.chat.ui.fragment.BaseFragment
@@ -26,29 +26,11 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navigator = getTabStackNavigatorWith(
+        navigator = bottomNavigationView.navigatorWith(
             activity = this,
             containerId = R.id.fragmentContainer,
             factory = RootTabFragmentFactory()
         )
-
-        bottomNavigationView.selectedItemId = R.id.menu_bottom_conversations
-
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
-            val tab = RootTab.fromId(menuItem.itemId)
-
-            tab?.let {
-                navigator.selectTab(tab = it)
-                true
-            } ?: false
-        }
-        bottomNavigationView.setOnNavigationItemReselectedListener { menuItem ->
-            val tab = RootTab.fromId(menuItem.itemId)
-
-            tab?.let {
-                navigator.selectTab(tab = it)
-            }
-        }
     }
 
     override fun onBackPressed() {

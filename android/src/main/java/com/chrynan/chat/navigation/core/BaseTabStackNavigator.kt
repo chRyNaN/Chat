@@ -54,6 +54,8 @@ open class BaseTabStackNavigator<T : Tab, B : Fragment> internal constructor(pri
 
                 handler.showFragmentStack(fragmentsToShow)
 
+                listeners.onTabSwitched(from = lastAction.to, to = lastAction.from)
+
                 return true
             }
             is FragmentPushAction -> {
