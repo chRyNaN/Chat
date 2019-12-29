@@ -1,11 +1,13 @@
 package com.chrynan.chat.coroutines
 
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import com.chrynan.chat.di.Inject
 
-class AndroidCoroutineDispatchers : CoroutineDispatchers {
+class AndroidCoroutineDispatchers @Inject constructor() : CoroutineDispatchers {
 
-    override val main = Dispatchers.Main
-    override val default = Dispatchers.Default
-    override val io = Dispatchers.IO
-    override val unconfined = Dispatchers.Unconfined
+    override val main: CoroutineDispatcher = Dispatchers.Main
+    override val default: CoroutineDispatcher = Dispatchers.Default
+    override val io: CoroutineDispatcher = Dispatchers.IO
+    override val unconfined: CoroutineDispatcher = Dispatchers.Unconfined
 }

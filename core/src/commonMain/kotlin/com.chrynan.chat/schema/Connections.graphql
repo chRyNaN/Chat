@@ -1,0 +1,166 @@
+scalar UserConnectionType
+
+interface UserContract {
+    name: PersonName!
+    image: UriString
+}
+
+interface Descriptive {
+    name: String!
+    type: String
+    description: String
+    lastUpdated: Time!
+    note: String
+}
+
+type Viewer implements Node, UserContract {
+    id: ID!
+    name: PersonName!
+    image: UriString
+    contactInfo: ContactInfo!
+    accounts(first: Int! = 10, after: Cursor = null): AccountConnection!
+    connections(type: UserConnectionType!, first: Int! = 10, after: Cursor = null): ContactConnection!
+}
+
+type Contact implements Node, UserContract {
+    id: ID!
+    name: PersonName!
+    image: UriString
+    connectionTypes: [UserConnectionType!]!
+    contactInfo: ContactInfo!
+    accounts(first: Int! = 10, after: Cursor = null): AccountConnection!
+}
+
+type ContactEdge implements Edge {
+    cursor: Cursor!
+    node: Contact!
+}
+
+type ContactConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [Contact!]!
+    edges: [ContactEdge!]!
+}
+
+type Account implements Node {
+    id: ID!
+    name: String!
+    type: String
+    image: String
+    handle: Handle!
+    createdAt: Time!
+}
+
+type AccountEdge implements Edge {
+    cursor: Cursor!
+    node: Account!
+}
+
+type AccountConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [Account!]!
+    edges: [AccountEdge!]!
+}
+
+type Address implements Node, Descriptive {
+    id: ID!
+    name: String!
+    type: String
+    description: String
+    street: String
+    apt: String
+    city: String
+    state: String
+    country: String
+    zipCode: String
+    latitude: String
+    longitude: String
+    note: String
+    range: TimeRange
+    lastUpdated: Time!
+}
+
+type WebAddress implements Node, Descriptive {
+    id: ID!
+    uri: UriString!
+    name: String!
+    type: String
+    description: String
+    lastUpdated: Time!
+    note: String
+}
+
+type ImportantDate implements Node, Descriptive {
+    id: ID!
+    name: String!
+    type: String
+    description: String
+    date: Time!
+    lastUpdated: Time!
+    notify: Boolean!
+    note: String
+}
+
+type Place implements Node, Descriptive {
+    id: ID!
+    name: String!
+    type: String!
+    description: String
+    lastUpdated: Time!
+    range: TimeRange
+    address: Address
+    note: String
+}
+
+type PhoneNumber implements Node, Descriptive {
+    id: ID!
+    number: String!
+    formattedNumber: String!
+    name: String!
+    type: String
+    description: String
+    lastUpdated: Time!
+    range: TimeRange
+    note: String
+}
+
+type Email implements Node, Descriptive {
+    id: ID!
+    email: String!
+    name: String!
+    type: String
+    note: String
+    description: String
+    lastUpdated: Time!
+    range: TimeRange
+}
+
+type PersonName {
+    namePrefix: String
+    nameSuffix: String
+    firstName: String
+    middleName: String
+    lastName: String
+    fullName: String
+    nickname: String
+    phoneticName: String
+}
+
+type ContactInfo {
+    addresses: [Address!]!
+    webAddresses: [WebAddress!]!
+    importantDates: [ImportantDate!]!
+    places: [Place!]!
+    phoneNumbers: [PhoneNumber]!
+    emails: [Email!]!
+    interests: [String!]!
+    notes: [String!]!
+}
+
+type TimeRange {
+    start: Time!
+    end: Time
+    current: Boolean!
+}

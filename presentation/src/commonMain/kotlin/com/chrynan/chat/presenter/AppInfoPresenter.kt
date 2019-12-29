@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 class AppInfoPresenter(
     dispatchers: CoroutineDispatchers,
     private val binder: AppInfoBinder
-) : Presenter(dispatchers = dispatchers) {
+) : BasePresenter(dispatchers = dispatchers) {
 
     fun getInfo() {
         val model = AppInfoViewModel(

@@ -1,10 +1,9 @@
 package com.chrynan.chat.resources
 
 import android.content.Context
+import com.chrynan.chat.di.Inject
 
-abstract class ResourceProvider(contextInitializer: () -> Context) {
+class ResourceProvider @Inject constructor(private val context: Context) : ResourceAccessor {
 
-    private val context by lazy { contextInitializer() }
-
-    protected fun string(resourceId: ResourceID) = lazy { context.getString(resourceId) }
+    override fun string(resourceId: ResourceID) = lazy { context.getString(resourceId) }
 }

@@ -10,7 +10,7 @@ sealed class MessageListItemViewModel : ViewModel {
     abstract val formattedTime: String
 }
 
-data class TextMessageListItemViewModel(
+data class MessageTextItemViewModel(
     override val messageID: ID,
     override val formattedTime: String,
     val text: String,
@@ -18,7 +18,7 @@ data class TextMessageListItemViewModel(
     val backgroundColorInt: ColorInt
 ) : MessageListItemViewModel()
 
-data class ImageMessageListItemViewModel(
+data class MessageImageItemViewModel(
     override val messageID: ID,
     override val formattedTime: String,
     val imageUri: String,

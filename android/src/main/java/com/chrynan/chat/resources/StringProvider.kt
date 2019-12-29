@@ -1,9 +1,8 @@
 package com.chrynan.chat.resources
 
-import android.content.Context
 import com.chrynan.chat.R
 
-class StringProvider(contextInitializer: () -> Context) : ResourceProvider(contextInitializer),
+class StringProvider(private val resourceAccessor: ResourceAccessor) : ResourceAccessor by resourceAccessor,
     Strings {
 
     override val appName by string(R.string.app_name)

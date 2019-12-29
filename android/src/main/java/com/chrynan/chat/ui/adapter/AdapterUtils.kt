@@ -17,10 +17,5 @@ class AdapterBuilder {
         adapters.add(this)
     }
 
-    operator fun <VM : ViewModel> BaseHorizontalAdapter<VM>.unaryPlus() {
-        adapters.add(startAdapter())
-        adapters.add(endAdapter())
-    }
-
     internal fun build() = ManagerRecyclerViewAdapter<ViewModel>(adapters = adapters)
 }

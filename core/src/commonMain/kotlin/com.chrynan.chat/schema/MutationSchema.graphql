@@ -24,7 +24,7 @@ input MessagePayload {
     providerUri: InputUri!
     sender: InputAccount!
     recipients: [InputAccount!]!
-    textContent: String
+    encryptedContent: String
     files: [InputFile!]
 }
 

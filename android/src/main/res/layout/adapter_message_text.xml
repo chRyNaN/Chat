@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textMessageTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_xsmall"
+    android:layout_marginBottom="@dimen/spacing_xsmall"
+    android:layout_marginEnd="@dimen/spacing_horizontal_default"
+    android:layout_marginStart="@dimen/spacing_horizontal_default"
+    android:singleLine="false"
+    android:textAppearance="@style/TextAppearance.Body.Dark"
+    tools:text="This is an example of a message text. Just to show up in the design layout editor."/>

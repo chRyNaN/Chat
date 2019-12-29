@@ -7,7 +7,7 @@ import androidx.lifecycle.coroutineScope
 import com.chrynan.chat.R
 import com.chrynan.chat.coroutines.ActivityCoroutineScope
 import com.chrynan.chat.navigator.Navigator
-import com.chrynan.chat.presenter.Presenter
+import com.chrynan.chat.presenter.BasePresenter
 import kotlin.coroutines.CoroutineContext
 
 abstract class BaseActivity : FragmentActivity(),
@@ -17,28 +17,28 @@ abstract class BaseActivity : FragmentActivity(),
     override val coroutineContext: CoroutineContext
         get() = lifecycle.coroutineScope.coroutineContext
 
-    protected open val presenter: Presenter? = null
+    protected open val presenter: BasePresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        bindToPresenter()
+        presenter?.bind()
     }
 
     override fun onRestart() {
         super.onRestart()
 
-        bindToPresenter()
+        presenter?.bind()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        unbindFromPresenter()
+        presenter?.unbind()
 
         super.onSaveInstanceState(outState)
     }
 
     override fun onDestroy() {
-        unbindFromPresenter()
+        presenter?.unbind()
 
         super.onDestroy()
     }
@@ -57,18 +57,6 @@ abstract class BaseActivity : FragmentActivity(),
 
                 commitNow()
             }
-        }
-    }
-
-    private fun bindToPresenter() {
-        if (presenter?.isBound == false) {
-            presenter?.bind()
-        }
-    }
-
-    private fun unbindFromPresenter() {
-        if (presenter?.isBound == true) {
-            presenter?.unbind()
         }
     }
 }

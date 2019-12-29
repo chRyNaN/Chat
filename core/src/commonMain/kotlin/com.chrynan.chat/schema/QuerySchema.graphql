@@ -1,5 +1,7 @@
 scalar Cursor
 scalar Time
+scalar UriString # https://www.example.com/
+scalar Handle # chris@example.com
 
 interface Node {
     id: ID!
@@ -32,15 +34,42 @@ type Uri {
     fragment: String
 }
 
+extend type Viewer {
+    conversations(first: Int! = 10, after: Cursor = null): ConversationConnection!
+}
+
+type User implements Node, UserContract {
+    id: ID!
+    name: PersonName!
+    image: UriString
+    viewerAssignedConnectionTypes: [UserConnectionType!]!
+    viewerAssignedName: String
+    viewerAssignedImage: UriString
+    viewerAssignedContactInfo: ContactInfo!
+    viewerAssignedAccounts(first: Int! = 10, after: Cursor = null): AccountConnection!
+}
+
+type UserEdge implements Edge {
+    cursor: Cursor!
+    node: User!
+}
+
+type UserConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [User!]!
+    edges: [UserEdge!]!
+}
+
 type Message implements Node {
     id: ID!
     sender: UserWithAccount!
     provider: Provider!
     sentAt: Time!
-    textContent: String
+    encryptedContent: String
     threadedMessages(first: Int! = 10, after: Cursor = null): MessageConnection!
     reactions(first: Int! = 10, after: Cursor = null): ReactionConnection!
-    attachments(first: Int! = 10, after: Cursor = null): FileConnection!
+    encryptedAttachments(first: Int! = 10, after: Cursor = null): [UriString!]!
 }
 
 type MessageConnection implements Connection {
@@ -55,40 +84,29 @@ type MessageEdge implements Edge {
     node: Message!
 }
 
-type User implements Node {
-    id: ID!
-    firstName: String
-    lastName: String
-    fullName: String
-    nickname: String
-    userAssignedScopedName: String
-    image: Uri
-    isBot: Boolean!
-    conversations(first: Int! = 10, after: Cursor = null): ConversationConnection!
-    groups(first: Int! = 10, after: Cursor = null): GroupConnection!
-    contacts(first: Int! = 10, after: Cursor = null): UserConnection!
-    following(first: Int! = 10, after: Cursor = null): UserConnection!
-    accounts(first: Int! = 10, after: Cursor = null): AccountConnection!
-    posts(first: Int! = 10, after: Cursor = null): PostConnection!
-    invites(first: Int! = 10, after: Cursor = null): InviteConnection!
-}
-
-type UserConnection implements Connection {
-    totalCount: Int!
-    info: ConnectionInfo!
-    nodes: [User!]!
-    edges: [UserEdge!]!
-}
-
-type UserEdge implements Edge {
-    cursor: Cursor!
-    node: User!
-}
-
 type Provider implements Node {
     id: ID!
-    name: String!
-    uri: Uri!
+    name: String
+    uri: UriString!
+    image: UriString
+}
+
+type UserWithAccount implements Node{
+    id: ID!
+    user: User!
+    account: Account!
+}
+
+type UserWithAccountEdge implements Edge {
+    cursor: Cursor!
+    node: UserWithAccount!
+}
+
+type UserWithAccountConnection implements Connection {
+    totalCount: Int!
+    info: ConnectionInfo!
+    nodes: [UserWithAccount!]!
+    edges: [UserWithAccountEdge!]!
 }
 
 type Conversation implements Node {
@@ -153,92 +171,6 @@ type ReactionEdge implements Edge {
     node: Reaction!
 }
 
-enum FileType {
-    IMAGE,
-    VIDEO,
-    AUDIO,
-    FILE
-}
-
-type File implements Node {
-    id: ID!
-    name: String!
-    mimeType: String!
-    encoding: String!
-    uri: Uri!
-    type: FileType!
-}
-
-type FileConnection implements Connection {
-    totalCount: Int!
-    info: ConnectionInfo!
-    nodes: [File!]!
-    edges: [FileEdge!]!
-}
-
-type FileEdge implements Edge {
-    cursor: Cursor!
-    node: File
-}
-
-type Group implements Node {
-    id: ID!
-    name: String!
-    members(first: Int! = 10, after: Cursor = null): UserWithAccountConnection
-}
-
-type GroupConnection implements Connection {
-    totalCount: Int!
-    info: ConnectionInfo!
-    nodes: [Group!]!
-    edges: [GroupEdge!]!
-}
-
-type GroupEdge implements Edge {
-    cursor: Cursor!
-    node: Group!
-}
-
-type Account implements Node {
-    id: ID!
-    userHandle: String!
-    provider: Provider!
-    email: String
-    phoneNumber: String
-    name: String
-    createdAt: Time!
-}
-
-type AccountConnection implements Connection {
-    totalCount: Int!
-    info: ConnectionInfo!
-    nodes: [Account!]!
-    edges: [AccountEdge!]!
-}
-
-type AccountEdge implements Edge {
-    cursor: Cursor!
-    node: Account!
-}
-
-type UserWithAccount implements Node{
-    id: ID!
-    user: User!
-    account: Account!
-}
-
-type UserWithAccountConnection implements Connection {
-    totalCount: Int!
-    info: ConnectionInfo!
-    nodes: [UserWithAccount!]!
-    edges: [UserWithAccountEdge!]!
-}
-
-type UserWithAccountEdge implements Edge {
-    cursor: Cursor!
-    node: UserWithAccount!
-}
-
 type Post implements Node {
     id: ID!
     message: Message!
@@ -246,7 +178,6 @@ type Post implements Node {
     lastUpdatedAt: Time!
     isPublic: Boolean!
     isAd: Boolean!
-    adInfo: AdInfo
     references: Post
     mentions(first: Int! = 10, after: Cursor = null): UserWithAccountConnection!
     participants(first: Int! = 10, after: Cursor = null): UserWithAccountConnection!
@@ -265,19 +196,8 @@ type PostEdge implements Edge {
     node: Post!
 }
 
-type AdInfo implements Node {
-    id: ID!
-    adProviderName: String!
-    adProviderUri: Uri!
-    name: String
-    description: String
-    uri: Uri
-    image: Uri
-    isPersonalized: Boolean!
-}
-
 type Query {
-    viewer: User!
+    viewer: Viewer!
     feed(first: Int! = 10, after: Cursor = null): PostConnection!
     feedFrom(ids: [ID!]!, first: Int! = 10, after: Cursor = null): PostConnection!
 }

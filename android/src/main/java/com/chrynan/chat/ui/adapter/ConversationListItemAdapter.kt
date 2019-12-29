@@ -3,17 +3,22 @@ package com.chrynan.chat.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.chrynan.aaaah.Adapter
+import com.chrynan.aaaah.AdapterViewType
 import com.chrynan.aaaah.ViewType
+import com.chrynan.aaaah.from
 import com.chrynan.chat.R
 import com.chrynan.chat.binder.ConversationListItemBinder
 import com.chrynan.chat.ui.activity.ConversationActivity
 import com.chrynan.chat.ui.widget.ConversationListItemWidget
 import com.chrynan.chat.viewmodel.ConversationListItemViewModel
 import kotlinx.coroutines.launch
+import com.chrynan.chat.di.Inject
 
-class ConversationListItemAdapter : BaseAdapter<ConversationListItemViewModel>() {
+@Adapter
+class ConversationListItemAdapter @Inject constructor() : BaseAdapter<ConversationListItemViewModel>() {
 
-    override val viewType = AdapterViewTypes.CONVERSATION_LIST_ITEM
+    override val viewType = AdapterViewType.from(this::class.java)
 
     private val binder = ConversationListItemBinder()
 

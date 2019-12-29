@@ -4,13 +4,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.chrynan.aaaah.Adapter
+import com.chrynan.aaaah.AdapterViewType
 import com.chrynan.aaaah.ViewType
+import com.chrynan.aaaah.from
 import com.chrynan.chat.R
 import com.chrynan.chat.viewmodel.SettingsHeaderCellItemViewModel
+import com.chrynan.chat.di.Inject
 
-class SettingsHeaderCellItemAdapter : BaseAdapter<SettingsHeaderCellItemViewModel>() {
+@Adapter
+class SettingsHeaderCellItemAdapter @Inject constructor() : BaseAdapter<SettingsHeaderCellItemViewModel>() {
 
-    override val viewType = AdapterViewTypes.SETTINGS_HEADER_CELL_LIST_ITEM
+    override val viewType = AdapterViewType.from(this::class.java)
 
     override fun onHandlesItem(item: Any) = item is SettingsHeaderCellItemViewModel
 

@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chrynan.chat.R
 import com.chrynan.chat.model.HorizontalPosition
-import com.chrynan.chat.ui.adapter.ImageMessageListItemAdapter
-import com.chrynan.chat.ui.adapter.TextMessageListItemAdapter
+import com.chrynan.chat.ui.adapter.MessageImageAdapter
+import com.chrynan.chat.ui.adapter.MessageTextAdapter
 import com.chrynan.chat.ui.adapter.adapterWith
-import com.chrynan.chat.viewmodel.ImageMessageListItemViewModel
-import com.chrynan.chat.viewmodel.TextMessageListItemViewModel
+import com.chrynan.chat.viewmodel.MessageImageItemViewModel
+import com.chrynan.chat.viewmodel.MessageTextItemViewModel
 
 class ConversationFragment : BaseFragment() {
 
@@ -40,36 +40,36 @@ class ConversationFragment : BaseFragment() {
         toolbar.setTitleTextAppearance(context!!, R.style.TextAppearance_Subheader_Light)
 
         val adapter = adapterWith {
-            +TextMessageListItemAdapter()
-            +ImageMessageListItemAdapter()
+            +MessageTextAdapter()
+            +MessageImageAdapter()
         }
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         adapter.items = listOf(
-            TextMessageListItemViewModel(
+            MessageTextItemViewModel(
                 messageID = "",
                 formattedTime = "",
                 text = "Start Position",
                 side = HorizontalPosition.START,
                 backgroundColorInt = backgroundColor
             ),
-            TextMessageListItemViewModel(
+            MessageTextItemViewModel(
                 messageID = "",
                 formattedTime = "",
                 text = "Another Start Position but with a longer text to test it going to the next line.",
                 side = HorizontalPosition.START,
                 backgroundColorInt = backgroundColor
             ),
-            TextMessageListItemViewModel(
+            MessageTextItemViewModel(
                 messageID = "",
                 formattedTime = "",
                 text = "End Position",
                 side = HorizontalPosition.END,
                 backgroundColorInt = backgroundColor
             ),
-            ImageMessageListItemViewModel(
+            MessageImageItemViewModel(
                 imageUri = "",
                 messageID = "",
                 formattedTime = "",

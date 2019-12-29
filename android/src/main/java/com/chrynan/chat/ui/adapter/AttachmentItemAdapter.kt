@@ -3,14 +3,19 @@ package com.chrynan.chat.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.chrynan.aaaah.Adapter
+import com.chrynan.aaaah.AdapterViewType
 import com.chrynan.aaaah.ViewType
+import com.chrynan.aaaah.from
 import com.chrynan.chat.R
 import com.chrynan.chat.ui.widget.AttachmentLayout
 import com.chrynan.chat.viewmodel.AttachmentListItemViewModel
+import com.chrynan.chat.di.Inject
 
-class AttachmentItemAdapter : BaseAdapter<AttachmentListItemViewModel>() {
+@Adapter
+class AttachmentItemAdapter @Inject constructor() : BaseAdapter<AttachmentListItemViewModel>() {
 
-    override val viewType = AdapterViewTypes.ATTACHMENT
+    override val viewType = AdapterViewType.from(this::class.java)
 
     var listener: RemoveItemListener? = null
 

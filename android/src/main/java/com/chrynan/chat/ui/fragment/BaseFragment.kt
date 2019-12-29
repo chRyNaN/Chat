@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.chrynan.chat.coroutines.FragmentCoroutineScope
-import com.chrynan.chat.presenter.Presenter
+import com.chrynan.chat.presenter.BasePresenter
 import kotlin.coroutines.CoroutineContext
 
 abstract class BaseFragment : Fragment(),
@@ -14,49 +14,37 @@ abstract class BaseFragment : Fragment(),
     override val coroutineContext: CoroutineContext
         get() = lifecycleScope.coroutineContext
 
-    protected open val presenter: Presenter? = null
+    protected open val presenter: BasePresenter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bindToPresenter()
+        presenter?.bind()
     }
 
     override fun onResume() {
         super.onResume()
 
-        bindToPresenter()
+        presenter?.bind()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        unbindFromPresenter()
+        presenter?.unbind()
 
         super.onSaveInstanceState(outState)
     }
 
     override fun onPause() {
-        unbindFromPresenter()
+        presenter?.unbind()
 
         super.onPause()
     }
 
     override fun onDestroyView() {
-        unbindFromPresenter()
+        presenter?.unbind()
 
         super.onDestroyView()
     }
 
     fun onRefresh() {}
-
-    private fun bindToPresenter() {
-        if (presenter?.isBound == false) {
-            presenter?.bind()
-        }
-    }
-
-    private fun unbindFromPresenter() {
-        if (presenter?.isBound == true) {
-            presenter?.unbind()
-        }
-    }
 }
