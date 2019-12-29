@@ -4,8 +4,7 @@ import com.chrynan.chat.ChatApplication
 import com.chrynan.chat.coroutines.AndroidCoroutineDispatchers
 import com.chrynan.chat.coroutines.ApplicationCoroutineScope
 import com.chrynan.chat.coroutines.CoroutineDispatchers
-import com.chrynan.chat.resources.ResourceAccessor
-import com.chrynan.chat.resources.ResourceProvider
+import com.chrynan.chat.resources.*
 import com.chrynan.chat.utils.ApplicationContext
 import dagger.Binds
 
@@ -23,4 +22,10 @@ internal abstract class ApplicationModule {
 
     @Binds
     abstract fun bindResourceProvider(provider: ResourceProvider): ResourceAccessor
+
+    @Binds
+    abstract fun bindStrings(provider: StringProvider): Strings
+
+    @Binds
+    abstract fun bindColors(provider: ColorProvider): Colors
 }

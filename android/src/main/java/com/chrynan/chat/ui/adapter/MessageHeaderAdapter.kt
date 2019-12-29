@@ -9,12 +9,13 @@ import com.chrynan.aaaah.ViewType
 import com.chrynan.aaaah.from
 import com.chrynan.chat.R
 import com.chrynan.chat.di.Inject
+import com.chrynan.chat.resources.Colors
 import com.chrynan.chat.ui.widget.UserImageView
 import com.chrynan.chat.viewmodel.MessageHeaderItemViewModel
 import kotlinx.android.synthetic.main.adapter_message_header.view.*
 
 @Adapter
-class MessageHeaderAdapter @Inject constructor() : BaseAdapter<MessageHeaderItemViewModel>() {
+class MessageHeaderAdapter @Inject constructor(private val colors: Colors) : BaseAdapter<MessageHeaderItemViewModel>() {
 
     override val viewType = AdapterViewType.from(this::class.java)
 
@@ -30,8 +31,8 @@ class MessageHeaderAdapter @Inject constructor() : BaseAdapter<MessageHeaderItem
             headerHandleTextView?.visibility = if (item.handle == null) View.GONE else View.VISIBLE
             headerImageView?.userImage = UserImageView.UserImage(
                 name = item.name,
-                backgroundColorInt = 0,
-                textColorInt = 0,
+                backgroundColorInt = colors.accentOne,
+                textColorInt = colors.textDark,
                 imageUri = item.image
             )
         }

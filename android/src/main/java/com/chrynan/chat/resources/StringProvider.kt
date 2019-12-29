@@ -1,8 +1,10 @@
 package com.chrynan.chat.resources
 
 import com.chrynan.chat.R
+import com.chrynan.chat.di.Inject
 
-class StringProvider(private val resourceAccessor: ResourceAccessor) : ResourceAccessor by resourceAccessor,
+class StringProvider @Inject constructor(private val resourceAccessor: ResourceAccessor) :
+    ResourceAccessor by resourceAccessor,
     Strings {
 
     override val appName by string(R.string.app_name)
