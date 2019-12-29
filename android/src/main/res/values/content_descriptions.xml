@@ -7,5 +7,6 @@
     <string name="cd_link_preview_image">URL Link Image Preview</string>
     <string name="cd_message_thread_reply_image">Message Thread</string>
     <string name="cd_reaction_image">Add Reaction</string>
+    <string name="cd_message_status_image">Message Status</string>
 
 </resources>

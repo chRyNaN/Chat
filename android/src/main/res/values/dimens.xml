@@ -40,4 +40,6 @@
 
     <dimen name="reaction_item_image_size">24dp</dimen>
 
+    <dimen name="message_status_image_size">24dp</dimen>
+
 </resources>
