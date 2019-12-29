@@ -10,9 +10,10 @@ import com.chrynan.aaaah.from
 import com.chrynan.chat.R
 import com.chrynan.chat.viewmodel.MessageTextItemViewModel
 import kotlinx.android.synthetic.main.adapter_message_text.view.*
+import com.chrynan.chat.di.Inject
 
 @Adapter
-class MessageTextAdapter : BaseAdapter<MessageTextItemViewModel>() {
+class MessageTextAdapter @Inject constructor() : BaseAdapter<MessageTextItemViewModel>() {
 
     override val viewType = AdapterViewType.from(this::class.java)
 

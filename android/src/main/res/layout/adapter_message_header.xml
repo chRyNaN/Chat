@@ -23,18 +23,31 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_vertical_default"
         android:layout_marginStart="@dimen/spacing_small"
-        android:layout_marginEnd="@dimen/spacing_horizontal_default"
+        android:layout_marginEnd="@dimen/spacing_small"
         android:maxLines="1"
         android:singleLine="true"
         android:ellipsize="end"
         app:layout_constraintStart_toEndOf="@+id/headerImageView"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/headerTimeTextView"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Chris"/>
 
     <TextView
+        android:id="@+id/headerTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Body.Dark.Secondary"
+        android:layout_marginTop="@dimen/spacing_vertical_default"
+        android:layout_marginEnd="@dimen/spacing_horizontal_default"
+        android:singleLine="true"
+        android:maxLines="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="10:15am"/>
+
+    <TextView
         android:id="@+id/headerHandleTextView"
-        style="@style/TextAppearance.Body.Dark.Secondary"
+        android:textAppearance="@style/TextAppearance.Body.Dark.Secondary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_small"

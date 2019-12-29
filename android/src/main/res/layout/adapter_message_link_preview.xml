@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linkPreviewCard"
+    android:layout_marginEnd="@dimen/spacing_horizontal_default"
+    android:layout_marginStart="@dimen/spacing_horizontal_default"
+    android:layout_marginTop="@dimen/spacing_vertical_default"
+    android:layout_marginBottom="@dimen/spacing_vertical_default"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/link_preview_card_corner_radius">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/linkPreviewImageView"
+            android:layout_width="@dimen/link_preview_image_size"
+            android:layout_height="@dimen/link_preview_image_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@string/cd_link_preview_image"
+            tools:src="@tools:sample/avatars"/>
+
+        <TextView
+            android:id="@+id/linkPreviewTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Title.Dark"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@+id/linkPreviewImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/linkPreviewDescriptionTextView"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="chRyNaN Codes"/>
+
+        <TextView
+            android:id="@+id/linkPreviewDescriptionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Body.Dark.Secondary"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@+id/linkPreviewImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linkPreviewTitleTextView"
+            app:layout_constraintBottom_toTopOf="@+id/linkPreviewUrlTextView"
+            tools:text="Software Engineering Blog"/>
+
+        <TextView
+            android:id="@+id/linkPreviewUrlTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Body.Dark.Secondary"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@+id/linkPreviewImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linkPreviewDescriptionTextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="chrynan.codes"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

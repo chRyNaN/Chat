@@ -35,4 +35,9 @@
 
     <dimen name="user_image_view_default_size">48dp</dimen>
 
+    <dimen name="link_preview_card_corner_radius">8dp</dimen>
+    <dimen name="link_preview_image_size">96dp</dimen>
+
+    <dimen name="reaction_item_image_size">24dp</dimen>
+
 </resources>

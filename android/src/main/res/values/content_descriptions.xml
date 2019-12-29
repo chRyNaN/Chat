@@ -4,5 +4,8 @@
     <string name="cd_attachment_image">Attachment Image.</string>
     <string name="cd_attachment_badge_remove_item">Remove attachment.</string>
     <string name="cd_user_image_view">User Image</string>
+    <string name="cd_link_preview_image">URL Link Image Preview</string>
+    <string name="cd_message_thread_reply_image">Message Thread</string>
+    <string name="cd_reaction_image">Add Reaction</string>
 
 </resources>

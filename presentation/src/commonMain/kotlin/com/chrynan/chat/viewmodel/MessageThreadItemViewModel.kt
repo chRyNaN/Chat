@@ -2,7 +2,7 @@ package com.chrynan.chat.viewmodel
 
 import com.chrynan.chat.model.ID
 
-data class MessageHeaderDateItemViewModel(
+data class MessageThreadItemViewModel(
     val messageID: ID,
-    val date: String
+    val messageCount: String?
 ) : ViewModel
