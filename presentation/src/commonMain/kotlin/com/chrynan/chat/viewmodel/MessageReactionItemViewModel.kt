@@ -4,7 +4,7 @@ import com.chrynan.chat.model.ID
 import com.chrynan.chat.model.ReactionCount
 
 data class MessageReactionItemViewModel(
-    val messageID: ID,
+    override val messageID: ID,
     val reactions: List<ReactionCount>,
     val myReactions: List<ReactionCount>
-) : ViewModel
+) : MessageListItemViewModel
