@@ -4,25 +4,36 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.chrynan.aaaah.ManagerRecyclerViewAdapter
 import com.chrynan.chat.R
-import com.chrynan.chat.model.HorizontalPosition
-import com.chrynan.chat.ui.adapter.MessageImageAdapter
-import com.chrynan.chat.ui.adapter.MessageTextAdapter
-import com.chrynan.chat.ui.adapter.adapterWith
-import com.chrynan.chat.viewmodel.MessageImageItemViewModel
-import com.chrynan.chat.viewmodel.MessageTextItemViewModel
+import com.chrynan.chat.di.Inject
+import com.chrynan.chat.model.Reaction
+import com.chrynan.chat.presenter.ConversationPresenter
+import com.chrynan.chat.ui.adapter.MessageReactionAdapter
+import com.chrynan.chat.ui.adapter.MessageThreadAdapter
+import com.chrynan.chat.view.ConversationView
+import com.chrynan.chat.viewmodel.MessageListItemViewModel
+import com.chrynan.chat.viewmodel.MessageReactionItemViewModel
+import com.chrynan.chat.viewmodel.MessageThreadItemViewModel
 
-class ConversationFragment : BaseFragment() {
+class ConversationFragment : BaseFragment(),
+    ConversationView,
+    MessageReactionAdapter.MessageReactionListener,
+    MessageThreadAdapter.MessageThreadListener {
 
     companion object {
 
         fun newInstance() = ConversationFragment()
     }
 
-    private val toolbar by lazy { view!!.findViewById<Toolbar>(R.id.toolbar) }
+    @Inject
+    override lateinit var presenter: ConversationPresenter
+
+    @Inject
+    lateinit var adapter: ManagerRecyclerViewAdapter<MessageListItemViewModel>
+
     private val recyclerView by lazy { view!!.findViewById<RecyclerView>(R.id.recyclerView) }
 
     private val backgroundColor by lazy { resources.getColor(R.color.colorAccent, null) }
@@ -36,45 +47,23 @@ class ConversationFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        toolbar.title = "Conversation"
-        toolbar.setTitleTextAppearance(context!!, R.style.TextAppearance_Subheader_Light)
-
-        val adapter = adapterWith {
-            +MessageTextAdapter()
-            +MessageImageAdapter()
-        }
-
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        adapter.items = listOf(
-            MessageTextItemViewModel(
-                messageID = "",
-                formattedTime = "",
-                text = "Start Position",
-                side = HorizontalPosition.START,
-                backgroundColorInt = backgroundColor
-            ),
-            MessageTextItemViewModel(
-                messageID = "",
-                formattedTime = "",
-                text = "Another Start Position but with a longer text to test it going to the next line.",
-                side = HorizontalPosition.START,
-                backgroundColorInt = backgroundColor
-            ),
-            MessageTextItemViewModel(
-                messageID = "",
-                formattedTime = "",
-                text = "End Position",
-                side = HorizontalPosition.END,
-                backgroundColorInt = backgroundColor
-            ),
-            MessageImageItemViewModel(
-                imageUri = "",
-                messageID = "",
-                formattedTime = "",
-                side = HorizontalPosition.END
-            )
-        )
+        presenter.getInitialMessageItems()
+    }
+
+    override fun showMessageItems(items: List<MessageListItemViewModel>) {
+        adapter.items = items
+    }
+
+    override fun onReactionSelected(reaction: Reaction, item: MessageReactionItemViewModel) {
+
+    }
+
+    override fun onAddReactionSelected(item: MessageReactionItemViewModel) {
+    }
+
+    override fun onMessageThreadSelected(item: MessageThreadItemViewModel) {
     }
 }

@@ -3,13 +3,13 @@ package com.chrynan.chat.ui.adapter
 import com.chrynan.aaaah.ManagerRecyclerViewAdapter
 import com.chrynan.chat.viewmodel.ViewModel
 
-fun adapterWith(builder: AdapterBuilder.() -> Unit): ManagerRecyclerViewAdapter<ViewModel> {
-    val adapterBuilder = AdapterBuilder()
+fun <VM : ViewModel> adapterWith(builder: AdapterBuilder<VM>.() -> Unit): ManagerRecyclerViewAdapter<VM> {
+    val adapterBuilder = AdapterBuilder<VM>()
     builder.invoke(adapterBuilder)
     return adapterBuilder.build()
 }
 
-class AdapterBuilder {
+class AdapterBuilder<VM : ViewModel> {
 
     private val adapters = mutableSetOf<BaseAdapter<*>>()
 
@@ -17,5 +17,5 @@ class AdapterBuilder {
         adapters.add(this)
     }
 
-    internal fun build() = ManagerRecyclerViewAdapter<ViewModel>(adapters = adapters)
+    internal fun build(): ManagerRecyclerViewAdapter<VM> = ManagerRecyclerViewAdapter(adapters = adapters)
 }

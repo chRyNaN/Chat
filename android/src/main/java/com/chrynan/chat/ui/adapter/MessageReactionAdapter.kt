@@ -9,11 +9,12 @@ import com.chrynan.chat.di.Inject
 import com.chrynan.chat.model.Reaction
 import com.chrynan.chat.viewmodel.MessageReactionItemViewModel
 import com.chrynan.chat.viewmodel.ViewModel
+import javax.inject.Named
 
 @Adapter
 class MessageReactionAdapter @Inject constructor(
     private val listener: MessageReactionListener,
-    private val adapter: ManagerRecyclerViewAdapter<ViewModel>
+    @Named("ReactionAdapter") private val adapter: ManagerRecyclerViewAdapter<ViewModel>
 ) : BaseAdapter<MessageReactionItemViewModel>() {
 
     override val viewType = AdapterViewType.from(this::class.java)

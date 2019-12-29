@@ -15,6 +15,7 @@
         android:layout_width="@dimen/message_status_image_size"
         android:layout_height="@dimen/message_status_image_size"
         android:contentDescription="@string/cd_message_status_image"
+        android:src="@drawable/ic_sent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -14,6 +14,7 @@ import com.chrynan.chat.ui.adapter.SettingsCellItemAdapter
 import com.chrynan.chat.ui.adapter.SettingsHeaderCellItemAdapter
 import com.chrynan.chat.ui.adapter.adapterWith
 import com.chrynan.chat.ui.adapter.settings
+import com.chrynan.chat.viewmodel.ViewModel
 import com.google.android.material.appbar.CollapsingToolbarLayout
 
 class SettingsFragment : BaseFragment() {
@@ -43,7 +44,7 @@ class SettingsFragment : BaseFragment() {
 
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        val adapter = adapterWith {
+        val adapter = adapterWith<ViewModel> {
             +SettingsHeaderCellItemAdapter()
             +SettingsCellItemAdapter()
         }

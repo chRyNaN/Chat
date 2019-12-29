@@ -2,13 +2,13 @@ package com.chrynan.chat.ui.fragment
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.chrynan.chat.coroutines.FragmentCoroutineScope
 import com.chrynan.chat.presenter.BasePresenter
+import dagger.android.support.DaggerFragment
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseFragment : Fragment(),
+abstract class BaseFragment : DaggerFragment(),
     FragmentCoroutineScope {
 
     override val coroutineContext: CoroutineContext
