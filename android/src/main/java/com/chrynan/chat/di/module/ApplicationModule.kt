@@ -28,4 +28,7 @@ internal abstract class ApplicationModule {
 
     @Binds
     abstract fun bindColors(provider: ColorProvider): Colors
+
+    @Binds
+    abstract fun bindDrawableIDs(provider: DrawableIDProvider): DrawableIDs
 }
