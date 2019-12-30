@@ -25,7 +25,7 @@
             android:paddingTop="@dimen/spacing_xsmall"
             android:paddingEnd="@dimen/spacing_small"
             android:paddingBottom="@dimen/spacing_xsmall"
-            android:textAppearance="@style/TextAppearance.Body.Dark"
+            android:textAppearance="@style/TextAppearance.Body"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

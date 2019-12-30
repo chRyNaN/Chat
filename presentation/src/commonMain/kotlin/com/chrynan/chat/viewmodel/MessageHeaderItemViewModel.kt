@@ -8,7 +8,8 @@ data class MessageHeaderItemViewModel(
     override val messageID: ID,
     val name: String,
     val handle: String?,
-    val image: UriString?
+    val image: UriString?,
+    val date: String
 ) : MessageListItemViewModel {
 
     override val uniqueAdapterId = "$messageID$name".asUniqueAdapterId()

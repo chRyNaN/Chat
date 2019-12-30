@@ -22,7 +22,8 @@ class ConversationPresenter @Inject constructor(
                 messageID = "",
                 name = "Chris",
                 handle = "chris@chrynan.codes",
-                image = null
+                image = null,
+                date = "11:30pm"
             ),
             MessageTextItemViewModel(
                 messageID = "",

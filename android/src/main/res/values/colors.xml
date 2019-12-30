@@ -30,10 +30,10 @@
 
     <!-- Color Extensions -->
 
-    <color name="text_dark_color">@color/black</color>
-    <color name="text_dark_secondary_color">@color/black_50_percent_transparent_color</color>
-    <color name="text_light_color">@color/white</color>
-    <color name="text_light_secondary_color">@color/white_50_percent_transparent_color</color>
+    <color name="text_primary_color">@color/black</color>
+    <color name="text_primary_subtle_color">@color/black_50_percent_transparent_color</color>
+    <color name="text_secondary_color">@color/white</color>
+    <color name="text_secondary_subtle_color">@color/white_50_percent_transparent_color</color>
     <color name="text_error_color">@color/error_color</color>
     <color name="text_accent_color">@color/accent_one_color</color>
 

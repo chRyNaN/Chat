@@ -35,13 +35,13 @@ class ColorProvider @Inject constructor(private val resourceAccessor: ResourceAc
 
     override val offWhite by color(R.color.off_white_color)
 
-    override val textDark by color(R.color.text_dark_color)
+    override val textDark by color(R.color.text_primary_color)
 
-    override val textDarkSecondary by color(R.color.text_dark_secondary_color)
+    override val textDarkSecondary by color(R.color.text_primary_subtle_color)
 
-    override val textLight by color(R.color.text_light_color)
+    override val textLight by color(R.color.text_secondary_color)
 
-    override val textLightSecondary by color(R.color.text_light_secondary_color)
+    override val textLightSecondary by color(R.color.text_secondary_subtle_color)
 
     override val textError by color(R.color.text_error_color)
 

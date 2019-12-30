@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:singleLine="true"
-            android:textAppearance="@style/TextAppearance.Label.Dark.Secondary"
+            android:textAppearance="@style/TextAppearance.Label.Subtle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,7 +29,7 @@
             android:layout_marginEnd="@dimen/spacing_horizontal_default"
             android:maxLines="1"
             android:singleLine="true"
-            android:textAppearance="@style/TextAppearance.Title.Dark"
+            android:textAppearance="@style/TextAppearance.Title"
             app:layout_constraintEnd_toStartOf="@+id/timeTextView"
             app:layout_constraintStart_toEndOf="@+id/listItemImageView"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:maxLines="2"
             android:singleLine="false"
-            android:textAppearance="@style/TextAppearance.Body.Dark.Secondary"
+            android:textAppearance="@style/TextAppearance.Body.Subtle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/titleTextView"
             app:layout_constraintTop_toBottomOf="@+id/titleTextView" />

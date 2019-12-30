@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:singleLine="true"
-            android:textAppearance="@style/TextAppearance.Label.Dark"
+            android:textAppearance="@style/TextAppearance.Label"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

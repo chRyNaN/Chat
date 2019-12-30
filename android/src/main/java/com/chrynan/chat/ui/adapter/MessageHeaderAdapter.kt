@@ -35,6 +35,7 @@ class MessageHeaderAdapter @Inject constructor(private val colors: Colors) : Bas
                 textColorInt = colors.textDark,
                 imageUri = item.image
             )
+            headerTimeTextView?.text = item.date
         }
     }
 }

@@ -17,7 +17,7 @@
 
     <TextView
         android:id="@+id/headerNameTextView"
-        style="@style/TextAppearance.Title.Dark"
+        android:textAppearance="@style/TextAppearance.LabelHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_vertical_default"
@@ -35,7 +35,7 @@
         android:id="@+id/headerTimeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.Body.Dark.Secondary"
+        android:textAppearance="@style/TextAppearance.Label.Subtle"
         android:layout_marginTop="@dimen/spacing_vertical_default"
         android:layout_marginEnd="@dimen/spacing_horizontal_default"
         android:singleLine="true"
@@ -46,7 +46,7 @@
 
     <TextView
         android:id="@+id/headerHandleTextView"
-        android:textAppearance="@style/TextAppearance.Body.Dark.Secondary"
+        android:textAppearance="@style/TextAppearance.Label.Subtle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_small"

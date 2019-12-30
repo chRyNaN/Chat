@@ -14,7 +14,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:titleTextAppearance="@style/TextAppearance.Subheader.Light" />
+                app:titleTextAppearance="@style/TextAppearance.SubHeader.Secondary" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

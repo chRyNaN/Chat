@@ -15,7 +15,7 @@
         android:id="@+id/messageThreadReplyCountTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.Body.Dark.Secondary"
+        android:textAppearance="@style/TextAppearance.Body.Subtle"
         android:layout_marginEnd="@dimen/spacing_small"
         android:singleLine="true"
         android:maxLines="1"
