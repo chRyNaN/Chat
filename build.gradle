@@ -25,6 +25,13 @@ allprojects {
         jcenter()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://maven.pkg.github.com/chRyNaN/aaaah'
+            credentials {
+                username = project.findProperty("gpr.user")
+                password = project.findProperty("gpr.key")
+            }
+        }
     }
 }
 

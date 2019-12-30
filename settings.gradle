@@ -1,6 +1,6 @@
 rootProject.name = 'chat'
 
-include ':core'
+include ':common'
 include ':presentation'
 include ':android'
 

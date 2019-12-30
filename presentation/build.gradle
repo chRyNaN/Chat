@@ -13,8 +13,9 @@ kotlin {
         commonMain {
             dependencies {
                 implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
+                api 'com.chrynan:aaaah-core:0.3.3'
 
-                api project(':core')
+                api project(':common')
             }
         }
         jvmMain {

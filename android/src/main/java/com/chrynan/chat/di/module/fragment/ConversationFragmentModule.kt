@@ -50,6 +50,12 @@ abstract class ConversationFragmentModule {
         @FragmentScope
         @Named("ReactionAdapter")
         fun provideReactionAdapter(): ManagerRecyclerViewAdapter<ViewModel> = adapterWith { }
+
+        @Provides
+        @JvmStatic
+        @FragmentScope
+        fun provideAaaahDiffProcessor(): com.chrynan.aaaah.DiffProcessor<AdapterItem> =
+            com.chrynan.aaaah.DiffProcessor()
     }
 
     @Binds

@@ -4,9 +4,15 @@ import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.adapter.DiffProcessor
 import com.chrynan.chat.di.Inject
 
-class AndroidDiffProcessor<VM : AdapterItem> @Inject constructor() : DiffProcessor<VM> {
+class AndroidDiffProcessor<VM : AdapterItem> @Inject constructor(private val processor: com.chrynan.aaaah.DiffProcessor<VM>) :
+    DiffProcessor<VM> {
 
     override suspend fun processDiff(items: Collection<VM>): AndroidDiffResult<VM> {
-        TODO("Need to fix issues with the AAAAH Library and JitPack for this to work")
+        val result = processor.calculateDiff(items.toList())
+
+        return AndroidDiffResult(
+            items = processor.currentList,
+            diffUtilResult = result
+        )
     }
 }
