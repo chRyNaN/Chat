@@ -77,9 +77,9 @@ dependencies {
     implementation project(':presentation')
 
     // RecyclerView Library - Aaaah
-    implementation 'com.github.chRyNaN.aaaah:libraryx:v0.2.4'
-    implementation 'com.github.chRyNaN.aaaah:annotation:v0.2.4'
-    kapt 'com.github.chRyNaN.aaaah:compiler:v0.2.4'
+    implementation 'com.github.chRyNaN.aaaah:libraryx:v0.3.0'
+    implementation 'com.github.chRyNaN.aaaah:annotation:v0.3.0'
+    kapt 'com.github.chRyNaN.aaaah:compiler:v0.3.0'
 
     // Dependency Injection - Dagger
     kapt "com.google.dagger:dagger-compiler:2.19"

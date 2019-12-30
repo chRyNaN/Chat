@@ -1,9 +1,14 @@
 package com.chrynan.chat.di.module.fragment
 
 import com.chrynan.aaaah.ManagerRecyclerViewAdapter
+import com.chrynan.chat.adapter.AdapterItem
+import com.chrynan.chat.adapter.DiffDispatcher
+import com.chrynan.chat.adapter.DiffProcessor
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.scope.FragmentScope
 import com.chrynan.chat.ui.adapter.*
+import com.chrynan.chat.ui.adapter.processing.AndroidDiffDispatcher
+import com.chrynan.chat.ui.adapter.processing.AndroidDiffProcessor
 import com.chrynan.chat.ui.fragment.ConversationFragment
 import com.chrynan.chat.view.ConversationView
 import com.chrynan.chat.viewmodel.MessageListItemViewModel
@@ -58,4 +63,12 @@ abstract class ConversationFragmentModule {
     @Binds
     @FragmentScope
     abstract fun bindReactionListener(fragment: ConversationFragment): MessageReactionAdapter.MessageReactionListener
+
+    @Binds
+    @FragmentScope
+    abstract fun bindDiffProcessor(processor: AndroidDiffProcessor<AdapterItem>): DiffProcessor<AdapterItem>
+
+    @Binds
+    @FragmentScope
+    abstract fun bindDiffDispatcher(dispatcher: AndroidDiffDispatcher<AdapterItem>): DiffDispatcher<AdapterItem>
 }
