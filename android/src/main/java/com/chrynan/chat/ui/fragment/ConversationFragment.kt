@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chrynan.aaaah.ManagerRecyclerViewAdapter
 import com.chrynan.chat.R
+import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.model.Reaction
 import com.chrynan.chat.presenter.ConversationPresenter
@@ -32,11 +33,9 @@ class ConversationFragment : BaseFragment(),
     override lateinit var presenter: ConversationPresenter
 
     @Inject
-    lateinit var adapter: ManagerRecyclerViewAdapter<MessageListItemViewModel>
+    lateinit var adapter: ManagerRecyclerViewAdapter<AdapterItem>
 
     private val recyclerView by lazy { view!!.findViewById<RecyclerView>(R.id.recyclerView) }
-
-    private val backgroundColor by lazy { resources.getColor(R.color.colorAccent, null) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
