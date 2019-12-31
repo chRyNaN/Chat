@@ -22,7 +22,7 @@ class MessageHeaderAdapter @Inject constructor(private val colors: Colors) : Bas
     override fun onHandlesItem(item: Any) = item is MessageHeaderItemViewModel
 
     override fun onCreateView(parent: ViewGroup, viewType: ViewType): View =
-        LayoutInflater.from(parent.context).inflate(R.layout.adapter_message_header, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.adapter_message_header, parent, false)
 
     override fun onBindItem(view: View, item: MessageHeaderItemViewModel) {
         view.apply {
@@ -30,10 +30,11 @@ class MessageHeaderAdapter @Inject constructor(private val colors: Colors) : Bas
             headerHandleTextView?.text = item.handle
             headerHandleTextView?.visibility = if (item.handle == null) View.GONE else View.VISIBLE
             headerImageView?.userImage = UserImageView.UserImage(
-                name = item.name,
-                backgroundColorInt = colors.accentOne,
-                textColorInt = colors.textDark,
-                imageUri = item.image
+                    name = item.name,
+                    backgroundColorInt = colors.accentThree,
+                    textColorInt = colors.textDark,
+                    badgeColorInt = if (item.isOnline) colors.online else colors.offline,
+                    imageUri = item.image
             )
             headerTimeTextView?.text = item.date
         }

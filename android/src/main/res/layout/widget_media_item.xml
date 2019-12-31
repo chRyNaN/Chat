@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:elevation="@dimen/message_item_card_elevation"
+       app:cardCornerRadius="@dimen/message_item_card_corner_radius"
+       tools:parentTag="androidx.cardview.widget.CardView">
+
+    <ImageView
+            android:id="@+id/mediaItemImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/cd_message_attachment_image"/>
+
+    <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/mediaItemPlayerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:show_buffering="never"
+            app:show_shuffle_button="false"
+            app:auto_show="true"/>
+
+</merge>

@@ -11,7 +11,7 @@ class GetDecryptedMessagesInteractor @Inject constructor() {
     operator fun invoke(): Flow<List<DecryptedMessage>> {
         val messageOne = DecryptedMessage(
             id = "1",
-            dateTime = "Today",
+            dateTime = "11:00",
             firstMessageInDate = true,
             sender = User(
                 userID = "userOne",
@@ -24,7 +24,7 @@ class GetDecryptedMessagesInteractor @Inject constructor() {
         )
         val messageTwo = DecryptedMessage(
             id = "2",
-            dateTime = "Today",
+            dateTime = "11:15",
             sender = User(
                 userID = "userOne",
                 accountID = "accountOne",
@@ -36,7 +36,7 @@ class GetDecryptedMessagesInteractor @Inject constructor() {
         )
         val messageThree = DecryptedMessage(
             id = "3",
-            dateTime = "Today",
+            dateTime = "12:22",
             sender = User(
                 userID = "userTwo",
                 accountID = "accountTwo",
@@ -44,7 +44,7 @@ class GetDecryptedMessagesInteractor @Inject constructor() {
                 handle = "other@chrynan.com",
                 imageUri = null
             ),
-            decryptedContent = "Hey, this is a message from another user."
+            decryptedContent = "Hey, Okay"
         )
 
         return flowOf(listOf(messageOne, messageTwo, messageThree))

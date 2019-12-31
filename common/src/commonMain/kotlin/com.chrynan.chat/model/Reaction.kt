@@ -1,3 +1,10 @@
 package com.chrynan.chat.model
 
-typealias Reaction = String
+enum class Reaction {
+
+    HAPPY,
+    SAD,
+    THUMBS_UP,
+    THUMBS_DOWN,
+    HOORAY
+}

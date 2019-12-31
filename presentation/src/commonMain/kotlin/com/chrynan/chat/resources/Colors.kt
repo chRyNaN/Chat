@@ -43,4 +43,8 @@ interface Colors {
     val textError: ColorInt
 
     val textAccent: ColorInt
+
+    val online: ColorInt
+
+    val offline: ColorInt
 }

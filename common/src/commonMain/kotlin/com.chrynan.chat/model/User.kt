@@ -5,7 +5,8 @@ data class User(
     val accountID: ID,
     val name: String,
     val handle: String,
-    val imageUri: UriString? = null
+    val imageUri: UriString? = null,
+    val isOnline: Boolean = false
 ) : Node {
 
     override val id = userID

@@ -18,17 +18,16 @@
     <TextView
         android:id="@+id/headerNameTextView"
         android:textAppearance="@style/TextAppearance.LabelHeader"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_vertical_default"
         android:layout_marginStart="@dimen/spacing_small"
-        android:layout_marginEnd="@dimen/spacing_small"
         android:maxLines="1"
         android:singleLine="true"
         android:ellipsize="end"
         app:layout_constraintStart_toEndOf="@+id/headerImageView"
-        app:layout_constraintEnd_toStartOf="@+id/headerTimeTextView"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="Chris"/>
 
     <TextView
@@ -38,25 +37,28 @@
         android:textAppearance="@style/TextAppearance.Label.Subtle"
         android:layout_marginTop="@dimen/spacing_vertical_default"
         android:layout_marginEnd="@dimen/spacing_horizontal_default"
+        android:layout_marginStart="@dimen/spacing_xsmall"
         android:singleLine="true"
         android:maxLines="1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/headerHandleTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="10:15am"/>
 
     <TextView
         android:id="@+id/headerHandleTextView"
         android:textAppearance="@style/TextAppearance.Label.Subtle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_small"
         android:layout_marginEnd="@dimen/spacing_horizontal_default"
+        android:layout_marginTop="@dimen/spacing_vertical_default"
         android:singleLine="true"
         android:maxLines="1"
         android:ellipsize="end"
-        app:layout_constraintStart_toEndOf="@+id/headerImageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerNameTextView"
+        app:layout_constraintStart_toEndOf="@+id/headerNameTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="chris@chrynan.com"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

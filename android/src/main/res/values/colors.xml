@@ -45,4 +45,9 @@
     <color name="bottom_navbar_icon_selected_color">@color/colorAccent</color>
     <color name="bottom_navbar_background_color">@color/primary_color</color>
 
+    <color name="online_color">@color/accent_two_color</color>
+    <color name="offline_color">@color/accent_one_color</color>
+
+    <color name="message_action_color">@color/text_primary_subtle_color</color>
+
 </resources>

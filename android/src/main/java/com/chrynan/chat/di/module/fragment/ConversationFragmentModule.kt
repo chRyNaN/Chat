@@ -1,7 +1,7 @@
 package com.chrynan.chat.di.module.fragment
 
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.chrynan.aaaah.ItemListUpdater
-import com.chrynan.aaaah.ManagerRecyclerViewAdapter
 import com.chrynan.chat.adapter.*
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.scope.FragmentScope
@@ -9,8 +9,8 @@ import com.chrynan.chat.ui.adapter.*
 import com.chrynan.chat.ui.adapter.processing.AndroidDiffDispatcher
 import com.chrynan.chat.ui.adapter.processing.AndroidDiffProcessor
 import com.chrynan.chat.ui.fragment.ConversationFragment
+import com.chrynan.chat.utils.ActivityContext
 import com.chrynan.chat.view.ConversationView
-import com.chrynan.chat.viewmodel.ViewModel
 import dagger.Binds
 import dagger.Provides
 import javax.inject.Named
@@ -24,30 +24,40 @@ abstract class ConversationFragmentModule {
         @Provides
         @JvmStatic
         @FragmentScope
-        fun provideAdapters(
+        fun provideBaseManagerAdapter(
+            layoutManager: LinearLayoutManager,
             headerAdapter: MessageHeaderAdapter,
             dateAdapter: MessageHeaderDateAdapter,
-            imageAdapter: MessageImageAdapter,
-            reactionAdapter: MessageReactionAdapter,
-            statusAdapter: MessageStatusAdapter,
             textAdapter: MessageTextAdapter,
-            threadAdapter: MessageThreadAdapter
-        ): ManagerRecyclerViewAdapter<AdapterItem> =
-            adapterWith {
-                +headerAdapter
-                +dateAdapter
-                +imageAdapter
-                +reactionAdapter
-                +statusAdapter
-                +textAdapter
-                +threadAdapter
-            }
+            actionAdapter: MessageActionAdapter,
+            linkAdapter: MessageLinkPreviewAdapter,
+            attachmentAdapter: MessageAttachmentAdapter,
+            typingAdapter: MessageTypingAdapter
+        ): BaseManagerAdapter<AdapterItem> =
+            BaseManagerAdapter(
+                adapters = setOf(
+                    headerAdapter,
+                    dateAdapter,
+                    textAdapter,
+                    actionAdapter,
+                    linkAdapter,
+                    attachmentAdapter,
+                    typingAdapter
+                ),
+                layoutManager = layoutManager
+            )
+
+        @Provides
+        @JvmStatic
+        @FragmentScope
+        fun provideLayoutManager(context: ActivityContext) = LinearLayoutManager(context)
 
         @Provides
         @JvmStatic
         @FragmentScope
         @Named("ReactionAdapter")
-        fun provideReactionAdapter(): ManagerRecyclerViewAdapter<ViewModel> = adapterWith { }
+        fun provideReactionAdapter(layoutManager: LinearLayoutManager): BaseManagerAdapter<AdapterItem> =
+            BaseManagerAdapter(adapters = setOf(), layoutManager = layoutManager)
 
         @Provides
         @JvmStatic
@@ -62,15 +72,15 @@ abstract class ConversationFragmentModule {
 
     @Binds
     @FragmentScope
-    abstract fun bindThreadListener(fragment: ConversationFragment): MessageThreadAdapter.MessageThreadListener
+    abstract fun bindThreadListener(fragment: ConversationFragment): MessageActionAdapter.MessageActionListener
 
     @Binds
     @FragmentScope
-    abstract fun bindReactionListener(fragment: ConversationFragment): MessageReactionAdapter.MessageReactionListener
+    abstract fun bindLinkPreviewListener(fragment: ConversationFragment): MessageLinkPreviewAdapter.LinkPreviewListener
 
     @Binds
     @FragmentScope
-    abstract fun bindItemListUpdater(adapter: ManagerRecyclerViewAdapter<AdapterItem>): ItemListUpdater<AdapterItem>
+    abstract fun bindItemListUpdater(adapter: BaseManagerAdapter<AdapterItem>): ItemListUpdater<AdapterItem>
 
     @Binds
     @FragmentScope

@@ -5,14 +5,15 @@ import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import coil.api.load
 import com.chrynan.chat.R
 import com.chrynan.chat.model.ColorInt
+import com.chrynan.chat.model.UriString
 import com.chrynan.chat.ui.widget.outline.OvalViewOutlineProvider
 import com.chrynan.chat.utils.withOutline
+import kotlinx.android.synthetic.main.widget_user_image_view.view.*
+import kotlin.math.min
 
 class UserImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     ConstraintLayout(context, attrs) {
@@ -22,37 +23,68 @@ class UserImageView @JvmOverloads constructor(context: Context, attrs: Attribute
             field = value
 
             if (value != null) {
-                setBackgroundColor(value.backgroundColorInt)
+                userTextView?.setBackgroundColor(value.backgroundColorInt)
 
                 if (value.imageUri != null) {
-                    textView?.visibility = View.GONE
-                    imageView?.visibility = View.VISIBLE
-                    imageView?.load(Uri.parse(value.imageUri))
+                    userTextView?.visibility = View.INVISIBLE
+                    userImageView?.visibility = View.VISIBLE
+                    userImageView?.load(Uri.parse(value.imageUri))
                 } else {
-                    textView?.visibility = View.VISIBLE
-                    imageView?.visibility = View.GONE
-                    textView?.setTextColor(value.textColorInt)
-                    textView?.text = value.name.firstOrNull()?.toString()
+                    userTextView?.visibility = View.VISIBLE
+                    userImageView?.visibility = View.GONE
+                    userTextView?.setTextColor(value.textColorInt)
+                    userTextView?.text = value.name.firstOrNull()?.toString()
                 }
+
+                badgeView?.visibility = if (value.badgeColorInt == null) View.GONE else View.VISIBLE
+                value.badgeColorInt?.let { badgeView?.setBackgroundColor(it) }
             }
         }
 
-    private val imageView: ImageView? by lazy { findViewById<ImageView>(R.id.userImageView) }
-    private val textView: TextView? by lazy { findViewById<TextView>(R.id.userTextView) }
+    private var updateBadgePositioning = false
+    private var badgePositionRadius = 0
 
     init {
         LayoutInflater.from(context).inflate(R.layout.widget_user_image_view, this, true)
 
-        withOutline(
+        userTextView?.withOutline(
             viewOutlineProvider = OvalViewOutlineProvider(),
             defaultBackgroundColorResId = R.color.accent_three_color
         )
+
+        badgeView?.withOutline(
+            viewOutlineProvider = OvalViewOutlineProvider(),
+            defaultBackgroundColorResId = R.color.offline_color
+        )
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+
+        updateBadgePositioning = true
+        badgePositionRadius = min((userTextView?.measuredHeight ?: 1), (userTextView?.measuredWidth ?: 1)) / 2
+    }
+
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+
+        if (updateBadgePositioning) {
+            updateBadgePositioning = false
+
+            val params = badgeView?.layoutParams as? LayoutParams
+
+            post {
+                params?.circleRadius = badgePositionRadius
+                badgeView?.layoutParams = params
+            }
+        }
     }
 
     data class UserImage(
         val name: String,
         val backgroundColorInt: ColorInt,
         val textColorInt: ColorInt,
-        val imageUri: String? = null
+        val badgeColorInt: ColorInt? = null,
+        val imageUri: UriString? = null
     )
 }

@@ -46,4 +46,8 @@ class ColorProvider @Inject constructor(private val resourceAccessor: ResourceAc
     override val textError by color(R.color.text_error_color)
 
     override val textAccent by color(R.color.text_accent_color)
+
+    override val online by color(R.color.online_color)
+
+    override val offline by color(R.color.offline_color)
 }

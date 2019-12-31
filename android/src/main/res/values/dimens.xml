@@ -27,7 +27,8 @@
 
     <dimen name="message_item_horizontal_margin">64dp</dimen>
     <dimen name="message_item_min_corner_radius">8dp</dimen>
-    <dimen name="message_item_corner_radius">16dp</dimen>
+    <dimen name="message_item_card_corner_radius">8dp</dimen>
+    <dimen name="message_item_card_elevation">8dp</dimen>
     <dimen name="message_item_image_max_size">3600dp</dimen>
     <dimen name="message_item_image_min_size">120dp</dimen>
 
@@ -35,11 +36,12 @@
 
     <dimen name="user_image_view_default_size">48dp</dimen>
 
-    <dimen name="link_preview_card_corner_radius">8dp</dimen>
     <dimen name="link_preview_image_size">96dp</dimen>
 
     <dimen name="reaction_item_image_size">24dp</dimen>
 
     <dimen name="message_status_image_size">12dp</dimen>
+
+    <dimen name="message_thread_avatar_image_size">24dp</dimen>
 
 </resources>

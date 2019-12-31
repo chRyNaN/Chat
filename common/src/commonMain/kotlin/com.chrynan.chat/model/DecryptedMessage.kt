@@ -1,6 +1,6 @@
 package com.chrynan.chat.model
 
-class DecryptedMessage(
+data class DecryptedMessage(
     override val id: ID,
     val dateTime: TimeMoment,
     val sender: User,
@@ -9,6 +9,5 @@ class DecryptedMessage(
     val threadedReplyCount: Int = 0,
     val firstMessageInDate: Boolean = false,
     val reactions: List<ReactionCount> = emptyList(),
-    val senderReactions: List<Reaction> = emptyList(),
-    val encryptedAttachmentUris: List<UriString> = emptyList()
+    val decryptedAttachments: List<DecryptedAttachment> = emptyList()
 ) : Node

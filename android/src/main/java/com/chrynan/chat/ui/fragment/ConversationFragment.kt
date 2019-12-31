@@ -5,24 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.chrynan.aaaah.ManagerRecyclerViewAdapter
 import com.chrynan.chat.R
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.model.Reaction
 import com.chrynan.chat.presenter.ConversationPresenter
-import com.chrynan.chat.ui.adapter.MessageReactionAdapter
-import com.chrynan.chat.ui.adapter.MessageThreadAdapter
+import com.chrynan.chat.ui.adapter.BaseManagerAdapter
+import com.chrynan.chat.ui.adapter.MessageActionAdapter
+import com.chrynan.chat.ui.adapter.MessageLinkPreviewAdapter
 import com.chrynan.chat.view.ConversationView
+import com.chrynan.chat.viewmodel.MessageActionItemViewModel
+import com.chrynan.chat.viewmodel.MessageLinkPreviewItemViewModel
 import com.chrynan.chat.viewmodel.MessageListItemViewModel
 import com.chrynan.chat.viewmodel.MessageReactionItemViewModel
-import com.chrynan.chat.viewmodel.MessageThreadItemViewModel
+import kotlinx.android.synthetic.main.fragment_conversation.*
 
 class ConversationFragment : BaseFragment(),
     ConversationView,
-    MessageReactionAdapter.MessageReactionListener,
-    MessageThreadAdapter.MessageThreadListener {
+    MessageActionAdapter.MessageActionListener,
+    MessageLinkPreviewAdapter.LinkPreviewListener {
 
     companion object {
 
@@ -33,9 +34,7 @@ class ConversationFragment : BaseFragment(),
     override lateinit var presenter: ConversationPresenter
 
     @Inject
-    lateinit var adapter: ManagerRecyclerViewAdapter<AdapterItem>
-
-    private val recyclerView by lazy { view!!.findViewById<RecyclerView>(R.id.recyclerView) }
+    lateinit var adapter: BaseManagerAdapter<AdapterItem>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,8 +45,8 @@ class ConversationFragment : BaseFragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView?.adapter = adapter
+        recyclerView?.layoutManager = LinearLayoutManager(context)
 
         presenter.getInitialMessageItems()
     }
@@ -56,13 +55,20 @@ class ConversationFragment : BaseFragment(),
         adapter.items = items
     }
 
-    override fun onReactionSelected(reaction: Reaction, item: MessageReactionItemViewModel) {
+    override fun onRemoveReactionSelected(reaction: Reaction, item: MessageReactionItemViewModel) {
 
     }
 
-    override fun onAddReactionSelected(item: MessageReactionItemViewModel) {
+    override fun onAddReactionSelected(
+        reaction: Reaction,
+        item: MessageReactionItemViewModel
+    ) {
     }
 
-    override fun onMessageThreadSelected(item: MessageThreadItemViewModel) {
+    override fun onMessageThreadSelected(item: MessageActionItemViewModel) {
+    }
+
+    override fun onLinkPreviewSelected(item: MessageLinkPreviewItemViewModel) {
+
     }
 }
