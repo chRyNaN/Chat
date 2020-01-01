@@ -5,7 +5,7 @@
         android:layout_height="wrap_content">
 
     <com.chrynan.chat.ui.widget.UserImageView
-            android:id="@+id/listItemImageView"
+            android:id="@+id/itemImageView"
             android:layout_width="@dimen/user_image_view_default_size"
             android:layout_height="@dimen/user_image_view_default_size"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.Title"
             app:layout_constraintEnd_toStartOf="@+id/timeTextView"
-            app:layout_constraintStart_toEndOf="@+id/listItemImageView"
+            app:layout_constraintStart_toEndOf="@+id/itemImageView"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_goneMarginStart="0dp" />
 

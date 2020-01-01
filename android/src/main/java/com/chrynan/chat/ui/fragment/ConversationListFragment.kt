@@ -50,14 +50,14 @@ class ConversationListFragment : BaseFragment(),
                 conversationId = "",
                 title = "Title",
                 description = "Description",
-                imageUri = null,
+                userImage = null,
                 formattedDateTime = "Time"
             ),
             ConversationListItemViewModel(
                 conversationId = "",
                 title = "Title Two",
                 description = "Description Two",
-                imageUri = null,
+                userImage = null,
                 formattedDateTime = "Time Two"
             )
         )

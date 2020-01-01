@@ -8,8 +8,7 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import coil.api.load
 import com.chrynan.chat.R
-import com.chrynan.chat.model.ColorInt
-import com.chrynan.chat.model.UriString
+import com.chrynan.chat.model.UserImage
 import com.chrynan.chat.ui.widget.outline.OvalViewOutlineProvider
 import com.chrynan.chat.utils.withOutline
 import kotlinx.android.synthetic.main.widget_user_image_view.view.*
@@ -79,12 +78,4 @@ class UserImageView @JvmOverloads constructor(context: Context, attrs: Attribute
             }
         }
     }
-
-    data class UserImage(
-        val name: String,
-        val backgroundColorInt: ColorInt,
-        val textColorInt: ColorInt,
-        val badgeColorInt: ColorInt? = null,
-        val imageUri: UriString? = null
-    )
 }

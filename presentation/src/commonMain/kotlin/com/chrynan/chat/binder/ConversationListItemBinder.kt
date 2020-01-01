@@ -11,7 +11,7 @@ class ConversationListItemBinder : Binder<ConversationListItemView, Conversation
         view.apply {
             title = viewModel.title
             description = viewModel.description
-            imageUri = viewModel.imageUri
+            userImage = viewModel.userImage
             formattedDateTime = viewModel.formattedDateTime
         }
     }
