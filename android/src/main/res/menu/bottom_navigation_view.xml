@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-            android:id="@+id/menu_bottom_feed"
+            android:id="@+id/menu_bottom_contacts"
             android:icon="@drawable/ic_bottom_navbar_feed"
-            android:title="@string/menu_bottom_title_feed" />
+            android:title="@string/menu_bottom_title_contacts"/>
 
     <item
             android:id="@+id/menu_bottom_conversations"
             android:icon="@drawable/ic_bottom_navbar_conversation"
-            android:title="@string/menu_bottom_title_conversations" />
+            android:title="@string/menu_bottom_title_conversations"/>
 
     <item
             android:id="@+id/menu_bottom_settings"
             android:icon="@drawable/ic_bottom_navbar_settings"
-            android:title="@string/menu_bottom_title_settings" />
+            android:title="@string/menu_bottom_title_settings"/>
 
 </menu>

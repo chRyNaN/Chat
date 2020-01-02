@@ -27,6 +27,7 @@ type Contact implements Node, UserContract {
     name: PersonName!
     image: UriString
     connectionTypes: [UserConnectionType!]!
+    pinned: Boolean!
     contactInfo: ContactInfo!
     accounts(first: Int! = 10, after: Cursor = null): AccountConnection!
 }

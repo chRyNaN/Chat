@@ -31,4 +31,8 @@ internal abstract class ActivityBuilderModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = [WebActivityModule::class])
     abstract fun webActivityInjector(): WebActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = [ContactInfoActivityModule::class])
+    abstract fun contactInfoActivityInjector(): ContactInfoActivity
 }

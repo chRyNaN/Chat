@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:paddingStart="@dimen/spacing_horizontal_default"
+        android:paddingEnd="@dimen/spacing_horizontal_default"
+        android:paddingTop="@dimen/spacing_vertical_default"
+        android:paddingBottom="@dimen/spacing_vertical_default">
+
+    <ImageView
+            android:id="@+id/contactListItemImageView"
+            android:layout_width="@dimen/contact_list_item_image_size"
+            android:layout_height="@dimen/contact_list_item_image_size"
+            android:contentDescription="@string/cd_contact_list_item_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@tools:sample/avatars"/>
+
+    <ImageView
+            android:id="@+id/contactListItemIconImageView"
+            android:layout_width="@dimen/contact_list_item_icon_size"
+            android:layout_height="@dimen/contact_list_item_icon_size"
+            android:contentDescription="@string/cd_contact_list_item_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/contactListItemImageViewBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="contactListItemIconImageView,contactListItemImageView"/>
+
+    <TextView
+            android:id="@+id/contactListItemLabelTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Label.Subtle"
+            android:layout_marginStart="@dimen/spacing_xsmall"
+            app:layout_constraintStart_toEndOf="@+id/contactListItemImageViewBarrier"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/contactListItemTitleTextView"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Label"/>
+
+    <TextView
+            android:id="@+id/contactListItemTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Title"
+            android:layout_marginStart="@dimen/spacing_xsmall"
+            app:layout_constraintStart_toEndOf="@+id/contactListItemImageViewBarrier"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactListItemLabelTextView"
+            app:layout_constraintBottom_toTopOf="@+id/contactListItemDescriptionTextView"
+            tools:text="Title"/>
+
+    <TextView
+            android:id="@+id/contactListItemDescriptionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Body.Subtle"
+            android:layout_marginStart="@dimen/spacing_xsmall"
+            app:layout_constraintStart_toEndOf="@+id/contactListItemImageViewBarrier"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactListItemTitleTextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Description"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

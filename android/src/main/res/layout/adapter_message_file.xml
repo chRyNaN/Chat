@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/linkPreviewCard"
+        android:layout_marginEnd="@dimen/spacing_horizontal_default"
+        android:layout_marginStart="@dimen/message_item_horizontal_margin"
+        android:layout_marginTop="@dimen/spacing_xsmall"
+        android:layout_marginBottom="@dimen/spacing_xsmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/message_item_card_corner_radius">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/fileImageView"
+                android:layout_width="@dimen/link_preview_image_size"
+                android:layout_height="@dimen/link_preview_image_size"
+                android:contentDescription="@string/cd_link_preview_image"
+                android:src="@drawable/ic_file"
+                android:scaleType="fitCenter"
+                android:padding="@dimen/spacing_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:src="@tools:sample/avatars"/>
+
+        <TextView
+                android:id="@+id/fileTitleTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Title"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintStart_toEndOf="@+id/fileImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/fileDescriptionTextView"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="chRyNaN Codes"/>
+
+        <TextView
+                android:id="@+id/fileDescriptionTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Body.Subtle"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/fileImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fileTitleTextView"
+                app:layout_constraintBottom_toTopOf="@+id/fileUrlTextView"
+                tools:text="Software Engineering Blog"/>
+
+        <TextView
+                android:id="@+id/fileUrlTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Body.Subtle"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintStart_toEndOf="@+id/fileImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fileDescriptionTextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="chrynan.codes"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

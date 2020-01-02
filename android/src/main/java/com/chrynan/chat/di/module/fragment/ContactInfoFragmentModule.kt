@@ -5,18 +5,20 @@ import com.chrynan.aaaah.ItemListUpdater
 import com.chrynan.chat.adapter.*
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.scope.FragmentScope
-import com.chrynan.chat.ui.adapter.contact.ContactAdapter
+import com.chrynan.chat.ui.adapter.contact.ContactInfoActionAdapter
+import com.chrynan.chat.ui.adapter.contact.ContactInfoHeaderAdapter
+import com.chrynan.chat.ui.adapter.contact.ContactInfoListItemAdapter
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.ui.adapter.processing.AndroidDiffDispatcher
 import com.chrynan.chat.ui.adapter.processing.AndroidDiffProcessor
-import com.chrynan.chat.ui.fragment.ContactListFragment
+import com.chrynan.chat.ui.fragment.ContactInfoFragment
 import com.chrynan.chat.utils.ActivityContext
-import com.chrynan.chat.view.ContactListView
+import com.chrynan.chat.view.ContactInfoView
 import dagger.Binds
 import dagger.Provides
 
 @Module
-abstract class ContactListFragmentModule {
+abstract class ContactInfoFragmentModule {
 
     @Module
     companion object {
@@ -26,10 +28,12 @@ abstract class ContactListFragmentModule {
         @FragmentScope
         fun provideBaseManagerAdapter(
             layoutManager: LinearLayoutManager,
-            contactAdapter: ContactAdapter
+            headerAdapter: ContactInfoHeaderAdapter,
+            actionsAdapter: ContactInfoActionAdapter,
+            listItemAdapter: ContactInfoListItemAdapter
         ): BaseManagerAdapter<AdapterItem> =
             BaseManagerAdapter(
-                adapters = setOf(contactAdapter),
+                adapters = setOf(headerAdapter, actionsAdapter, listItemAdapter),
                 layoutManager = layoutManager
             )
 
@@ -47,11 +51,15 @@ abstract class ContactListFragmentModule {
 
     @Binds
     @FragmentScope
-    abstract fun bindContactListView(fragment: ContactListFragment): ContactListView
+    abstract fun bindContactListView(fragment: ContactInfoFragment): ContactInfoView
 
     @Binds
     @FragmentScope
-    abstract fun bindContactSelectedListener(fragment: ContactListFragment): ContactAdapter.ContactSelectedListener
+    abstract fun bindContactInfoListItemSelectedListener(fragment: ContactInfoFragment): ContactInfoListItemAdapter.ContactInfoListItemSelectedListener
+
+    @Binds
+    @FragmentScope
+    abstract fun bindContactInfoActionSelectedListener(fragment: ContactInfoFragment): ContactInfoActionAdapter.ContactInfoActionSelectedListener
 
     @Binds
     @FragmentScope

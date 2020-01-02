@@ -44,6 +44,8 @@
             app:layout_constraintEnd_toStartOf="@+id/contactEndTextView"
             app:layout_constraintStart_toEndOf="@+id/contactUserImageView"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/contactDescriptionTextView"
+            app:layout_constraintVertical_chainStyle="packed"
             app:layout_goneMarginStart="0dp"
             tools:text="Title"/>
 
@@ -57,10 +59,10 @@
             android:textAppearance="@style/TextAppearance.Body.Subtle"
             android:layout_marginStart="@dimen/spacing_small"
             android:layout_marginEnd="@dimen/spacing_small"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/contactUserImageView"
             app:layout_constraintTop_toBottomOf="@+id/contactTitleTextView"
             app:layout_constraintEnd_toStartOf="@+id/contactEndTextView"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:text="Description"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

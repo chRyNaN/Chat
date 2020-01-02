@@ -34,7 +34,9 @@ abstract class ConversationFragmentModule {
             textAdapter: MessageTextAdapter,
             actionAdapter: MessageActionAdapter,
             linkAdapter: MessageLinkPreviewAdapter,
-            attachmentAdapter: MessageVideoAdapter,
+            videoAdapter: MessageVideoAdapter,
+            imageAdapter: MessageImageAdapter,
+            fileAdapter: MessageFileAdapter,
             typingAdapter: MessageTypingAdapter
         ): BaseManagerAdapter<AdapterItem> =
             BaseManagerAdapter(
@@ -44,7 +46,9 @@ abstract class ConversationFragmentModule {
                     textAdapter,
                     actionAdapter,
                     linkAdapter,
-                    attachmentAdapter,
+                    videoAdapter,
+                    imageAdapter,
+                    fileAdapter,
                     typingAdapter
                 ),
                 layoutManager = layoutManager
@@ -88,6 +92,14 @@ abstract class ConversationFragmentModule {
     @Binds
     @FragmentScope
     abstract fun bindLinkPreviewListener(fragment: ConversationFragment): MessageLinkPreviewAdapter.LinkPreviewListener
+
+    @Binds
+    @FragmentScope
+    abstract fun bindMessageImageSelectedListener(fragment: ConversationFragment): MessageImageAdapter.ImageSelectedListener
+
+    @Binds
+    @FragmentScope
+    abstract fun bindMessageFileSelectedListener(fragment: ConversationFragment): MessageFileAdapter.FileSelectedListener
 
     @Binds
     @FragmentScope

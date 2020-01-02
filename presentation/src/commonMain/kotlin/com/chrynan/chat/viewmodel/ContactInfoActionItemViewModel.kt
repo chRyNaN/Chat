@@ -3,13 +3,12 @@ package com.chrynan.chat.viewmodel
 import com.chrynan.aaaah.asUniqueAdapterId
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.model.ID
-import com.chrynan.chat.model.UserImage
 
-data class ContactItemViewModel(
+data class ContactInfoActionItemViewModel(
     val userID: ID,
-    val userImage: UserImage,
-    val name: String,
-    val description: String? = null
+    val defaultHandle: String? = null,
+    val defaultPhoneNumber: String? = null,
+    val defaultEmail: String? = null
 ) : AdapterItem {
 
     override val uniqueAdapterId = userID.asUniqueAdapterId()

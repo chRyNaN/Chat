@@ -9,7 +9,7 @@ class StringProvider @Inject constructor(private val resourceAccessor: ResourceA
 
     override val appName by string(R.string.app_name)
 
-    override val menuBottomTitleFeed by string(R.string.menu_bottom_title_feed)
+    override val menuBottomTitleFeed by string(R.string.menu_bottom_title_contacts)
     override val menuBottomTitleConversations by string(R.string.menu_bottom_title_conversations)
     override val menuBottomTitleSettings by string(R.string.menu_bottom_title_settings)
 

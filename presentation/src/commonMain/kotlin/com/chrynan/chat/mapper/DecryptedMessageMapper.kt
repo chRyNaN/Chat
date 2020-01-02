@@ -53,7 +53,7 @@ class DecryptedMessageMapper @Inject constructor(
             description = "Description Text",
             imageUri = "https://www.gravatar.com/avatar/2179fa575001969b7a3397951ef91a8f?s=250&d=mm&r=x"
         )
-        val image = MessageVideoItemViewModel(
+        val video = MessageVideoItemViewModel(
             messageID = model.id,
             video = DecryptedAttachment.Video(
                 decryptedName = "",
@@ -61,9 +61,23 @@ class DecryptedMessageMapper @Inject constructor(
                 thumbnail = "https://cdn.wccftech.com/wp-content/uploads/2016/09/spacee-2060x1288.jpg"
             )
         )
+        val image = MessageImageItemViewModel(
+            messageID = model.id,
+            image = DecryptedAttachment.Image(
+                decryptedName = "",
+                uri = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fqicez529ing%2Fmaxresdefault.jpg&f=1&nofb=1"
+            )
+        )
+        val file = MessageFileItemViewModel(
+            messageID = model.id,
+            file = DecryptedAttachment.File(
+                decryptedName = "Test File Name",
+                uri = "Test Uri"
+            )
+        )
         val typing = MessageTypingItemViewModel(text = "Chris is typing...")
 
-        viewModels.addAll(listOf(header, content, link, image, thread, typing))
+        viewModels.addAll(listOf(header, content, link, video, image, file, thread, typing))
 
         return viewModels
     }

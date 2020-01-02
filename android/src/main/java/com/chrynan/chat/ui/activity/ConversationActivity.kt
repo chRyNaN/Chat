@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.chrynan.chat.R
 import com.chrynan.chat.ui.fragment.ConversationFragment
+import kotlinx.android.synthetic.main.layout_fragment_container_with_toolbar.*
 
 class ConversationActivity : BaseActivity() {
 
@@ -16,7 +17,8 @@ class ConversationActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_conversation)
+        setContentView(R.layout.layout_fragment_container_with_toolbar)
+        setSupportActionBar(toolbar)
         goToFragment(ConversationFragment.newInstance())
     }
 

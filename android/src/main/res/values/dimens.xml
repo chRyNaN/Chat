@@ -6,9 +6,10 @@
     <dimen name="spacing_medium">16dp</dimen>
     <dimen name="spacing_large">24dp</dimen>
     <dimen name="spacing_xlarge">32dp</dimen>
+    <dimen name="spacing_xxlarge">48dp</dimen>
 
     <dimen name="spacing_horizontal_default">@dimen/spacing_medium</dimen>
-    <dimen name="spacing_vertical_default">@dimen/spacing_medium</dimen>
+    <dimen name="spacing_vertical_default">@dimen/spacing_small</dimen>
 
     <dimen name="text_size_xsmall">12sp</dimen>
     <dimen name="text_size_small">16sp</dimen>
@@ -43,5 +44,8 @@
     <dimen name="message_status_image_size">12dp</dimen>
 
     <dimen name="message_thread_avatar_image_size">24dp</dimen>
+
+    <dimen name="contact_list_item_image_size">36dp</dimen>
+    <dimen name="contact_list_item_icon_size">24dp</dimen>
 
 </resources>

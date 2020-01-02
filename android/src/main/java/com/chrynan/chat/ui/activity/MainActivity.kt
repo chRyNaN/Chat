@@ -4,7 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.chrynan.chat.R
+import com.chrynan.chat.ui.fragment.ContactListFragment
 import com.chrynan.chat.ui.fragment.ConversationListFragment
+import com.chrynan.chat.ui.fragment.SettingsFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
@@ -17,6 +20,16 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        goToFragment(ConversationListFragment.newInstance())
+        goToFragment(ContactListFragment.newInstance())
+
+        bottomNavigationView?.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.menu_bottom_conversations -> goToFragment(ConversationListFragment.newInstance())
+                R.id.menu_bottom_settings -> goToFragment(SettingsFragment.newInstance())
+                R.id.menu_bottom_contacts -> goToFragment(ContactListFragment.newInstance())
+            }
+
+            true
+        }
     }
 }

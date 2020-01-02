@@ -12,18 +12,19 @@ import com.chrynan.chat.model.Reaction
 import com.chrynan.chat.presenter.ConversationPresenter
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.ui.adapter.message.MessageActionAdapter
+import com.chrynan.chat.ui.adapter.message.MessageFileAdapter
+import com.chrynan.chat.ui.adapter.message.MessageImageAdapter
 import com.chrynan.chat.ui.adapter.message.MessageLinkPreviewAdapter
 import com.chrynan.chat.view.ConversationView
-import com.chrynan.chat.viewmodel.MessageActionItemViewModel
-import com.chrynan.chat.viewmodel.MessageLinkPreviewItemViewModel
-import com.chrynan.chat.viewmodel.MessageListItemViewModel
-import com.chrynan.chat.viewmodel.MessageReactionItemViewModel
+import com.chrynan.chat.viewmodel.*
 import kotlinx.android.synthetic.main.fragment_conversation.*
 
 class ConversationFragment : BaseFragment(),
     ConversationView,
     MessageActionAdapter.MessageActionListener,
-    MessageLinkPreviewAdapter.LinkPreviewListener {
+    MessageLinkPreviewAdapter.LinkPreviewListener,
+    MessageImageAdapter.ImageSelectedListener,
+    MessageFileAdapter.FileSelectedListener {
 
     companion object {
 
@@ -36,6 +37,9 @@ class ConversationFragment : BaseFragment(),
     @Inject
     lateinit var adapter: BaseManagerAdapter<AdapterItem>
 
+    @Inject
+    lateinit var layoutManager: LinearLayoutManager
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,7 +50,7 @@ class ConversationFragment : BaseFragment(),
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView?.adapter = adapter
-        recyclerView?.layoutManager = LinearLayoutManager(context)
+        recyclerView?.layoutManager = layoutManager
 
         presenter.getInitialMessageItems()
     }
@@ -69,6 +73,14 @@ class ConversationFragment : BaseFragment(),
     }
 
     override fun onLinkPreviewSelected(item: MessageLinkPreviewItemViewModel) {
+
+    }
+
+    override fun onImageSelected(item: MessageImageItemViewModel) {
+
+    }
+
+    override fun onFileSelected(item: MessageFileItemViewModel) {
 
     }
 }

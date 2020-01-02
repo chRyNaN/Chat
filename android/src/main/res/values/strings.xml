@@ -2,7 +2,7 @@
 
     <string name="app_name">Chat</string>
 
-    <string name="menu_bottom_title_feed">Feed</string>
+    <string name="menu_bottom_title_contacts">Contacts</string>
     <string name="menu_bottom_title_conversations">Conversations</string>
     <string name="menu_bottom_title_settings">Settings</string>
 
@@ -19,5 +19,10 @@
     <string name="open_source_licenses_item_android_support">Android Support</string>
 
     <string name="app_info_version_title">Version</string>
+
+    <string name="contact_info_action_call">Call</string>
+    <string name="contact_info_action_chat">Chat</string>
+    <string name="contact_info_action_email">Email</string>
+    <string name="contact_info_action_qr">QR Code</string>
 
 </resources>
