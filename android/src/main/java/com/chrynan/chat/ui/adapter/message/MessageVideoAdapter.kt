@@ -1,4 +1,4 @@
-package com.chrynan.chat.ui.adapter
+package com.chrynan.chat.ui.adapter.message
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +11,7 @@ import com.chrynan.aaaah.from
 import com.chrynan.chat.R
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.media.MediaPlayerViewController
+import com.chrynan.chat.ui.adapter.core.BaseAdapter
 import com.chrynan.chat.viewmodel.MessageVideoItemViewModel
 import kotlinx.android.synthetic.main.adapter_message_video.view.*
 

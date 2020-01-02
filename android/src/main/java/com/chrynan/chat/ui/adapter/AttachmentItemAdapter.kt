@@ -11,6 +11,7 @@ import com.chrynan.chat.R
 import com.chrynan.chat.ui.widget.AttachmentLayout
 import com.chrynan.chat.viewmodel.AttachmentListItemViewModel
 import com.chrynan.chat.di.Inject
+import com.chrynan.chat.ui.adapter.core.BaseAdapter
 
 @Adapter
 class AttachmentItemAdapter @Inject constructor() : BaseAdapter<AttachmentListItemViewModel>() {

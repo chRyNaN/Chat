@@ -10,9 +10,9 @@ import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.model.Reaction
 import com.chrynan.chat.presenter.ConversationPresenter
-import com.chrynan.chat.ui.adapter.BaseManagerAdapter
-import com.chrynan.chat.ui.adapter.MessageActionAdapter
-import com.chrynan.chat.ui.adapter.MessageLinkPreviewAdapter
+import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
+import com.chrynan.chat.ui.adapter.message.MessageActionAdapter
+import com.chrynan.chat.ui.adapter.message.MessageLinkPreviewAdapter
 import com.chrynan.chat.view.ConversationView
 import com.chrynan.chat.viewmodel.MessageActionItemViewModel
 import com.chrynan.chat.viewmodel.MessageLinkPreviewItemViewModel

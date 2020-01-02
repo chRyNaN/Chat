@@ -1,4 +1,4 @@
-package com.chrynan.chat.ui.adapter
+package com.chrynan.chat.ui.adapter.message
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +8,10 @@ import com.chrynan.chat.R
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.model.Reaction
+import com.chrynan.chat.ui.adapter.core.BaseAdapter
+import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.viewmodel.MessageActionItemViewModel
 import com.chrynan.chat.viewmodel.MessageReactionItemViewModel
-import com.chrynan.chat.viewmodel.ViewModel
 import kotlinx.android.synthetic.main.adapter_message_action.view.*
 import javax.inject.Named
 

@@ -1,4 +1,4 @@
-package com.chrynan.chat.ui.adapter
+package com.chrynan.chat.ui.adapter.core
 
 import com.chrynan.aaaah.ManagerRecyclerViewAdapter
 import com.chrynan.chat.viewmodel.ViewModel

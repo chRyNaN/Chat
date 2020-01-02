@@ -11,6 +11,7 @@ import com.chrynan.aaaah.from
 import com.chrynan.chat.R
 import com.chrynan.chat.viewmodel.SettingsCellItemViewModel
 import com.chrynan.chat.di.Inject
+import com.chrynan.chat.ui.adapter.core.BaseAdapter
 
 @Adapter
 class SettingsCellItemAdapter @Inject constructor() : BaseAdapter<SettingsCellItemViewModel>() {

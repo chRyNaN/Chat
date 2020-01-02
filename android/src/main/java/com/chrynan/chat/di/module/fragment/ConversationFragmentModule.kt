@@ -6,7 +6,8 @@ import com.chrynan.chat.adapter.*
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.scope.FragmentScope
 import com.chrynan.chat.media.*
-import com.chrynan.chat.ui.adapter.*
+import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
+import com.chrynan.chat.ui.adapter.message.*
 import com.chrynan.chat.ui.adapter.processing.AndroidDiffDispatcher
 import com.chrynan.chat.ui.adapter.processing.AndroidDiffProcessor
 import com.chrynan.chat.ui.fragment.ConversationFragment
@@ -59,7 +60,10 @@ abstract class ConversationFragmentModule {
         @FragmentScope
         @Named("ReactionAdapter")
         fun provideReactionAdapter(layoutManager: LinearLayoutManager): BaseManagerAdapter<AdapterItem> =
-            BaseManagerAdapter(adapters = setOf(), layoutManager = layoutManager)
+            BaseManagerAdapter(
+                adapters = setOf(),
+                layoutManager = layoutManager
+            )
 
         @Provides
         @JvmStatic

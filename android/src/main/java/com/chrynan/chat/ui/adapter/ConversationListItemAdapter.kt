@@ -14,6 +14,7 @@ import com.chrynan.chat.ui.widget.ConversationListItemWidget
 import com.chrynan.chat.viewmodel.ConversationListItemViewModel
 import kotlinx.coroutines.launch
 import com.chrynan.chat.di.Inject
+import com.chrynan.chat.ui.adapter.core.BaseAdapter
 
 @Adapter
 class ConversationListItemAdapter @Inject constructor() : BaseAdapter<ConversationListItemViewModel>() {

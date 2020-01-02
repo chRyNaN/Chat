@@ -12,7 +12,7 @@ import com.chrynan.chat.ui.activity.OpenSourceLicensesActivity
 import com.chrynan.chat.ui.activity.WebActivity
 import com.chrynan.chat.ui.adapter.SettingsCellItemAdapter
 import com.chrynan.chat.ui.adapter.SettingsHeaderCellItemAdapter
-import com.chrynan.chat.ui.adapter.adapterWith
+import com.chrynan.chat.ui.adapter.core.adapterWith
 import com.chrynan.chat.ui.adapter.settings
 import com.chrynan.chat.viewmodel.ViewModel
 import com.google.android.material.appbar.CollapsingToolbarLayout

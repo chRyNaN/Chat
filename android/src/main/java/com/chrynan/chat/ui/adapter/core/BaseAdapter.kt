@@ -1,4 +1,4 @@
-package com.chrynan.chat.ui.adapter
+package com.chrynan.chat.ui.adapter.core
 
 import android.view.View
 import androidx.annotation.CallSuper

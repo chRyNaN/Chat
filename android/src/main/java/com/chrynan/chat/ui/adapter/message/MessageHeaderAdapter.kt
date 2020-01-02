@@ -1,4 +1,4 @@
-package com.chrynan.chat.ui.adapter
+package com.chrynan.chat.ui.adapter.message
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +11,7 @@ import com.chrynan.chat.R
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.model.UserImage
 import com.chrynan.chat.resources.Colors
+import com.chrynan.chat.ui.adapter.core.BaseAdapter
 import com.chrynan.chat.viewmodel.MessageHeaderItemViewModel
 import kotlinx.android.synthetic.main.adapter_message_header.view.*
 
