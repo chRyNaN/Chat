@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_vertical_default"
+        android:paddingBottom="@dimen/spacing_vertical_default"
+        android:background="?attr/selectableItemBackground">
+
+    <com.chrynan.chat.ui.widget.UserImageView
+            android:id="@+id/contactUserImageView"
+            android:layout_width="@dimen/user_image_view_default_size"
+            android:layout_height="@dimen/user_image_view_default_size"
+            android:layout_marginStart="@dimen/spacing_horizontal_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+            android:id="@+id/contactEndTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.Body.Subtle"
+            android:layout_marginEnd="@dimen/spacing_horizontal_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="End"/>
+
+    <TextView
+            android:id="@+id/contactTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.Title"
+            app:layout_constraintEnd_toStartOf="@+id/contactEndTextView"
+            app:layout_constraintStart_toEndOf="@+id/contactUserImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginStart="0dp"
+            tools:text="Title"/>
+
+    <TextView
+            android:id="@+id/contactDescriptionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.Body.Subtle"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/contactUserImageView"
+            app:layout_constraintTop_toBottomOf="@+id/contactTitleTextView"
+            app:layout_constraintEnd_toStartOf="@+id/contactEndTextView"
+            tools:text="Description"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
