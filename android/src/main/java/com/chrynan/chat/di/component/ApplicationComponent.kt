@@ -3,6 +3,7 @@ package com.chrynan.chat.di.component
 import com.chrynan.chat.ChatApplication
 import com.chrynan.chat.di.module.ActivityBuilderModule
 import com.chrynan.chat.di.module.ApplicationModule
+import com.chrynan.chat.di.module.RepositoryModule
 import com.chrynan.chat.di.scope.Singleton
 import dagger.BindsInstance
 import dagger.Component
@@ -14,7 +15,8 @@ import dagger.android.support.AndroidSupportInjectionModule
     modules = [
         AndroidSupportInjectionModule::class,
         ApplicationModule::class,
-        ActivityBuilderModule::class
+        ActivityBuilderModule::class,
+        RepositoryModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<ChatApplication> {
