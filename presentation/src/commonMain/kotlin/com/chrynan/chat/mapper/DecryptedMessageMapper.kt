@@ -2,7 +2,6 @@ package com.chrynan.chat.mapper
 
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.model.AttachmentType
 import com.chrynan.chat.model.DecryptedAttachment
 import com.chrynan.chat.model.DecryptedMessage
 import com.chrynan.chat.resources.DrawableIDs
@@ -54,12 +53,12 @@ class DecryptedMessageMapper @Inject constructor(
             description = "Description Text",
             imageUri = "https://www.gravatar.com/avatar/2179fa575001969b7a3397951ef91a8f?s=250&d=mm&r=x"
         )
-        val image = MessageAttachmentItemViewModel(
+        val image = MessageVideoItemViewModel(
             messageID = model.id,
-            attachment = DecryptedAttachment(
+            video = DecryptedAttachment.Video(
                 decryptedName = "",
-                uri = "https://cdn.wccftech.com/wp-content/uploads/2016/09/spacee-2060x1288.jpg",
-                type = AttachmentType.IMAGE
+                uri = "https://www.w3schools.com/html/mov_bbb.mp4",
+                thumbnail = "https://cdn.wccftech.com/wp-content/uploads/2016/09/spacee-2060x1288.jpg"
             )
         )
         val typing = MessageTypingItemViewModel(text = "Chris is typing...")

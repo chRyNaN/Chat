@@ -4,10 +4,10 @@ import com.chrynan.aaaah.asUniqueAdapterId
 import com.chrynan.chat.model.DecryptedAttachment
 import com.chrynan.chat.model.ID
 
-data class MessageAttachmentItemViewModel(
+data class MessageVideoItemViewModel(
     override val messageID: ID,
-    val attachment: DecryptedAttachment
+    val video: DecryptedAttachment.Video
 ) : MessageListItemViewModel {
 
-    override val uniqueAdapterId = "$messageID:$attachment".asUniqueAdapterId()
+    override val uniqueAdapterId = "$messageID:$video".asUniqueAdapterId()
 }

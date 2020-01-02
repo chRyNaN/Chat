@@ -1,5 +1,6 @@
 package com.chrynan.chat.ui.adapter
 
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chrynan.aaaah.ManagerRecyclerViewAdapter
@@ -14,9 +15,11 @@ class BaseManagerAdapter<VM : AdapterItem>(
 
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
-            handleOnScrolled(recyclerView, dx, dy)
+            handleOnScrolled()
         }
     }
+
+    private val recyclerListener = RecyclerView.RecyclerListener { handleRecycled(it.itemView) }
 
     private var previousFirstVisibleItemPosition = -1
     private var previousLastVisibleItemPosition = -1
@@ -24,14 +27,17 @@ class BaseManagerAdapter<VM : AdapterItem>(
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
         recyclerView.addOnScrollListener(onScrollListener)
+        recyclerView.setRecyclerListener(recyclerListener)
     }
 
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
         super.onDetachedFromRecyclerView(recyclerView)
         recyclerView.removeOnScrollListener(onScrollListener)
+        recyclerView.setRecyclerListener(null)
+        adapters.forEach { it.onDetachedFromRecyclerView(recyclerView) }
     }
 
-    private fun handleOnScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+    private fun handleOnScrolled() {
         val firstPosition = layoutManager.findFirstVisibleItemPosition()
         val lastPosition = layoutManager.findLastVisibleItemPosition()
 
@@ -64,6 +70,13 @@ class BaseManagerAdapter<VM : AdapterItem>(
                 getAdapterForItem(previousLastItem)?.exit(view = previousLastView, item = previousLastItem)
             }
         }
+    }
+
+    private fun handleRecycled(itemView: View) {
+        val position = layoutManager.getPosition(itemView)
+        val item = items.getOrNull(position)
+
+        getAdapterForItem(item)?.recycle(itemView, item)
     }
 
     private fun getAdapterForItem(item: VM?) =
