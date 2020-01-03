@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.jaredsburrows.license'
 
 android {
     compileSdkVersion 29
@@ -11,8 +10,8 @@ android {
         applicationId "com.chrynan.chat"
         minSdkVersion 24
         targetSdkVersion 29
-        versionCode rootProject.appVersionCode
-        versionName rootProject.appVersion
+        versionCode 1
+        versionName "0.1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -98,13 +97,4 @@ dependencies {
 
 androidExtensions {
     experimental = true
-}
-
-licenseReport {
-    generateHtmlReport = false
-    generateJsonReport = true
-
-    // These options are ignored for Java projects
-    copyHtmlReportToAssets = false
-    copyJsonReportToAssets = true
 }
