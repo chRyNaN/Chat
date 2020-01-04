@@ -57,7 +57,9 @@ abstract class ConversationFragmentModule {
         @Provides
         @JvmStatic
         @FragmentScope
-        fun provideLayoutManager(context: ActivityContext) = LinearLayoutManager(context)
+        fun provideLayoutManager(context: ActivityContext) = LinearLayoutManager(context).apply {
+            stackFromEnd = true
+        }
 
         @Provides
         @JvmStatic
