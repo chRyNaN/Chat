@@ -18,7 +18,13 @@
     <string name="open_source_licenses_item_kotlin">Kotlin</string>
     <string name="open_source_licenses_item_android_support">Android Support</string>
 
-    <string name="app_info_version_title">Version</string>
+    <string name="app_info_version_label">Version</string>
+    <string name="app_info_version_code_label">Version Code</string>
+    <string name="app_info_update_available_label">Update</string>
+    <string name="app_info_app_store_id_label">App Store ID</string>
+    <string name="app_info_license_label">License</string>
+    <string name="app_info_source_code_label">Source Code</string>
+    <string name="app_info_source_code_title">Application Source Code</string>
 
     <string name="contact_info_action_call">Call</string>
     <string name="contact_info_action_chat">Chat</string>

@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.chrynan.chat.R
-import com.chrynan.chat.binder.AppInfoBinder
-import com.chrynan.chat.coroutines.AndroidCoroutineDispatchers
+import com.chrynan.chat.di.Inject
+import com.chrynan.chat.model.ColorInt
 import com.chrynan.chat.presenter.AppInfoPresenter
 import com.chrynan.chat.view.AppInfoView
+import kotlinx.android.synthetic.main.fragment_app_info.*
+import kotlinx.android.synthetic.main.layout_app_info_cell.view.*
 
 class AppInfoFragment : BaseFragment(),
     AppInfoView {
@@ -19,16 +20,8 @@ class AppInfoFragment : BaseFragment(),
         fun newInstance() = AppInfoFragment()
     }
 
-    private val versionTitleTextView by lazy { view!!.findViewById<TextView>(R.id.versionTitleTextView) }
-    private val versionDescriptionTextView by lazy { view!!.findViewById<TextView>(R.id.versionDescriptionTextView) }
-    private val updateDescriptionTextView by lazy { view!!.findViewById<TextView>(R.id.versionUpdateTitleTextView) }
-
-    override val presenter: AppInfoPresenter by lazy {
-        AppInfoPresenter(
-            dispatchers = AndroidCoroutineDispatchers(),
-            binder = AppInfoBinder(view = this)
-        )
-    }
+    @Inject
+    override lateinit var presenter: AppInfoPresenter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,26 +32,71 @@ class AppInfoFragment : BaseFragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        versionUpdateCell?.setOnClickListener { }
+        licenseCell?.setOnClickListener { }
+        sourceCodeCell?.setOnClickListener { }
+
         presenter.getInfo()
     }
 
-    override fun showVersion(version: String) {
-        versionTitleTextView.visibility = View.VISIBLE
-        versionDescriptionTextView.visibility = View.VISIBLE
-        versionDescriptionTextView.text = version
+    override fun showVersion(label: String, version: String) {
+        versionCell?.visibility = View.VISIBLE
+        versionCell?.labelTextView?.text = label
+        versionCell?.contentTextView?.text = version
     }
 
     override fun hideVersion() {
-        versionTitleTextView.visibility = View.GONE
-        versionTitleTextView.visibility = View.GONE
+        versionCell?.visibility = View.GONE
     }
 
-    override fun showUpdateDescription(updateDescription: String) {
-        updateDescriptionTextView.visibility = View.VISIBLE
-        updateDescriptionTextView.text = updateDescription
+    override fun showUpdateAvailable(label: String, updateDescription: String, descriptionColorInt: ColorInt) {
+        versionUpdateCell?.visibility = View.VISIBLE
+        versionUpdateCell?.labelTextView?.text = label
+        versionUpdateCell?.contentTextView?.text = updateDescription
+        versionUpdateCell?.contentTextView?.setTextColor(descriptionColorInt)
     }
 
-    override fun hideUpdateDescription() {
-        updateDescriptionTextView.visibility = View.GONE
+    override fun hideUpdateAvailable() {
+        versionUpdateCell?.visibility = View.GONE
+    }
+
+    override fun showVersionCode(label: String, versionCode: String) {
+        versionCodeCell?.visibility = View.VISIBLE
+        versionCodeCell?.labelTextView?.text = label
+        versionCodeCell?.contentTextView?.text = versionCode
+    }
+
+    override fun hideVersionCode() {
+        versionCodeCell?.visibility = View.GONE
+    }
+
+    override fun showAppStoreID(label: String, id: String) {
+        appStoreIDCell?.visibility = View.VISIBLE
+        appStoreIDCell?.labelTextView?.text = label
+        appStoreIDCell?.contentTextView?.text = id
+    }
+
+    override fun hideAppStoreID() {
+        appStoreIDCell?.visibility = View.GONE
+    }
+
+    override fun showLicense(label: String, licenseName: String) {
+        licenseCell?.visibility = View.VISIBLE
+        licenseCell?.labelTextView?.text = label
+        licenseCell?.contentTextView?.text = licenseName
+    }
+
+    override fun hideLicense() {
+        licenseCell?.visibility = View.GONE
+    }
+
+    override fun showSourceCode(label: String, title: String) {
+        sourceCodeCell?.visibility = View.VISIBLE
+        sourceCodeCell?.labelTextView?.text = label
+        sourceCodeCell?.contentTextView?.text = title
+    }
+
+    override fun hideSourceCode() {
+        sourceCodeCell?.visibility = View.GONE
     }
 }

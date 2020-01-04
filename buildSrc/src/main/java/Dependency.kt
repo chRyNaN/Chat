@@ -1,9 +1,12 @@
 interface Dependency {
 
-    val library: String
+    val path: String
 
     val version: String
 }
 
 val Dependency.dependency: String
-    get() = "$library:$version"
+    get() = "$path:$version"
+
+val Dependency.pom: String
+    get() = "$path:$version@pom"

@@ -1,15 +1,9 @@
 package com.chrynan.chat.di.module.activity
 
 import com.chrynan.chat.di.module.Module
-import com.chrynan.chat.di.module.fragment.ContactInfoFragmentModule
-import com.chrynan.chat.di.module.fragment.ContactListFragmentModule
-import com.chrynan.chat.di.module.fragment.ConversationListFragmentModule
-import com.chrynan.chat.di.module.fragment.SettingsFragmentModule
+import com.chrynan.chat.di.module.fragment.*
 import com.chrynan.chat.di.scope.FragmentScope
-import com.chrynan.chat.ui.fragment.ContactInfoFragment
-import com.chrynan.chat.ui.fragment.ContactListFragment
-import com.chrynan.chat.ui.fragment.ConversationListFragment
-import com.chrynan.chat.ui.fragment.SettingsFragment
+import com.chrynan.chat.ui.fragment.*
 import dagger.android.ContributesAndroidInjector
 
 @Module
@@ -30,4 +24,12 @@ abstract class MainActivityModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = [SettingsFragmentModule::class])
     abstract fun settingsFragmentInjector(): SettingsFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [AppInfoFragmentModule::class])
+    abstract fun appInfoFragmentInjector(): AppInfoFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [WebFragmentModule::class])
+    abstract fun webFragmentInjector(): WebFragment
 }

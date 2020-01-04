@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chrynan.chat.R
 import com.chrynan.chat.ui.activity.BaseActivity
 import com.chrynan.chat.ui.activity.OpenSourceLicensesActivity
-import com.chrynan.chat.ui.activity.WebActivity
 import com.chrynan.chat.ui.adapter.SettingsCellItemAdapter
 import com.chrynan.chat.ui.adapter.SettingsHeaderCellItemAdapter
 import com.chrynan.chat.ui.adapter.core.adapterWith
@@ -54,7 +53,6 @@ class SettingsFragment : BaseFragment() {
         adapter.items = settings {
             group(title = "Account") {
                 cell(title = "Account Info")
-                cell(title = "Contacts")
             }
             group(title = "App") {
                 cell(title = "App Info") {
@@ -62,26 +60,8 @@ class SettingsFragment : BaseFragment() {
                 }
             }
             group(title = "Legal") {
-                cell(title = "License") {
-                    startActivity(
-                        WebActivity.newIntent(
-                            context = context!!,
-                            url = "https://github.com/chRyNaN/Chat/blob/master/LICENSE",
-                            title = "License"
-                        )
-                    )
-                }
                 cell(title = "Open Source Licenses") {
                     startActivity(OpenSourceLicensesActivity.newIntent(context!!))
-                }
-                cell(title = "App Code") {
-                    startActivity(
-                        WebActivity.newIntent(
-                            context = context!!,
-                            url = "https://github.com/chRyNaN/Chat",
-                            title = "App Code"
-                        )
-                    )
                 }
             }
         }

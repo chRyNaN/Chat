@@ -20,5 +20,11 @@ interface Strings {
     val openSourceLicensesItemKotlin: String
     val openSourceLicensesItemAndroidSupport: String
 
-    val appInfoVersionTitle: String
+    val appInfoVersionLabel: String
+    val appInfoVersionCodeLabel: String
+    val appInfoUpdateAvailableLabel: String
+    val appInfoAppStoreIDLabel: String
+    val appInfoLicenseLabel: String
+    val appInfoSourceCodeLabel: String
+    val appInfoSourceCodeTitle: String
 }

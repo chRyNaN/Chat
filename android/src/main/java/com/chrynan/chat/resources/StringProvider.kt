@@ -25,5 +25,11 @@ class StringProvider @Inject constructor(private val resourceAccessor: ResourceA
     override val openSourceLicensesItemKotlin by string(R.string.open_source_licenses_item_kotlin)
     override val openSourceLicensesItemAndroidSupport by string(R.string.open_source_licenses_item_android_support)
 
-    override val appInfoVersionTitle by string(R.string.app_info_version_title)
+    override val appInfoVersionLabel by string(R.string.app_info_version_label)
+    override val appInfoVersionCodeLabel by string(R.string.app_info_version_code_label)
+    override val appInfoUpdateAvailableLabel by string(R.string.app_info_update_available_label)
+    override val appInfoAppStoreIDLabel by string(R.string.app_info_app_store_id_label)
+    override val appInfoLicenseLabel by string(R.string.app_info_license_label)
+    override val appInfoSourceCodeLabel by string(R.string.app_info_source_code_label)
+    override val appInfoSourceCodeTitle by string(R.string.app_info_source_code_title)
 }
