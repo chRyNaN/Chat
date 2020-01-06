@@ -1,7 +1,7 @@
 package com.chrynan.chat.viewmodel
 
 import com.chrynan.chat.model.ColorInt
-import com.chrynan.chat.model.UriString
+import com.chrynan.chat.model.core.UriString
 
 data class AppInfoViewModel(
     val versionLabel: String,

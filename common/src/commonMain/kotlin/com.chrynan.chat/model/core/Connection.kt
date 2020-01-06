@@ -1,4 +1,4 @@
-package com.chrynan.chat.model
+package com.chrynan.chat.model.core
 
 interface Connection<N : Node, E : Edge<N>> {
 

@@ -1,6 +1,6 @@
 package com.chrynan.chat.repository
 
-import com.chrynan.chat.model.Cursor
+import com.chrynan.chat.model.core.Cursor
 import kotlinx.coroutines.flow.Flow
 
 interface PaginatedRepository<T> {

@@ -4,7 +4,7 @@ import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.adapter.AdapterItemHandler
 import com.chrynan.chat.coroutines.CoroutineDispatchers
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.model.ID
+import com.chrynan.chat.model.core.ID
 import com.chrynan.chat.view.ContactInfoView
 import com.chrynan.chat.viewmodel.ContactInfoActionItemViewModel
 import com.chrynan.chat.viewmodel.ContactInfoListItemViewModel

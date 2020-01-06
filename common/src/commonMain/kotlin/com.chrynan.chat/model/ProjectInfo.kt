@@ -1,5 +1,7 @@
 package com.chrynan.chat.model
 
+import com.chrynan.chat.model.core.UriString
+
 class ProjectInfo(
     val name: String, // Chat
     val version: String, // 1.0.0

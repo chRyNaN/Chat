@@ -3,7 +3,7 @@ package com.chrynan.chat.ui.activity
 import android.content.Intent
 import android.os.Bundle
 import com.chrynan.chat.R
-import com.chrynan.chat.model.ID
+import com.chrynan.chat.model.core.ID
 import com.chrynan.chat.ui.fragment.ContactInfoFragment
 import com.chrynan.chat.utils.ActivityContext
 import kotlinx.android.synthetic.main.layout_fragment_container_with_toolbar.*

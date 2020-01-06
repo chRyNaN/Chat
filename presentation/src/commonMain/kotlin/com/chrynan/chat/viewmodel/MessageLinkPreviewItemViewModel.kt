@@ -1,8 +1,8 @@
 package com.chrynan.chat.viewmodel
 
 import com.chrynan.aaaah.asUniqueAdapterId
-import com.chrynan.chat.model.ID
-import com.chrynan.chat.model.UriString
+import com.chrynan.chat.model.core.ID
+import com.chrynan.chat.model.core.UriString
 
 data class MessageLinkPreviewItemViewModel(
     override val messageID: ID,

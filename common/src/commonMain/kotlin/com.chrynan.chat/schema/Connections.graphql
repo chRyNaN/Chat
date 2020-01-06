@@ -72,7 +72,8 @@ type Address implements Node, Descriptive {
     name: String!
     type: String
     description: String
-    street: String
+    firstLine: String
+    secondLine: String
     apt: String
     city: String
     state: String
@@ -113,7 +114,7 @@ type Place implements Node, Descriptive {
     description: String
     lastUpdated: Time!
     range: TimeRange
-    address: Address
+    address: Address!
     note: String
 }
 
@@ -143,10 +144,10 @@ type Email implements Node, Descriptive {
 type PersonName {
     namePrefix: String
     nameSuffix: String
-    firstName: String
+    firstName: String!
     middleName: String
     lastName: String
-    fullName: String
+    fullName: String!
     nickname: String
     phoneticName: String
 }

@@ -1,4 +1,4 @@
-package com.chrynan.chat.model
+package com.chrynan.chat.model.core
 
 data class PageInfo(
     val startCursor: String? = null,

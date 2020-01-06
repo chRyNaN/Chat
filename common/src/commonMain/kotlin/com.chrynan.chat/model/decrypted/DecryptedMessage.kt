@@ -1,6 +1,9 @@
 package com.chrynan.chat.model.decrypted
 
 import com.chrynan.chat.model.*
+import com.chrynan.chat.model.core.ID
+import com.chrynan.chat.model.core.Node
+import com.chrynan.chat.model.core.TimeMoment
 
 data class DecryptedMessage(
     override val id: ID,

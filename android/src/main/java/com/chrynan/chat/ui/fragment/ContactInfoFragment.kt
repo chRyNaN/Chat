@@ -9,8 +9,8 @@ import coil.api.load
 import com.chrynan.chat.R
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.model.ID
-import com.chrynan.chat.model.UriString
+import com.chrynan.chat.model.core.ID
+import com.chrynan.chat.model.core.UriString
 import com.chrynan.chat.presenter.ContactInfoPresenter
 import com.chrynan.chat.ui.adapter.contact.ContactInfoActionAdapter
 import com.chrynan.chat.ui.adapter.contact.ContactInfoListItemAdapter

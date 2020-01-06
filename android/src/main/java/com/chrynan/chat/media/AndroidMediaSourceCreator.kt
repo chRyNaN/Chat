@@ -2,7 +2,7 @@ package com.chrynan.chat.media
 
 import android.net.Uri
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.model.UriString
+import com.chrynan.chat.model.core.UriString
 import com.chrynan.chat.utils.ActivityContext
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
