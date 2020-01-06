@@ -1,6 +1,5 @@
-package com.chrynan.chat.model.contact
+package com.chrynan.chat.model.account
 
-import com.chrynan.chat.model.core.Handle
 import com.chrynan.chat.model.core.ID
 import com.chrynan.chat.model.core.Node
 import com.chrynan.chat.model.core.TimeMoment
