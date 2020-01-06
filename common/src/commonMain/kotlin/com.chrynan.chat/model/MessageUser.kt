@@ -4,7 +4,7 @@ import com.chrynan.chat.model.core.ID
 import com.chrynan.chat.model.core.Node
 import com.chrynan.chat.model.core.UriString
 
-data class User(
+data class MessageUser(
     val userID: ID,
     val accountID: ID,
     val name: String,

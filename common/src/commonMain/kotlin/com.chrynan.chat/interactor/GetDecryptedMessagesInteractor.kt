@@ -2,7 +2,7 @@ package com.chrynan.chat.interactor
 
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.model.decrypted.DecryptedMessage
-import com.chrynan.chat.model.User
+import com.chrynan.chat.model.MessageUser
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 
@@ -13,7 +13,7 @@ class GetDecryptedMessagesInteractor @Inject constructor() {
             id = "1",
             dateTime = "11:00",
             firstMessageInDate = true,
-            sender = User(
+            sender = MessageUser(
                 userID = "userOne",
                 accountID = "accountOne",
                 name = "Chris",
@@ -25,7 +25,7 @@ class GetDecryptedMessagesInteractor @Inject constructor() {
         val messageTwo = DecryptedMessage(
             id = "2",
             dateTime = "11:15",
-            sender = User(
+            sender = MessageUser(
                 userID = "userOne",
                 accountID = "accountOne",
                 name = "Chris",
@@ -37,7 +37,7 @@ class GetDecryptedMessagesInteractor @Inject constructor() {
         val messageThree = DecryptedMessage(
             id = "3",
             dateTime = "12:22",
-            sender = User(
+            sender = MessageUser(
                 userID = "userTwo",
                 accountID = "accountTwo",
                 name = "Other User",

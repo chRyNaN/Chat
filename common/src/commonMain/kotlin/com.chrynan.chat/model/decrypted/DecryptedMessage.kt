@@ -8,7 +8,7 @@ import com.chrynan.chat.model.core.TimeMoment
 data class DecryptedMessage(
     override val id: ID,
     val dateTime: TimeMoment,
-    val sender: User,
+    val sender: MessageUser,
     val decryptedContent: String,
     val status: MessageStatus = MessageStatus.PENDING_SEND,
     val threadedReplyCount: Int = 0,
