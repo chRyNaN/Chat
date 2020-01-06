@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface PaginatedRepository<T> {
 
-    fun subscribe(first: Int, after: Cursor? = null): Flow<T>
+    fun subscribe(first: Int = 10, after: Cursor? = null): Flow<List<T>>
 
     suspend fun load(next: Int)
 }
