@@ -2,8 +2,8 @@ package com.chrynan.chat.mapper
 
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.model.DecryptedAttachment
-import com.chrynan.chat.model.DecryptedMessage
+import com.chrynan.chat.model.decrypted.DecryptedAttachment
+import com.chrynan.chat.model.decrypted.DecryptedMessage
 import com.chrynan.chat.resources.DrawableIDs
 import com.chrynan.chat.resources.Strings
 import com.chrynan.chat.viewmodel.*

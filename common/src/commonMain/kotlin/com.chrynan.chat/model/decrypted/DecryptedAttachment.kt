@@ -1,4 +1,6 @@
-package com.chrynan.chat.model
+package com.chrynan.chat.model.decrypted
+
+import com.chrynan.chat.model.UriString
 
 sealed class DecryptedAttachment {
 

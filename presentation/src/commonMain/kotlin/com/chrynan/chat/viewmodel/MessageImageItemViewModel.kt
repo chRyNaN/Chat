@@ -1,7 +1,7 @@
 package com.chrynan.chat.viewmodel
 
 import com.chrynan.aaaah.asUniqueAdapterId
-import com.chrynan.chat.model.DecryptedAttachment
+import com.chrynan.chat.model.decrypted.DecryptedAttachment
 import com.chrynan.chat.model.ID
 
 data class MessageImageItemViewModel(

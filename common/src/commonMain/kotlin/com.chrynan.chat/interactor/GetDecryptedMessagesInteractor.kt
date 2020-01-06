@@ -1,7 +1,7 @@
 package com.chrynan.chat.interactor
 
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.model.DecryptedMessage
+import com.chrynan.chat.model.decrypted.DecryptedMessage
 import com.chrynan.chat.model.User
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf

@@ -3,6 +3,7 @@ scalar UserConnectionType
 interface UserContract {
     name: PersonName!
     image: UriString
+    contactInfo: ContactInfo!
 }
 
 interface Descriptive {
@@ -20,6 +21,7 @@ type Viewer implements Node, UserContract {
     contactInfo: ContactInfo!
     accounts(first: Int! = 10, after: Cursor = null): AccountConnection!
     connections(type: UserConnectionType!, first: Int! = 10, after: Cursor = null): ContactConnection!
+    pinnedConnections(first: Int! = 10, after: Cursor = null): ContactConnection!
 }
 
 type Contact implements Node, UserContract {
