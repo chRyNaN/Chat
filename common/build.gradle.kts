@@ -15,6 +15,8 @@ kotlin {
                 internal(CommonModuleDependencies.KOTLIN_COMMON)
 
                 external(CommonModuleDependencies.KOTLIN_COROUTINES_COMMON)
+
+                external(CommonModuleDependencies.LOGGER)
             }
         }
         val jvmMain by getting {

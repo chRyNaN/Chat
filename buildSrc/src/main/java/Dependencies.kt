@@ -1,6 +1,6 @@
 enum class Dependencies(
-        override val path: String,
-        override val version: String
+    override val path: String,
+    override val version: String
 ) : Dependency {
 
     KOTLIN_COMMON(path = "org.jetbrains.kotlin:kotlin-stdlib-common", version = "1.3.61"),
@@ -32,5 +32,8 @@ enum class Dependencies(
     DAGGER_ANDROID_PROCESSOR(path = "com.google.dagger:dagger-android-processor", version = "2.19"),
     DAGGER_CORE(path = "com.google.dagger:dagger", version = "2.19"),
     DAGGER_ANDROID_SUPPORT(path = "com.google.dagger:dagger-android-support", version = "2.19"),
-    KLAXON(path = "com.beust:klaxon", version = "5.0.1")
+    KLAXON(path = "com.beust:klaxon", version = "5.0.1"),
+    LOGGER(path = "com.chrynan.logger:logger-core", version = "1.1.2"),
+    LOGGER_ANDROID(path = "com.chrynan.logger:logger-android", version = "1.1.2"),
+    LOGGER_ANDROID_TIMBER(path = "com.chrynan.logger:logger-android-timber", version = "1.1.2")
 }

@@ -28,6 +28,13 @@ allprojects {
                 password = project.findProperty("gpr.key") as? String?
             }
         }
+        maven {
+            url = uri("https://maven.pkg.github.com/chRyNaN/logger")
+            credentials {
+                username = project.findProperty("gpr.user") as? String?
+                password = project.findProperty("gpr.key") as? String?
+            }
+        }
     }
 
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).all {

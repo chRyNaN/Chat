@@ -27,6 +27,7 @@ android {
 
     packagingOptions {
         exclude("META-INF/kotlinx-coroutines-core.kotlin_module")
+        exclude("META-INF/core.kotlin_module")
     }
 
     compileOptions {
@@ -103,6 +104,10 @@ dependencies {
 
     // JSON - Klaxon
     internal(AndroidModuleDependencies.KLAXON)
+
+    // Logging
+    internal(AndroidModuleDependencies.LOGGER_ANDROID)
+    internal(AndroidModuleDependencies.LOGGER_ANDROID_TIMBER)
 }
 
 androidExtensions {

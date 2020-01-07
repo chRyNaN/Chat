@@ -5,4 +5,5 @@ object CommonModuleDependencies {
     val KOTLIN_JVM = Dependencies.KOTLIN_JVM
     val KOTLIN_COROUTINES_JVM = Dependencies.KOTLIN_COROUTINES_JVM
     val JAVA_INJECT = Dependencies.JAVA_INJECT
+    val LOGGER = Dependencies.LOGGER
 }

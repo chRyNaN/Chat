@@ -11,11 +11,15 @@ import com.chrynan.chat.model.core.PageInfo
 import com.chrynan.chat.repository.BasePaginatedSource
 import com.chrynan.chat.repository.BriefUserConnectionRepository
 import com.chrynan.chat.repository.PaginatedRepository
+import com.chrynan.logger.Loggable
 
-class BriefUserConnectionSource @Inject constructor() : BriefUserConnectionRepository {
+class BriefUserConnectionSource @Inject constructor(logger: Loggable) : BriefUserConnectionRepository,
+    Loggable by logger {
 
     override suspend fun get(id: ID): BriefContact {
         // TODO load real data
+        logWarning(message = "Testing")
+
         return BriefContact(
             id = "",
             imageUri = null,

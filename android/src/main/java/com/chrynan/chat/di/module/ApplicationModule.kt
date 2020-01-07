@@ -6,6 +6,8 @@ import com.chrynan.chat.coroutines.ApplicationCoroutineScope
 import com.chrynan.chat.coroutines.CoroutineDispatchers
 import com.chrynan.chat.resources.*
 import com.chrynan.chat.utils.ApplicationContext
+import com.chrynan.chat.utils.Logger
+import com.chrynan.logger.Loggable
 import dagger.Binds
 
 @Module
@@ -31,4 +33,7 @@ internal abstract class ApplicationModule {
 
     @Binds
     abstract fun bindDrawableIDs(provider: DrawableIDProvider): DrawableIDs
+
+    @Binds
+    abstract fun bindLogger(logger: Logger): Loggable
 }
