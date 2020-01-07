@@ -2,12 +2,12 @@ package com.chrynan.chat.mapper
 
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.model.UserImage
-import com.chrynan.chat.model.contact.Contact
+import com.chrynan.chat.model.contact.BriefContact
 import com.chrynan.chat.viewmodel.ContactItemViewModel
 
-class ContactMapper @Inject constructor() : Mapper<Contact, ContactItemViewModel> {
+class BriefContactMapper @Inject constructor() : Mapper<BriefContact, ContactItemViewModel> {
 
-    override suspend fun map(model: Contact): ContactItemViewModel {
+    override suspend fun map(model: BriefContact): ContactItemViewModel {
         val contactName = model.name.nickname ?: model.name.firstName
 
         return ContactItemViewModel(

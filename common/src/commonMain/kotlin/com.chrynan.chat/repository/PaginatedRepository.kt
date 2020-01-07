@@ -1,11 +1,18 @@
 package com.chrynan.chat.repository
 
+import com.chrynan.chat.model.core.Connection
 import com.chrynan.chat.model.core.Cursor
+import com.chrynan.chat.model.core.Edge
+import com.chrynan.chat.model.core.Node
 import kotlinx.coroutines.flow.Flow
 
-interface PaginatedRepository<T> {
+interface PaginatedRepository<N : Node, E : Edge<N>> {
 
-    fun subscribe(first: Int = 10, after: Cursor? = null): Flow<List<T>>
+    val canLoadMore: Boolean
+
+    val currentConnection: Connection<N, E>?
+
+    fun subscribe(first: Int = 10, after: Cursor? = null): Flow<List<N>>
 
     suspend fun load(next: Int)
 }

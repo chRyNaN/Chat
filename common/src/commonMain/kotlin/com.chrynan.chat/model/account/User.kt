@@ -1,6 +1,6 @@
 package com.chrynan.chat.model.account
 
-import com.chrynan.chat.model.contact.ContactConnection
+import com.chrynan.chat.model.contact.FullContactConnection
 import com.chrynan.chat.model.contact.ContactInfo
 import com.chrynan.chat.model.contact.PersonName
 import com.chrynan.chat.model.core.ID
@@ -13,6 +13,6 @@ data class User(
     val imageUri: UriString? = null,
     val info: ContactInfo = ContactInfo(),
     val accountConnection: AccountConnection? = null,
-    val contactConnection: ContactConnection? = null,
-    val pinnedContactConnection: ContactConnection? = null
+    val contactConnection: FullContactConnection? = null,
+    val pinnedContactConnection: FullContactConnection? = null
 ) : Node

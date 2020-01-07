@@ -85,6 +85,7 @@ dependencies {
 
     // Common Presentation Module
     internal(Project.Module.PRESENTATION)
+    internal(Project.Module.COMMON)
 
     // RecyclerView Library - Aaaah
     internal(AndroidModuleDependencies.AAAAH_LIBRARY)
