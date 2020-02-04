@@ -1,14 +1,14 @@
 package com.chrynan.chat.di.module.fragment
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.chrynan.aaaah.ItemListUpdater
-import com.chrynan.chat.adapter.*
+import com.chrynan.aaaah.*
+import com.chrynan.chat.adapter.AdapterItem
+import com.chrynan.chat.adapter.AdapterItemHandler
+import com.chrynan.chat.adapter.BaseAdapterItemHandler
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.scope.FragmentScope
 import com.chrynan.chat.ui.adapter.contact.ContactAdapter
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
-import com.chrynan.chat.ui.adapter.processing.AndroidDiffDispatcher
-import com.chrynan.chat.ui.adapter.processing.AndroidDiffProcessor
 import com.chrynan.chat.ui.fragment.ContactListFragment
 import com.chrynan.chat.utils.ActivityContext
 import com.chrynan.chat.view.ContactListView
@@ -41,8 +41,19 @@ abstract class ContactListFragmentModule {
         @Provides
         @JvmStatic
         @FragmentScope
-        fun provideAaaahDiffProcessor(): com.chrynan.aaaah.DiffProcessor<AdapterItem> =
-            com.chrynan.aaaah.DiffProcessor()
+        fun provideAaaahDiffProcessor(calculator: DiffUtilCalculator<AdapterItem>): DiffProcessor<AdapterItem> =
+            AndroidDiffProcessor(calculator)
+
+        @Provides
+        @JvmStatic
+        @FragmentScope
+        fun provideAaaahDiffDispatcher(listener: ItemListUpdater<AdapterItem>): DiffDispatcher<AdapterItem> =
+            AndroidDiffDispatcher(listener)
+
+        @Provides
+        @JvmStatic
+        @FragmentScope
+        fun provideAaaahDiffCalculator() = DiffUtilCalculator<AdapterItem>()
     }
 
     @Binds
@@ -56,14 +67,6 @@ abstract class ContactListFragmentModule {
     @Binds
     @FragmentScope
     abstract fun bindItemListUpdater(adapter: BaseManagerAdapter<AdapterItem>): ItemListUpdater<AdapterItem>
-
-    @Binds
-    @FragmentScope
-    abstract fun bindDiffProcessor(processor: AndroidDiffProcessor<AdapterItem>): DiffProcessor<AdapterItem>
-
-    @Binds
-    @FragmentScope
-    abstract fun bindDiffDispatcher(dispatcher: AndroidDiffDispatcher<AdapterItem>): DiffDispatcher<AdapterItem>
 
     @Binds
     @FragmentScope

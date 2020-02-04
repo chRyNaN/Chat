@@ -45,11 +45,7 @@ repositories {
     jcenter()
     maven { url = uri("https://jitpack.io") }
     maven {
-        url = uri("https://maven.pkg.github.com/chRyNaN/aaaah")
-        credentials {
-            username = project.findProperty("gpr.user") as? String?
-            password = project.findProperty("gpr.key") as? String?
-        }
+        url = uri("https://dl.bintray.com/chrynan/chrynan")
     }
 }
 

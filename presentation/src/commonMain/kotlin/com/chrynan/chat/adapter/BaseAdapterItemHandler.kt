@@ -1,5 +1,8 @@
 package com.chrynan.chat.adapter
 
+import com.chrynan.aaaah.DiffDispatcher
+import com.chrynan.aaaah.DiffProcessor
+import com.chrynan.aaaah.DiffResult
 import com.chrynan.chat.coroutines.CoroutineDispatchers
 import com.chrynan.chat.di.Inject
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -21,6 +21,8 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 internal(PresentationModuleDependencies.KOTLIN_JVM)
+
+                external(PresentationModuleDependencies.AAAAH_CORE_JVM)
             }
         }
     }

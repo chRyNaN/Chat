@@ -29,6 +29,9 @@ allprojects {
             }
         }
         maven {
+            url = uri("https://dl.bintray.com/chrynan/chrynan")
+        }
+        maven {
             url = uri("https://maven.pkg.github.com/chRyNaN/logger")
             credentials {
                 username = project.findProperty("gpr.user") as? String?
