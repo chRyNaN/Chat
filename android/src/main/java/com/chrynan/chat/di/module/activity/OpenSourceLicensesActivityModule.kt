@@ -1,5 +1,6 @@
 package com.chrynan.chat.di.module.activity
 
+import com.chrynan.chat.di.module.AdapterModule
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.module.fragment.OpenSourceLicensesFragmentModule
 import com.chrynan.chat.di.module.fragment.WebFragmentModule
@@ -12,7 +13,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class OpenSourceLicensesActivityModule {
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [OpenSourceLicensesFragmentModule::class])
+    @ContributesAndroidInjector(modules = [OpenSourceLicensesFragmentModule::class, AdapterModule::class])
     abstract fun openSourceLicensesInjector(): OpenSourceLicensesFragment
 
     @FragmentScope

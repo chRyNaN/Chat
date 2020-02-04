@@ -1,7 +1,7 @@
 package com.chrynan.chat.di.module.fragment
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.chrynan.aaaah.*
+import com.chrynan.aaaah.ItemListUpdater
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.adapter.AdapterItemHandler
 import com.chrynan.chat.adapter.BaseAdapterItemHandler
@@ -70,22 +70,6 @@ abstract class ConversationFragmentModule {
                 adapters = setOf(),
                 layoutManager = layoutManager
             )
-
-        @Provides
-        @JvmStatic
-        @FragmentScope
-        fun provideAaaahDiffProcessor(calculator: DiffUtilCalculator<AdapterItem>): DiffProcessor<AdapterItem> =
-            AndroidDiffProcessor(calculator)
-
-        @Provides
-        @JvmStatic
-        @FragmentScope
-        fun provideAaaahDiffDispatcher(listener: ItemListUpdater<AdapterItem>): DiffDispatcher<AdapterItem> = AndroidDiffDispatcher(listener)
-
-        @Provides
-        @JvmStatic
-        @FragmentScope
-        fun provideAaaahDiffCalculator() = DiffUtilCalculator<AdapterItem>()
 
         @Provides
         @JvmStatic

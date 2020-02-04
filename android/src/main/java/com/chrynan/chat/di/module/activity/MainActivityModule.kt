@@ -1,5 +1,6 @@
 package com.chrynan.chat.di.module.activity
 
+import com.chrynan.chat.di.module.AdapterModule
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.module.fragment.*
 import com.chrynan.chat.di.scope.FragmentScope
@@ -14,7 +15,7 @@ abstract class MainActivityModule {
     abstract fun conversationListFragmentInjector(): ConversationListFragment
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [ContactListFragmentModule::class])
+    @ContributesAndroidInjector(modules = [ContactListFragmentModule::class, AdapterModule::class])
     abstract fun contactListFragmentInjector(): ContactListFragment
 
     @FragmentScope
