@@ -36,5 +36,6 @@ enum class Dependencies(
     KLAXON(path = "com.beust:klaxon", version = "5.0.1"),
     LOGGER(path = "com.chrynan.logger:logger-core", version = "1.2.1"),
     LOGGER_ANDROID(path = "com.chrynan.logger:logger-android", version = "1.2.1"),
-    LOGGER_ANDROID_TIMBER(path = "com.chrynan.logger:logger-android-timber", version = "1.2.1")
+    LOGGER_ANDROID_TIMBER(path = "com.chrynan.logger:logger-android-timber", version = "1.2.1"),
+    PHOTO_VIEW(path = "com.github.chrisbanes:PhotoView", version = "2.0.0")
 }

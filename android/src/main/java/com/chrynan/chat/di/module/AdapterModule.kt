@@ -16,10 +16,12 @@ class AdapterModule {
 
         @Provides
         @JvmStatic
-        fun provideDiffProcessor(calculator: DiffUtilCalculator<AdapterItem>): DiffProcessor<AdapterItem> = AndroidDiffProcessor(calculator)
+        fun provideDiffProcessor(calculator: DiffUtilCalculator<AdapterItem>): DiffProcessor<AdapterItem> =
+            AndroidDiffProcessor(calculator)
 
         @Provides
         @JvmStatic
-        fun provideDiffDispatcher(listener: ItemListUpdater<AdapterItem>): DiffDispatcher<AdapterItem> = AndroidDiffDispatcher(listener)
+        fun provideDiffDispatcher(listener: ItemListUpdater<AdapterItem>): DiffDispatcher<AdapterItem> =
+            AndroidDiffDispatcher(listener)
     }
 }

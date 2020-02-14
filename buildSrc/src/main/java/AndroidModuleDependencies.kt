@@ -28,4 +28,5 @@ object AndroidModuleDependencies {
     val KOTLIN_COROUTINES_ANDORID = Dependencies.KOTLIN_COROUTINES_ANDROID
     val LOGGER_ANDROID = Dependencies.LOGGER_ANDROID
     val LOGGER_ANDROID_TIMBER = Dependencies.LOGGER_ANDROID_TIMBER
+    val PHOTO_VIEW = Dependencies.PHOTO_VIEW
 }

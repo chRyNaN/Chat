@@ -15,5 +15,6 @@
     <string name="cd_contact_list_item_icon">Contact List Item Icon</string>
     <string name="cd_contact_info_user_image">User Image</string>
     <string name="cd_contact_info_actions_image">Contact Info Quick Action</string>
+    <string name="cd_image_preview_image">Image Preview</string>
 
 </resources>

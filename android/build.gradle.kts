@@ -80,6 +80,9 @@ dependencies {
     // Image Loading - Coil
     internal(AndroidModuleDependencies.ANDROID_COIL)
 
+    // Panning Image View
+    internal(AndroidModuleDependencies.PHOTO_VIEW)
+
     // Common Presentation Module
     internal(Project.Module.PRESENTATION)
     internal(Project.Module.COMMON)

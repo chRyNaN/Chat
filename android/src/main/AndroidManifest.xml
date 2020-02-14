@@ -52,7 +52,7 @@
                 android:screenOrientation="portrait"/>
 
         <activity
-                android:name=".ui.activity.MediaPreviewActivity"
+                android:name=".feature.media.activity.MediaPreviewActivity"
                 android:screenOrientation="portrait"/>
 
     </application>

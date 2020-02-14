@@ -2,6 +2,8 @@ package com.chrynan.chat.di.module
 
 import com.chrynan.chat.di.module.activity.*
 import com.chrynan.chat.di.scope.ActivityScope
+import com.chrynan.chat.feature.media.activity.MediaPreviewActivity
+import com.chrynan.chat.feature.media.di.MediaPreviewActivityModule
 import com.chrynan.chat.ui.activity.*
 import dagger.android.ContributesAndroidInjector
 
@@ -35,4 +37,8 @@ internal abstract class ActivityBuilderModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = [ContactInfoActivityModule::class])
     abstract fun contactInfoActivityInjector(): ContactInfoActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = [MediaPreviewActivityModule::class])
+    abstract fun mediaPreviewActivityInjector(): MediaPreviewActivity
 }

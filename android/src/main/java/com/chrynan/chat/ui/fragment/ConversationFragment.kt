@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.chrynan.chat.R
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.di.Inject
+import com.chrynan.chat.feature.media.activity.MediaPreviewActivity
+import com.chrynan.chat.feature.media.viewmodel.ImagePreviewItemViewModel
 import com.chrynan.chat.model.Reaction
 import com.chrynan.chat.presenter.ConversationPresenter
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
@@ -77,7 +79,14 @@ class ConversationFragment : BaseFragment(),
     }
 
     override fun onImageSelected(item: MessageImageItemViewModel) {
-
+        startActivity(
+            MediaPreviewActivity.newIntent(
+                context!!,
+                ImagePreviewItemViewModel(
+                    imageUri = item.image.uri
+                )
+            )
+        )
     }
 
     override fun onFileSelected(item: MessageFileItemViewModel) {
