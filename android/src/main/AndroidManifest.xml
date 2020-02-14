@@ -36,7 +36,7 @@
                 android:screenOrientation="portrait"/>
 
         <activity
-                android:name=".ui.activity.ConversationActivity"
+                android:name=".feature.conversation.activity.ConversationActivity"
                 android:screenOrientation="portrait"/>
 
         <activity

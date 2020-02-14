@@ -16,7 +16,7 @@
             android:clipToPadding="false"
             android:paddingBottom="@dimen/spacing_xxlarge"/>
 
-    <com.chrynan.chat.ui.widget.MessageEditorLayout
+    <com.chrynan.chat.feature.conversation.widget.MessageEditorLayout
             android:id="@+id/messageEditorLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

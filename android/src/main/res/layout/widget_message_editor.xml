@@ -13,7 +13,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-    <com.chrynan.chat.ui.widget.MessageEditText
+    <com.chrynan.chat.feature.conversation.widget.MessageEditText
             android:id="@+id/messageEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
