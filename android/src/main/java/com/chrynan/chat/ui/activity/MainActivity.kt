@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.chrynan.chat.R
-import com.chrynan.chat.ui.fragment.ContactListFragment
+import com.chrynan.chat.feature.contact.fragment.ContactListFragment
 import com.chrynan.chat.feature.conversation.fragment.ConversationListFragment
-import com.chrynan.chat.ui.fragment.SettingsFragment
+import com.chrynan.chat.feature.settings.fragment.SettingsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {

@@ -12,7 +12,7 @@ import com.chrynan.chat.feature.contact.adapter.ContactInfoHeaderAdapter
 import com.chrynan.chat.feature.contact.adapter.ContactInfoListItemAdapter
 import com.chrynan.chat.feature.contact.view.ContactInfoView
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
-import com.chrynan.chat.ui.fragment.ContactInfoFragment
+import com.chrynan.chat.feature.contact.fragment.ContactInfoFragment
 import com.chrynan.chat.utils.ActivityContext
 import dagger.Binds
 import dagger.Provides

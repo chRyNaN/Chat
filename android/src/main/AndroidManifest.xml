@@ -44,7 +44,7 @@
                 android:screenOrientation="portrait"/>
 
         <activity
-                android:name=".ui.activity.OpenSourceLicensesActivity"
+                android:name=".feature.settings.activity.OpenSourceLicensesActivity"
                 android:screenOrientation="portrait"/>
 
         <activity

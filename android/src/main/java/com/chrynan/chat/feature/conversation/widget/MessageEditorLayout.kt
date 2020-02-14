@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chrynan.aaaah.ManagerRecyclerViewAdapter
 import com.chrynan.chat.R
-import com.chrynan.chat.ui.adapter.AttachmentItemAdapter
-import com.chrynan.chat.viewmodel.AttachmentListItemViewModel
+import com.chrynan.chat.feature.conversation.adapter.AttachmentItemAdapter
+import com.chrynan.chat.feature.conversation.viewmodel.AttachmentListItemViewModel
 import com.chrynan.chat.viewmodel.ViewModel
 
 class MessageEditorLayout : ConstraintLayout,
@@ -37,7 +37,11 @@ class MessageEditorLayout : ConstraintLayout,
     private val editText by lazy { findViewById<EditText>(R.id.messageEditText) }
 
     private val attachments =
-        mutableListOf<AttachmentListItemViewModel>(AttachmentListItemViewModel(""))
+        mutableListOf<AttachmentListItemViewModel>(
+            AttachmentListItemViewModel(
+                ""
+            )
+        )
 
     private val adapter: ManagerRecyclerViewAdapter<ViewModel>
 
@@ -49,9 +53,10 @@ class MessageEditorLayout : ConstraintLayout,
         outlineProvider = customOutlineProvider
         clipToOutline = true
 
-        val attachmentAdapter = AttachmentItemAdapter().apply {
-            listener = this@MessageEditorLayout
-        }
+        val attachmentAdapter = AttachmentItemAdapter()
+            .apply {
+                listener = this@MessageEditorLayout
+            }
         adapter = ManagerRecyclerViewAdapter(adapters = setOf(attachmentAdapter))
 
         recyclerView.adapter = adapter
@@ -72,7 +77,9 @@ class MessageEditorLayout : ConstraintLayout,
     }
 
     override fun onMediaItemSelected(contentInfo: InputContentInfoCompat) {
-        attachments += AttachmentListItemViewModel(imageUri = contentInfo.contentUri.toString())
+        attachments += AttachmentListItemViewModel(
+            imageUri = contentInfo.contentUri.toString()
+        )
         // TODO this should be optimized to use a diff util
         adapter.items = attachments
         toggleRecyclerViewVisibility()

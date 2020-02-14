@@ -1,4 +1,4 @@
-package com.chrynan.chat.feature.contact.di
+package com.chrynan.chat.feature.settings.di
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chrynan.aaaah.ItemListUpdater
@@ -7,16 +7,16 @@ import com.chrynan.chat.adapter.AdapterItemHandler
 import com.chrynan.chat.adapter.BaseAdapterItemHandler
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.scope.FragmentScope
-import com.chrynan.chat.feature.contact.adapter.ContactAdapter
-import com.chrynan.chat.feature.contact.view.ContactListView
+import com.chrynan.chat.feature.settings.adapter.ProjectDependencyAdapter
+import com.chrynan.chat.feature.settings.fragment.OpenSourceLicensesFragment
+import com.chrynan.chat.feature.settings.view.OpenSourceLicensesView
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
-import com.chrynan.chat.feature.contact.fragment.ContactListFragment
 import com.chrynan.chat.utils.ActivityContext
 import dagger.Binds
 import dagger.Provides
 
 @Module
-abstract class ContactListFragmentModule {
+abstract class OpenSourceLicensesFragmentModule {
 
     @Module
     companion object {
@@ -26,10 +26,12 @@ abstract class ContactListFragmentModule {
         @FragmentScope
         fun provideBaseManagerAdapter(
             layoutManager: LinearLayoutManager,
-            contactAdapter: ContactAdapter
+            dependencyAdapter: ProjectDependencyAdapter
         ): BaseManagerAdapter<AdapterItem> =
             BaseManagerAdapter(
-                adapters = setOf(contactAdapter),
+                adapters = setOf(
+                    dependencyAdapter
+                ),
                 layoutManager = layoutManager
             )
 
@@ -41,11 +43,11 @@ abstract class ContactListFragmentModule {
 
     @Binds
     @FragmentScope
-    abstract fun bindContactListView(fragment: ContactListFragment): ContactListView
+    abstract fun bindConversationView(fragment: OpenSourceLicensesFragment): OpenSourceLicensesView
 
     @Binds
     @FragmentScope
-    abstract fun bindContactSelectedListener(fragment: ContactListFragment): ContactAdapter.ContactSelectedListener
+    abstract fun bindThreadListener(fragment: OpenSourceLicensesFragment): ProjectDependencyAdapter.ProjectDependencySelectedListener
 
     @Binds
     @FragmentScope

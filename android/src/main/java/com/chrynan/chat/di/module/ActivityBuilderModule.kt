@@ -8,6 +8,8 @@ import com.chrynan.chat.feature.conversation.activity.ConversationActivity
 import com.chrynan.chat.feature.conversation.di.ConversationActivityModule
 import com.chrynan.chat.feature.media.activity.MediaPreviewActivity
 import com.chrynan.chat.feature.media.di.MediaPreviewActivityModule
+import com.chrynan.chat.feature.settings.activity.OpenSourceLicensesActivity
+import com.chrynan.chat.feature.settings.di.OpenSourceLicensesActivityModule
 import com.chrynan.chat.ui.activity.*
 import dagger.android.ContributesAndroidInjector
 
