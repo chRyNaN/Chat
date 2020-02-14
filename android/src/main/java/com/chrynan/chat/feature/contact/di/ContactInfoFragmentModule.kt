@@ -1,4 +1,4 @@
-package com.chrynan.chat.di.module.fragment
+package com.chrynan.chat.feature.contact.di
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chrynan.aaaah.*
@@ -7,13 +7,13 @@ import com.chrynan.chat.adapter.AdapterItemHandler
 import com.chrynan.chat.adapter.BaseAdapterItemHandler
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.scope.FragmentScope
-import com.chrynan.chat.ui.adapter.contact.ContactInfoActionAdapter
-import com.chrynan.chat.ui.adapter.contact.ContactInfoHeaderAdapter
-import com.chrynan.chat.ui.adapter.contact.ContactInfoListItemAdapter
+import com.chrynan.chat.feature.contact.adapter.ContactInfoActionAdapter
+import com.chrynan.chat.feature.contact.adapter.ContactInfoHeaderAdapter
+import com.chrynan.chat.feature.contact.adapter.ContactInfoListItemAdapter
+import com.chrynan.chat.feature.contact.view.ContactInfoView
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.ui.fragment.ContactInfoFragment
 import com.chrynan.chat.utils.ActivityContext
-import com.chrynan.chat.view.ContactInfoView
 import dagger.Binds
 import dagger.Provides
 

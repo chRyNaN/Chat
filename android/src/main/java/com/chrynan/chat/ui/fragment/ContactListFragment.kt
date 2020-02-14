@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.chrynan.chat.R
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.presenter.ContactListPresenter
-import com.chrynan.chat.ui.activity.ContactInfoActivity
-import com.chrynan.chat.ui.adapter.contact.ContactAdapter
+import com.chrynan.chat.feature.contact.presenter.ContactListPresenter
+import com.chrynan.chat.feature.contact.activity.ContactInfoActivity
+import com.chrynan.chat.feature.contact.adapter.ContactAdapter
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
-import com.chrynan.chat.view.ContactListView
-import com.chrynan.chat.viewmodel.ContactItemViewModel
+import com.chrynan.chat.feature.contact.view.ContactListView
+import com.chrynan.chat.feature.contact.viewmodel.ContactItemViewModel
 import kotlinx.android.synthetic.main.fragment_contact_list.*
 
 class ContactListFragment : BaseFragment(),

@@ -4,6 +4,8 @@ import com.chrynan.chat.di.module.AdapterModule
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.module.fragment.*
 import com.chrynan.chat.di.scope.FragmentScope
+import com.chrynan.chat.feature.contact.di.ContactInfoFragmentModule
+import com.chrynan.chat.feature.contact.di.ContactListFragmentModule
 import com.chrynan.chat.feature.conversation.di.ConversationListFragmentModule
 import com.chrynan.chat.feature.conversation.fragment.ConversationListFragment
 import com.chrynan.chat.ui.fragment.*

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.chrynan.chat.R
-import com.chrynan.chat.view.EditContactView
+import com.chrynan.chat.feature.contact.view.EditContactView
 
 class EditContactFragment : BaseFragment(),
     EditContactView {

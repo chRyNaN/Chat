@@ -1,4 +1,4 @@
-package com.chrynan.chat.ui.adapter.contact
+package com.chrynan.chat.feature.contact.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +8,10 @@ import com.chrynan.aaaah.AdapterViewType
 import com.chrynan.aaaah.ViewType
 import com.chrynan.aaaah.from
 import com.chrynan.chat.R
-import com.chrynan.chat.di.Inject
+import com.chrynan.chat.feature.contact.viewmodel.ContactInfoActionItemViewModel
 import com.chrynan.chat.ui.adapter.core.BaseAdapter
-import com.chrynan.chat.viewmodel.ContactInfoActionItemViewModel
 import kotlinx.android.synthetic.main.adapter_contact_info_actions.view.*
+import javax.inject.Inject
 
 @Adapter
 class ContactInfoActionAdapter @Inject constructor(private val listener: ContactInfoActionSelectedListener) :
@@ -22,13 +22,20 @@ class ContactInfoActionAdapter @Inject constructor(private val listener: Contact
     override fun onHandlesItem(item: Any) = item is ContactInfoActionItemViewModel
 
     override fun onCreateView(parent: ViewGroup, viewType: ViewType): View =
-        LayoutInflater.from(parent.context).inflate(R.layout.adapter_contact_info_actions, parent, false)
+        LayoutInflater.from(parent.context).inflate(
+            R.layout.adapter_contact_info_actions,
+            parent,
+            false
+        )
 
     override fun onBindItem(view: View, item: ContactInfoActionItemViewModel) {
         view.apply {
-            contactActionCallTextView?.visibility = if (item.defaultPhoneNumber == null) View.GONE else View.VISIBLE
-            contactActionChatTextView?.visibility = if (item.defaultHandle == null) View.GONE else View.VISIBLE
-            contactActionEmailTextView?.visibility = if (item.defaultEmail == null) View.GONE else View.VISIBLE
+            contactActionCallTextView?.visibility =
+                if (item.defaultPhoneNumber == null) View.GONE else View.VISIBLE
+            contactActionChatTextView?.visibility =
+                if (item.defaultHandle == null) View.GONE else View.VISIBLE
+            contactActionEmailTextView?.visibility =
+                if (item.defaultEmail == null) View.GONE else View.VISIBLE
 
             contactActionCallTextView?.setOnClickListener { listener.onCallSelected(item) }
             contactActionChatTextView?.setOnClickListener { listener.onChatSelected(item) }

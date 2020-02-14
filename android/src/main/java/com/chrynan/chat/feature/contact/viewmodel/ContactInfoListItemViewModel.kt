@@ -1,4 +1,4 @@
-package com.chrynan.chat.viewmodel
+package com.chrynan.chat.feature.contact.viewmodel
 
 import com.chrynan.aaaah.asUniqueAdapterId
 import com.chrynan.chat.adapter.AdapterItem

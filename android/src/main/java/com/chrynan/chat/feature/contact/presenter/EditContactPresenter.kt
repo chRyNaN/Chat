@@ -1,8 +1,9 @@
-package com.chrynan.chat.presenter
+package com.chrynan.chat.feature.contact.presenter
 
 import com.chrynan.chat.coroutines.CoroutineDispatchers
-import com.chrynan.chat.di.Inject
-import com.chrynan.chat.view.EditContactView
+import com.chrynan.chat.feature.contact.view.EditContactView
+import com.chrynan.chat.presenter.BasePresenter
+import javax.inject.Inject
 
 class EditContactPresenter @Inject constructor(
     dispatchers: CoroutineDispatchers,

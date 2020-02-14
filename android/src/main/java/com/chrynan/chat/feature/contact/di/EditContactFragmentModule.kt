@@ -1,9 +1,9 @@
-package com.chrynan.chat.di.module.fragment
+package com.chrynan.chat.feature.contact.di
 
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.scope.FragmentScope
+import com.chrynan.chat.feature.contact.view.EditContactView
 import com.chrynan.chat.ui.fragment.EditContactFragment
-import com.chrynan.chat.view.EditContactView
 import dagger.Binds
 
 @Module

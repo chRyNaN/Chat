@@ -11,13 +11,13 @@ import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.model.core.ID
 import com.chrynan.chat.model.core.UriString
-import com.chrynan.chat.presenter.ContactInfoPresenter
-import com.chrynan.chat.ui.adapter.contact.ContactInfoActionAdapter
-import com.chrynan.chat.ui.adapter.contact.ContactInfoListItemAdapter
+import com.chrynan.chat.feature.contact.presenter.ContactInfoPresenter
+import com.chrynan.chat.feature.contact.adapter.ContactInfoActionAdapter
+import com.chrynan.chat.feature.contact.adapter.ContactInfoListItemAdapter
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
-import com.chrynan.chat.view.ContactInfoView
-import com.chrynan.chat.viewmodel.ContactInfoActionItemViewModel
-import com.chrynan.chat.viewmodel.ContactInfoListItemViewModel
+import com.chrynan.chat.feature.contact.view.ContactInfoView
+import com.chrynan.chat.feature.contact.viewmodel.ContactInfoActionItemViewModel
+import com.chrynan.chat.feature.contact.viewmodel.ContactInfoListItemViewModel
 import kotlinx.android.synthetic.main.fragment_contact_info.*
 
 class ContactInfoFragment : BaseFragment(),

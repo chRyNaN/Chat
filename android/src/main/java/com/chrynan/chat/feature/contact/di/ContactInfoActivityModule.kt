@@ -1,7 +1,6 @@
-package com.chrynan.chat.di.module.activity
+package com.chrynan.chat.feature.contact.di
 
 import com.chrynan.chat.di.module.Module
-import com.chrynan.chat.di.module.fragment.ContactInfoFragmentModule
 import com.chrynan.chat.di.scope.FragmentScope
 import com.chrynan.chat.ui.fragment.ContactInfoFragment
 import dagger.android.ContributesAndroidInjector

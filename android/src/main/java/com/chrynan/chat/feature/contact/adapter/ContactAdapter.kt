@@ -1,4 +1,4 @@
-package com.chrynan.chat.ui.adapter.contact
+package com.chrynan.chat.feature.contact.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +8,10 @@ import com.chrynan.aaaah.AdapterViewType
 import com.chrynan.aaaah.ViewType
 import com.chrynan.aaaah.from
 import com.chrynan.chat.R
-import com.chrynan.chat.di.Inject
+import com.chrynan.chat.feature.contact.viewmodel.ContactItemViewModel
 import com.chrynan.chat.ui.adapter.core.BaseAdapter
-import com.chrynan.chat.viewmodel.ContactItemViewModel
 import kotlinx.android.synthetic.main.adapter_contact.view.*
+import javax.inject.Inject
 
 @Adapter
 class ContactAdapter @Inject constructor(private val listener: ContactSelectedListener) :
@@ -29,7 +29,8 @@ class ContactAdapter @Inject constructor(private val listener: ContactSelectedLi
             contactUserImageView?.userImage = item.userImage
             contactTitleTextView?.text = item.name
             contactDescriptionTextView?.text = item.description
-            contactDescriptionTextView?.visibility = if (item.description == null) View.GONE else View.VISIBLE
+            contactDescriptionTextView?.visibility =
+                if (item.description == null) View.GONE else View.VISIBLE
             setOnClickListener { listener.onContactSelected(item) }
         }
     }
