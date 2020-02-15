@@ -13,4 +13,44 @@
 
     <style name="LauncherTheme" parent="AppTheme"></style>
 
+    <style name="ReferralTheme" parent="AppTheme">
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowBackground">@color/referral_background_color</item>
+    </style>
+
+    <!-- Buttons -->
+    <style name="Button" parent="Widget.AppCompat.Button">
+        <item name="android:textAppearance">@style/TextAppearance.Button</item>
+        <item name="android:padding">@dimen/spacing_small</item>
+    </style>
+
+    <style name="Button.Primary">
+        <item name="android:textAppearance">@style/TextAppearance.Button</item>
+        <item name="android:background">@color/accent_four_color</item>
+        <item name="android:backgroundTint">@color/accent_four_color</item>
+    </style>
+
+    <style name="Button.Secondary">
+        <item name="android:textAppearance">@style/TextAppearance.Button.Secondary</item>
+        <item name="android:background">@color/primary_dark_color</item>
+        <item name="android:backgroundTint">@color/primary_dark_color</item>
+    </style>
+
+    <style name="Button.Accent">
+        <item name="android:textAppearance">@style/TextAppearance.Button.Secondary</item>
+        <item name="android:background">@color/accent_one_color</item>
+        <item name="android:backgroundTint">@color/accent_one_color</item>
+    </style>
+
+    <!-- EditText -->
+    <style name="TextInputLayout" parent="Widget.Design.TextInputLayout">
+        <item name="colorControlNormal">@color/text_secondary_subtle_color</item>
+        <item name="colorControlActivated">@color/text_secondary_subtle_color</item>
+        <item name="colorControlHighlight">@color/text_secondary_subtle_color</item>
+        <item name="android:textColorHint">@color/text_secondary_subtle_color</item>
+        <item name="colorAccent">@color/text_secondary_color</item>
+        <item name="hintTextAppearance">@style/TextAppearance.Label.Secondary.Subtle</item>
+    </style>
+
 </resources>

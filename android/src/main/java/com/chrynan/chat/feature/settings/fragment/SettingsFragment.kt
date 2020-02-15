@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chrynan.chat.R
-import com.chrynan.chat.ui.activity.BaseActivity
+import com.chrynan.chat.feature.referral.activity.ReferralActivity
 import com.chrynan.chat.feature.settings.activity.OpenSourceLicensesActivity
 import com.chrynan.chat.feature.settings.adapter.SettingsCellItemAdapter
 import com.chrynan.chat.feature.settings.adapter.SettingsHeaderCellItemAdapter
-import com.chrynan.chat.ui.adapter.core.adapterWith
 import com.chrynan.chat.feature.settings.adapter.settings
+import com.chrynan.chat.ui.activity.BaseActivity
+import com.chrynan.chat.ui.adapter.core.adapterWith
 import com.chrynan.chat.ui.fragment.BaseFragment
 import com.chrynan.chat.viewmodel.ViewModel
 import com.google.android.material.appbar.CollapsingToolbarLayout
@@ -21,8 +22,7 @@ class SettingsFragment : BaseFragment() {
 
     companion object {
 
-        fun newInstance() =
-            SettingsFragment()
+        fun newInstance() = SettingsFragment()
     }
 
     private val collapsingToolbarLayout
@@ -59,6 +59,9 @@ class SettingsFragment : BaseFragment() {
             group(title = "App") {
                 cell(title = "App Info") {
                     (activity as? BaseActivity)?.goToFragment(AppInfoFragment.newInstance())
+                }
+                cell(title = "Invite Friends") {
+                    startActivity(ReferralActivity.newIntent(context!!))
                 }
             }
             group(title = "Legal") {

@@ -37,6 +37,8 @@
     <color name="text_error_color">@color/error_color</color>
     <color name="text_accent_color">@color/accent_one_color</color>
 
+    <color name="button_background_accent_color">@color/accent_one_color</color>
+
     <color name="message_editor_background_color">@color/white</color>
 
     <color name="attachment_badge_background_color">@color/colorAccent</color>
@@ -51,5 +53,7 @@
     <color name="offline_color">@color/accent_one_color</color>
 
     <color name="message_action_color">@color/text_primary_subtle_color</color>
+
+    <color name="referral_background_color">@color/accent_four_color</color>
 
 </resources>

@@ -31,4 +31,8 @@
     <string name="contact_info_action_email">Email</string>
     <string name="contact_info_action_qr">QR Code</string>
 
+    <string name="referral_title">Invite Friends</string>
+    <string name="referral_message_hint">Invite Message</string>
+    <string name="referral_invite_button">Invite</string>
+
 </resources>
