@@ -16,5 +16,6 @@
     <string name="cd_contact_info_user_image">User Image</string>
     <string name="cd_contact_info_actions_image">Contact Info Quick Action</string>
     <string name="cd_image_preview_image">Image Preview</string>
+    <string name="cd_video_preview_placeholder">Video Placeholder</string>
 
 </resources>

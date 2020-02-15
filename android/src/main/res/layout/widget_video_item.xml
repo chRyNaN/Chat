@@ -14,7 +14,7 @@
             tools:src="@tools:sample/avatars"/>
 
     <com.google.android.exoplayer2.ui.PlayerView
-            android:id="@+id/videoItemPlayerView"
+            android:id="@+id/videoPreviewPlayerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:show_buffering="never"

@@ -10,10 +10,8 @@ import com.chrynan.chat.di.scope.FragmentScope
 import com.chrynan.chat.feature.conversation.adapter.message.*
 import com.chrynan.chat.feature.conversation.fragment.ConversationFragment
 import com.chrynan.chat.feature.conversation.view.ConversationView
-import com.chrynan.chat.media.*
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.utils.ActivityContext
-import com.google.android.exoplayer2.SimpleExoPlayer
 import dagger.Binds
 import dagger.Provides
 import javax.inject.Named
@@ -70,12 +68,6 @@ abstract class ConversationFragmentModule {
                 adapters = setOf(),
                 layoutManager = layoutManager
             )
-
-        @Provides
-        @JvmStatic
-        @FragmentScope
-        fun provideSimpleExoPlayer(context: ActivityContext): SimpleExoPlayer =
-            SimpleExoPlayer.Builder(context).build()
     }
 
     @Binds
@@ -105,16 +97,4 @@ abstract class ConversationFragmentModule {
     @Binds
     @FragmentScope
     abstract fun bindAdapterItemHandler(handler: BaseAdapterItemHandler<AdapterItem>): AdapterItemHandler<AdapterItem>
-
-    @Binds
-    @FragmentScope
-    abstract fun bindListMediaPlayerViewController(controller: MediaPlayerViewQueueController): MediaPlayerViewController
-
-    @Binds
-    @FragmentScope
-    abstract fun bindMediaSourceCreator(creator: AndroidMediaSourceCreator): MediaSourceCreator
-
-    @Binds
-    @FragmentScope
-    abstract fun bindMediaController(controller: SimpleExoPlayerMediaController): MediaController
 }

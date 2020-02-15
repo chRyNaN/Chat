@@ -25,12 +25,12 @@ abstract class BasePresenter(private val dispatchers: CoroutineDispatchers) : Pr
         if (isBound) onUnbind()
     }
 
-    protected fun onBind() {
+    protected open fun onBind() {
         job = SupervisorJob()
         isBound = true
     }
 
-    protected fun onUnbind() {
+    protected open fun onUnbind() {
         job.cancel()
         isBound = false
     }

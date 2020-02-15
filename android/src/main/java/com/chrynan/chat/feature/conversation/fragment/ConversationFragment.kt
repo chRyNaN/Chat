@@ -15,7 +15,7 @@ import com.chrynan.chat.feature.conversation.presenter.ConversationPresenter
 import com.chrynan.chat.feature.conversation.view.ConversationView
 import com.chrynan.chat.feature.conversation.viewmodel.*
 import com.chrynan.chat.feature.media.activity.MediaPreviewActivity
-import com.chrynan.chat.feature.media.viewmodel.ImagePreviewItemViewModel
+import com.chrynan.chat.feature.media.viewmodel.MediaItemViewModel
 import com.chrynan.chat.model.Reaction
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.ui.fragment.BaseFragment
@@ -82,10 +82,10 @@ class ConversationFragment : BaseFragment(),
 
     override fun onImageSelected(item: MessageImageItemViewModel) {
         startActivity(
-            MediaPreviewActivity.newIntent(
+            MediaPreviewActivity.newVideoIntent(
                 context!!,
-                ImagePreviewItemViewModel(
-                    imageUri = item.image.uri
+                MediaItemViewModel(
+                    uri = "https://www.w3schools.com/html/mov_bbb.mp4"
                 )
             )
         )

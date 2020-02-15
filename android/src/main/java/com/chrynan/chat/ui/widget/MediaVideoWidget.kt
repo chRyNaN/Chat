@@ -21,22 +21,22 @@ class MediaVideoWidget @JvmOverloads constructor(context: Context, attrs: Attrib
     }
 
     override fun attachPlayer(player: Player) {
-        videoItemPlayerView?.player = player
+        videoPreviewPlayerView?.player = player
         requestLayout()
     }
 
     override fun detachPlayer() {
-        videoItemPlayerView?.player = null
+        videoPreviewPlayerView?.player = null
     }
 
     override fun showThumbnail(thumbnailUri: UriString?) {
-        videoItemPlayerView?.visibility = View.GONE
+        videoPreviewPlayerView?.visibility = View.GONE
         videoThumbnailImageView?.visibility = View.VISIBLE
         videoThumbnailImageView?.load(thumbnailUri)
     }
 
     override fun showVideo() {
-        videoItemPlayerView?.visibility = View.VISIBLE
+        videoPreviewPlayerView?.visibility = View.VISIBLE
         videoThumbnailImageView?.visibility = View.GONE
     }
 }
