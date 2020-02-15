@@ -60,7 +60,8 @@ class ConversationListFragment : BaseFragment(),
                 title = "Title",
                 description = "Description",
                 userImage = null,
-                formattedDateTime = "Time"
+                formattedDateTime = "Time",
+                showNewItemBadge = true
             ),
             ConversationListItemViewModel(
                 conversationId = "",

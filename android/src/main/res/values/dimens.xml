@@ -33,6 +33,9 @@
     <dimen name="message_item_image_max_size">3600dp</dimen>
     <dimen name="message_item_image_min_size">120dp</dimen>
 
+    <dimen name="conversation_new_item_badge_size">18dp</dimen>
+    <dimen name="conversation_new_item_badge_padding">8dp</dimen>
+
     <dimen name="message_header_image_size">36dp</dimen>
 
     <dimen name="user_image_view_default_size">48dp</dimen>

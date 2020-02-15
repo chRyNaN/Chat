@@ -16,6 +16,7 @@ class ConversationListItemBinder @Inject constructor() :
             description = viewModel.description
             userImage = viewModel.userImage
             formattedDateTime = viewModel.formattedDateTime
+            showNewItemBadge = viewModel.showNewItemBadge
         }
     }
 }

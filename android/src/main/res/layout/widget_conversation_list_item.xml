@@ -15,6 +15,7 @@
             android:id="@+id/timeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/conversation_new_item_badge_padding"
             android:maxLines="1"
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.Label.Subtle"

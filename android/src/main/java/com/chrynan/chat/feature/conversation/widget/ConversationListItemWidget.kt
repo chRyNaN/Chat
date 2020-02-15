@@ -25,6 +25,26 @@ class ConversationListItemWidget @JvmOverloads constructor(
 
             itemImageView?.userImage = value
         }
+    override var showNewItemBadge: Boolean = false
+        set(value) {
+            field = value
+
+            val textColor = if (value) textAccentColor else textSubtleColor
+            val drawable = if (value) badgeDrawable else null
+
+            timeTextView?.setTextColor(textColor)
+            timeTextView?.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                null,
+                null,
+                drawable,
+                null
+            )
+        }
+
+    private val textSubtleColor by lazy { context.getColor(R.color.text_primary_subtle_color) }
+    private val textAccentColor by lazy { context.getColor(R.color.conversation_new_item_badge_color) }
+
+    private val badgeDrawable by lazy { context.getDrawable(R.drawable.ic_badge_conversation_new_item) }
 
     init {
         LayoutInflater.from(context).inflate(R.layout.widget_conversation_list_item, this, true)

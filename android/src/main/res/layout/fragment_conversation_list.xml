@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/conversationListContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -8,8 +9,22 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/spacing_xxlarge"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <include layout="@layout/layout_collapsing_app_bar" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/conversationListNewFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_horizontal_default"
+            android:layout_marginBottom="@dimen/spacing_vertical_default"
+            android:src="@drawable/ic_fab_plus"
+            app:fabSize="normal"
+            app:layout_anchor="@+id/recyclerView"
+            app:layout_anchorGravity="bottom|end"
+            app:layout_behavior="com.google.android.material.floatingactionbutton.FloatingActionButton$Behavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

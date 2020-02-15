@@ -9,4 +9,5 @@ interface ConversationListItemView : View {
     var description: String
     var userImage: UserImage?
     var formattedDateTime: String
+    var showNewItemBadge: Boolean
 }
