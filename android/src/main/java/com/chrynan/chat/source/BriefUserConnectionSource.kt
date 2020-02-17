@@ -13,7 +13,8 @@ import com.chrynan.chat.repository.BriefUserConnectionRepository
 import com.chrynan.chat.repository.PaginatedRepository
 import com.chrynan.logger.Loggable
 
-class BriefUserConnectionSource @Inject constructor(logger: Loggable) : BriefUserConnectionRepository,
+class BriefUserConnectionSource @Inject constructor(logger: Loggable) :
+    BriefUserConnectionRepository,
     Loggable by logger {
 
     override suspend fun get(id: ID): BriefContact {
@@ -72,7 +73,8 @@ class BriefUserConnectionSource @Inject constructor(logger: Loggable) : BriefUse
                     hasNextPage = false,
                     hasPreviousPage = false
                 ),
-                totalCount = 0
+                totalCount = 0,
+                nodes = listOf(contactOne, contactTwo, contactThree)
             )
         }
 }

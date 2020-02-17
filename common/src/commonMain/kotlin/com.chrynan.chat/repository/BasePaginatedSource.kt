@@ -4,6 +4,7 @@ import com.chrynan.chat.model.core.Connection
 import com.chrynan.chat.model.core.Cursor
 import com.chrynan.chat.model.core.Edge
 import com.chrynan.chat.model.core.Node
+import com.chrynan.logger.Logger
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.ProducerScope
@@ -12,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.channelFlow
 
 @ExperimentalCoroutinesApi
-class BasePaginatedSource<N : Node, E : Edge<N>>(private val getter: (first: Int, after: Cursor?) -> Connection<N, E>) :
+class BasePaginatedSource<N : Node, E : Edge<N>>(private val getter: suspend (first: Int, after: Cursor?) -> Connection<N, E>) :
     PaginatedRepository<N, E> {
 
     override val canLoadMore: Boolean
@@ -27,6 +28,8 @@ class BasePaginatedSource<N : Node, E : Edge<N>>(private val getter: (first: Int
 
     override fun subscribe(first: Int, after: Cursor?): Flow<List<N>> =
         channelFlow {
+            Logger.logWarning(message = "subscribe")
+
             nodes.clear()
             producerScope?.cancel()
             producerScope = this
@@ -35,6 +38,8 @@ class BasePaginatedSource<N : Node, E : Edge<N>>(private val getter: (first: Int
             currentConnection = connection
 
             nodes.addAll(connection.nodes)
+
+            Logger.logWarning(message = "connection = $connection")
 
             send(nodes.toList())
 

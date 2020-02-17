@@ -7,15 +7,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chrynan.chat.R
 import com.chrynan.chat.adapter.AdapterItem
-import com.chrynan.chat.di.Inject
-import com.chrynan.chat.feature.contact.presenter.ContactListPresenter
 import com.chrynan.chat.feature.contact.activity.ContactInfoActivity
 import com.chrynan.chat.feature.contact.adapter.ContactAdapter
-import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
+import com.chrynan.chat.feature.contact.presenter.ContactListPresenter
 import com.chrynan.chat.feature.contact.view.ContactListView
 import com.chrynan.chat.feature.contact.viewmodel.ContactItemViewModel
+import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.ui.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_contact_list.*
+import kotlinx.android.synthetic.main.layout_collapsing_app_bar.*
+import javax.inject.Inject
 
 class ContactListFragment : BaseFragment(),
     ContactListView,
@@ -27,6 +28,8 @@ class ContactListFragment : BaseFragment(),
             ContactListFragment()
     }
 
+    private val titleText by lazy { getString(R.string.app_bar_title_contacts) }
+
     @Inject
     override lateinit var presenter: ContactListPresenter
 
@@ -36,11 +39,17 @@ class ContactListFragment : BaseFragment(),
     @Inject
     lateinit var layoutManager: LinearLayoutManager
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? =
         inflater.inflate(R.layout.fragment_contact_list, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        collapsingToolbarLayout?.title = titleText
 
         contactRecyclerView?.adapter = adapter
         contactRecyclerView?.layoutManager = layoutManager
