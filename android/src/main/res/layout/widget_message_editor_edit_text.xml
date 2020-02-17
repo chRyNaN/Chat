@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/messageEditorAttachmentRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/messageEditorEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <com.chrynan.chat.feature.conversation.widget.MessageEditText
+            android:id="@+id/messageEditorEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/widget_message_editor_hint"
+            android:importantForAutofill="no"
+            android:inputType="text|textMultiLine|textImeMultiLine"
+            android:paddingStart="@dimen/spacing_small"
+            android:paddingTop="@dimen/spacing_xsmall"
+            android:paddingEnd="@dimen/spacing_small"
+            android:paddingBottom="@dimen/spacing_xsmall"
+            android:textAppearance="@style/TextAppearance.Body"
+            android:textColor="@color/text_primary_color"
+            android:maxHeight="@dimen/message_editor_max_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/messageEditorAttachmentButton"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+            android:id="@+id/messageEditorAttachmentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_xsmall"
+            android:background="@null"
+            android:contentDescription="@string/cd_message_editor_attachment_button"
+            android:src="@drawable/ic_message_editor_action_attachment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+</merge>

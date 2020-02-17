@@ -1,31 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <com.chrynan.chat.feature.conversation.widget.MessageEditorEditTextLayout
+            android:id="@+id/messageEditorEditTextLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_xsmall"
+            android:layout_marginEnd="@dimen/spacing_xsmall"
+            android:layout_marginBottom="@dimen/spacing_vertical_default"
+            android:animateLayoutChanges="true"
+            android:background="@color/message_editor_background_color"
+            android:elevation="@dimen/message_editor_elevation"
+            app:layout_constraintBottom_toTopOf="@+id/messageEditorMediaRecyclerView"
+            app:layout_constraintEnd_toStartOf="@+id/messageEditorActionButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+            android:id="@+id/messageEditorActionButton"
+            android:layout_width="@dimen/conversation_action_button_size"
+            android:layout_height="@dimen/conversation_action_button_size"
+            android:layout_marginEnd="@dimen/spacing_xsmall"
+            android:layout_marginBottom="@dimen/spacing_vertical_default"
+            android:background="@drawable/bg_conversation_action"
+            android:clickable="true"
+            android:contentDescription="@string/cd_conversation_action_button"
+            android:elevation="@dimen/conversation_action_button_elevation"
+            android:focusable="true"
+            android:src="@drawable/ic_conversation_action"
+            app:layout_constraintBottom_toTopOf="@+id/messageEditorMediaRecyclerView"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+            android:id="@+id/messageEditorAttachmentBackgroundView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/message_editor_background_color"
+            android:elevation="@dimen/message_editor_background_elevation"
+            android:paddingTop="@dimen/spacing_small"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/messageEditorMediaRecyclerView" />
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/messageRecyclerView"
-            android:layout_width="match_parent"
+            android:id="@+id/messageEditorMediaRecyclerView"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:elevation="@dimen/message_editor_background_elevation"
             android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/messageEditText"
+            app:layout_constraintBottom_toTopOf="@+id/messageEditorAttachmentTypeRecyclerView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-    <com.chrynan.chat.feature.conversation.widget.MessageEditText
-            android:id="@+id/messageEditText"
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/messageEditorAttachmentTypeRecyclerView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@null"
-            android:hint="@string/widget_message_editor_hint"
-            android:importantForAutofill="no"
-            android:inputType="text|textMultiLine|textImeMultiLine"
-            android:paddingStart="@dimen/spacing_small"
-            android:paddingTop="@dimen/spacing_xsmall"
-            android:paddingEnd="@dimen/spacing_small"
-            android:paddingBottom="@dimen/spacing_xsmall"
-            android:textAppearance="@style/TextAppearance.Body"
+            android:elevation="@dimen/message_editor_background_elevation"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

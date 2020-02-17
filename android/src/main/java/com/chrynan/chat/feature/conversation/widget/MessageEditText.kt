@@ -11,18 +11,22 @@ import androidx.core.view.inputmethod.InputConnectionCompat
 import androidx.core.view.inputmethod.InputContentInfoCompat
 import com.chrynan.chat.R
 
+/**
+ * A custom EditText that handles file types from the soft input keyboard.
+ */
 class MessageEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.editTextStyle
 ) : AppCompatEditText(context, attrs, defStyleAttr) {
 
-    var supportedMediaTypes: List<MediaType> = listOf(
-        MediaType.IMAGE
-    )
+    var supportedMediaTypes: List<MediaType> = listOf(MediaType.IMAGE)
 
     var listener: MediaItemSelectedListener? = null
 
+    /**
+     * This is overriden to retrieve different files input from the soft keyboard
+     */
     override fun onCreateInputConnection(editorInfo: EditorInfo): InputConnection {
         val inputConnection: InputConnection = super.onCreateInputConnection(editorInfo)
         EditorInfoCompat.setContentMimeTypes(editorInfo, supportedMediaTypes.allMimeTypes())

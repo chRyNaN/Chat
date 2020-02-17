@@ -17,7 +17,7 @@ class ReferralActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_fragment_container_with_toolbar)
+        setContentView(R.layout.activity_referral)
         goToFragment(ReferralFragment.newInstance())
 
         setSupportActionBar(toolbar)

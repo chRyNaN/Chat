@@ -1,7 +1,7 @@
 package com.chrynan.chat.feature.conversation.di
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.chrynan.aaaah.ItemListUpdater
+import com.chrynan.aaaah.*
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.adapter.AdapterItemHandler
 import com.chrynan.chat.adapter.BaseAdapterItemHandler
@@ -10,6 +10,7 @@ import com.chrynan.chat.di.scope.FragmentScope
 import com.chrynan.chat.feature.conversation.adapter.message.*
 import com.chrynan.chat.feature.conversation.fragment.ConversationFragment
 import com.chrynan.chat.feature.conversation.view.ConversationView
+import com.chrynan.chat.feature.conversation.view.MessageEditorView
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.utils.ActivityContext
 import dagger.Binds
@@ -21,6 +22,23 @@ abstract class ConversationFragmentModule {
 
     @Module
     companion object {
+
+        @Provides
+        @FragmentScope
+        @JvmStatic
+        fun provideDiffCalculator() = DiffUtilCalculator<AdapterItem>()
+
+        @Provides
+        @FragmentScope
+        @JvmStatic
+        fun provideDiffProcessor(calculator: DiffUtilCalculator<AdapterItem>): DiffProcessor<AdapterItem> =
+            AndroidDiffProcessor(calculator)
+
+        @Provides
+        @FragmentScope
+        @JvmStatic
+        fun provideDiffDispatcher(listener: ItemListUpdater<AdapterItem>): DiffDispatcher<AdapterItem> =
+            AndroidDiffDispatcher(listener)
 
         @Provides
         @JvmStatic
@@ -35,7 +53,8 @@ abstract class ConversationFragmentModule {
             videoAdapter: MessageVideoAdapter,
             imageAdapter: MessageImageAdapter,
             fileAdapter: MessageFileAdapter,
-            typingAdapter: MessageTypingAdapter
+            typingAdapter: MessageTypingAdapter,
+            notificationAdapter: MessageNotificationAdapter
         ): BaseManagerAdapter<AdapterItem> =
             BaseManagerAdapter(
                 adapters = setOf(
@@ -47,7 +66,8 @@ abstract class ConversationFragmentModule {
                     videoAdapter,
                     imageAdapter,
                     fileAdapter,
-                    typingAdapter
+                    typingAdapter,
+                    notificationAdapter
                 ),
                 layoutManager = layoutManager
             )
@@ -73,6 +93,10 @@ abstract class ConversationFragmentModule {
     @Binds
     @FragmentScope
     abstract fun bindConversationView(fragment: ConversationFragment): ConversationView
+
+    @Binds
+    @FragmentScope
+    abstract fun bindMessageEditorView(fragment: ConversationFragment): MessageEditorView
 
     @Binds
     @FragmentScope

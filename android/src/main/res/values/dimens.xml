@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="spacing_xxsmall">4dp</dimen>
     <dimen name="spacing_xsmall">8dp</dimen>
     <dimen name="spacing_small">12dp</dimen>
     <dimen name="spacing_medium">16dp</dimen>
@@ -17,24 +18,32 @@
     <dimen name="text_size_large">24sp</dimen>
     <dimen name="text_size_xlarge">32sp</dimen>
 
-    <dimen name="message_editor_elevation">8dp</dimen>
-
     <dimen name="attachment_image_min_size">80dp</dimen>
     <dimen name="attachment_image_max_size">100dp</dimen>
     <dimen name="attachment_image_corner_radius">16dp</dimen>
     <dimen name="attachment_badge_size">18dp</dimen>
     <dimen name="attachment_image_elevation">2dp</dimen>
     <dimen name="attachment_badge_elevation">4dp</dimen>
+    <dimen name="attachment_type_item_height">100dp</dimen>
+    <dimen name="attachment_type_item_min_width">100dp</dimen>
+    <dimen name="attachment_type_item_elevation">8dp</dimen>
 
     <dimen name="message_item_horizontal_margin">64dp</dimen>
     <dimen name="message_item_min_corner_radius">8dp</dimen>
     <dimen name="message_item_card_corner_radius">8dp</dimen>
     <dimen name="message_item_card_elevation">8dp</dimen>
     <dimen name="message_item_image_max_size">3600dp</dimen>
-    <dimen name="message_item_image_min_size">120dp</dimen>
+    <dimen name="message_item_image_min_size">140dp</dimen>
+
+    <dimen name="message_editor_elevation">8dp</dimen>
+    <dimen name="message_editor_corner_radius">16dp</dimen>
+    <dimen name="message_editor_max_height">180dp</dimen>
+    <dimen name="message_editor_background_elevation">8dp</dimen>
 
     <dimen name="conversation_new_item_badge_size">18dp</dimen>
     <dimen name="conversation_new_item_badge_padding">8dp</dimen>
+    <dimen name="conversation_action_button_size">38dp</dimen>
+    <dimen name="conversation_action_button_elevation">8dp</dimen>
 
     <dimen name="message_header_image_size">36dp</dimen>
 

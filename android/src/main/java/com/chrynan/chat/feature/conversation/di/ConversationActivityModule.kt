@@ -1,6 +1,5 @@
 package com.chrynan.chat.feature.conversation.di
 
-import com.chrynan.chat.di.module.AdapterModule
 import com.chrynan.chat.di.module.MediaModule
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.scope.FragmentScope
@@ -11,6 +10,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class ConversationActivityModule {
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [ConversationFragmentModule::class, AdapterModule::class, MediaModule::class])
+    @ContributesAndroidInjector(modules = [ConversationFragmentModule::class, MediaModule::class, AttachmentActionTypeModule::class])
     abstract fun conversationFragmentInjector(): ConversationFragment
 }

@@ -17,5 +17,7 @@
     <string name="cd_contact_info_actions_image">Contact Info Quick Action</string>
     <string name="cd_image_preview_image">Image Preview</string>
     <string name="cd_video_preview_placeholder">Video Placeholder</string>
+    <string name="cd_conversation_action_button">Send or Talk Button</string>
+    <string name="cd_message_editor_attachment_button">Add Attachment</string>
 
 </resources>

@@ -26,6 +26,12 @@ class MessageTypingAdapter @Inject constructor() : BaseAdapter<MessageTypingItem
     override fun onBindItem(view: View, item: MessageTypingItemViewModel) {
         view.apply {
             messageTypingTextView?.text = item.text
+            messageTypingTextView?.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                null,
+                null,
+                item.icon,
+                null
+            )
         }
     }
 }

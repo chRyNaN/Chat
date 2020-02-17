@@ -19,7 +19,8 @@ class ConversationPresenter @Inject constructor(
     private val view: ConversationView,
     private val drawableIDs: DrawableIDs,
     private val getDecryptedMessages: GetDecryptedMessagesInteractor,
-    private val mapper: DecryptedMessageMapper
+    private val mapper: DecryptedMessageMapper,
+    private val messageEditorPresenter: MessageEditorPresenter
 ) : BasePresenter(dispatchers = dispatchers),
     AdapterItemHandler<AdapterItem> by adapterItemHandler {
 
@@ -29,5 +30,23 @@ class ConversationPresenter @Inject constructor(
             .map { messages -> messages.flatMap { message -> mapper.map(message) } }
             .calculateAndDispatchDiff()
             .launchIn(this)
+
+        messageEditorPresenter.setup()
     }
+
+    override fun bind() {
+        super.bind()
+
+        messageEditorPresenter.bind()
+    }
+
+    override fun unbind() {
+        super.unbind()
+
+        messageEditorPresenter.unbind()
+    }
+
+    fun handleActionButtonSelected() = messageEditorPresenter.handleActionButtonSelected()
+
+    fun handleAttachmentButtonSelected() = messageEditorPresenter.handleAttachmentButtonSelected()
 }
