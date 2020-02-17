@@ -4,14 +4,19 @@ import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.feature.conversation.viewmodel.*
 import com.chrynan.chat.mapper.Mapper
+import com.chrynan.chat.model.UserImage
 import com.chrynan.chat.model.decrypted.DecryptedAttachment
 import com.chrynan.chat.model.decrypted.DecryptedMessage
+import com.chrynan.chat.resources.Colors
 import com.chrynan.chat.resources.DrawableIDs
 import com.chrynan.chat.resources.Strings
+import com.chrynan.chat.utils.UserColorProvider
 
 class DecryptedMessageMapper @Inject constructor(
     private val strings: Strings,
-    private val drawableIDs: DrawableIDs
+    private val drawableIDs: DrawableIDs,
+    private val colors: Colors,
+    private val userColorProvider: UserColorProvider
 ) : Mapper<DecryptedMessage, List<AdapterItem>> {
 
     override suspend fun map(model: DecryptedMessage): List<AdapterItem> {
@@ -31,7 +36,14 @@ class DecryptedMessageMapper @Inject constructor(
             handle = model.sender.handle,
             image = model.sender.imageUri,
             isOnline = true,
-            date = model.dateTime // TODO format the time
+            date = model.dateTime, // TODO format the time
+            userImage = UserImage(
+                name = model.sender.name,
+                backgroundColorInt = userColorProvider.getColorFor(model.sender.name),
+                textColorInt = colors.textDark,
+                badgeColorInt = colors.online,
+                imageUri = model.sender.imageUri
+            )
         )
         val content = MessageTextItemViewModel(
             messageID = model.id,
