@@ -35,6 +35,8 @@
     <dimen name="message_item_image_max_size">3600dp</dimen>
     <dimen name="message_item_image_min_size">140dp</dimen>
 
+    <dimen name="message_group_header_divider_height">2dp</dimen>
+
     <dimen name="message_editor_elevation">8dp</dimen>
     <dimen name="message_editor_corner_radius">16dp</dimen>
     <dimen name="message_editor_max_height">180dp</dimen>
