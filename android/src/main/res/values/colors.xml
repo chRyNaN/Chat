@@ -45,6 +45,7 @@
     </color>
 
     <color name="attachment_badge_background_color">@color/colorAccent</color>
+    <color name="attachment_gallery_item_label_background_color">@color/primary_color</color>
 
     <color name="conversation_new_item_badge_color">@color/colorAccent</color>
     <color name="conversation_action_background_color">@color/colorAccent</color>

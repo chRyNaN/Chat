@@ -27,6 +27,8 @@
     <dimen name="attachment_type_item_height">100dp</dimen>
     <dimen name="attachment_type_item_min_width">100dp</dimen>
     <dimen name="attachment_type_item_elevation">8dp</dimen>
+    <dimen name="attachment_gallery_item_size">140dp</dimen>
+    <dimen name="attachment_gallery_item_label_corner_radius">8dp</dimen>
 
     <dimen name="message_item_horizontal_margin">64dp</dimen>
     <dimen name="message_item_min_corner_radius">8dp</dimen>

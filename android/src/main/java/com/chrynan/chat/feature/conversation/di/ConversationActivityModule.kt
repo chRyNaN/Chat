@@ -14,7 +14,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class ConversationActivityModule {
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [ConversationFragmentModule::class, MediaModule::class, AttachmentActionTypeModule::class])
+    @ContributesAndroidInjector(modules = [ConversationFragmentModule::class, MediaModule::class, AttachmentActionTypeModule::class, AttachmentGalleryModule::class])
     abstract fun conversationFragmentInjector(): ConversationFragment
 
     @Binds

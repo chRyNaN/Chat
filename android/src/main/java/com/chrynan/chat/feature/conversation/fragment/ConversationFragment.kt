@@ -8,11 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.chrynan.chat.R
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.feature.conversation.adapter.AttachmentActionTypeAdapter
+import com.chrynan.chat.feature.conversation.adapter.AttachmentGalleryAdapter
 import com.chrynan.chat.feature.conversation.adapter.message.MessageActionAdapter
 import com.chrynan.chat.feature.conversation.adapter.message.MessageFileAdapter
 import com.chrynan.chat.feature.conversation.adapter.message.MessageImageAdapter
 import com.chrynan.chat.feature.conversation.adapter.message.MessageLinkPreviewAdapter
 import com.chrynan.chat.feature.conversation.di.AttachmentActionTypeModule
+import com.chrynan.chat.feature.conversation.di.AttachmentGalleryModule
 import com.chrynan.chat.feature.conversation.model.AttachmentActionType
 import com.chrynan.chat.feature.conversation.presenter.ConversationPresenter
 import com.chrynan.chat.feature.conversation.view.ConversationView
@@ -37,6 +39,7 @@ class ConversationFragment : BaseFragment(),
     MessageFileAdapter.FileSelectedListener,
     MessageEditorView,
     AttachmentActionTypeAdapter.AttachmentActionTypeListener,
+    AttachmentGalleryAdapter.AttachmentGalleryListener,
     MessageEditorLayout.MessageEditorListener {
 
     companion object {
@@ -60,6 +63,14 @@ class ConversationFragment : BaseFragment(),
     @Inject
     @field:Named(AttachmentActionTypeModule.NAME_MANAGER_ADAPTER)
     lateinit var attachmentTypeAdapter: BaseManagerAdapter<AdapterItem>
+
+    @Inject
+    @field:Named(AttachmentGalleryModule.NAME_LAYOUT_MANAGER)
+    lateinit var attachmentGalleryLayoutManager: LinearLayoutManager
+
+    @Inject
+    @field:Named(AttachmentGalleryModule.NAME_MANAGER_ADAPTER)
+    lateinit var attachmentGalleryAdapter: BaseManagerAdapter<AdapterItem>
 
     private val spacingSmall by lazy { resources.getDimensionPixelSize(R.dimen.spacing_small) }
 
@@ -87,6 +98,11 @@ class ConversationFragment : BaseFragment(),
         }
 
         conversationMessageEditorLayout?.messageEditorListener = this
+
+        conversationMessageEditorLayout?.messageEditorMediaRecyclerView?.apply {
+            adapter = attachmentGalleryAdapter
+            layoutManager = attachmentGalleryLayoutManager
+        }
 
         conversationMessageEditorLayout?.messageEditorAttachmentTypeRecyclerView?.apply {
             adapter = attachmentTypeAdapter
@@ -153,6 +169,10 @@ class ConversationFragment : BaseFragment(),
     }
 
     override fun onAttachmentActionTypeSelected(type: AttachmentActionType) {
+
+    }
+
+    override fun onGalleryItemSelected(item: AttachmentGalleryItemViewModel) {
 
     }
 
