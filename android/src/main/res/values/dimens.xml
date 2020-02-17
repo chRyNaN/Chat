@@ -50,6 +50,7 @@
     <dimen name="message_header_image_size">36dp</dimen>
 
     <dimen name="user_image_view_default_size">48dp</dimen>
+    <dimen name="user_image_view_toolbar_size">36dp</dimen>
 
     <dimen name="link_preview_image_size">96dp</dimen>
 
