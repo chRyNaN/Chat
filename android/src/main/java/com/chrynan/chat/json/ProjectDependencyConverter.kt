@@ -4,8 +4,8 @@ import com.beust.klaxon.Converter
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.JsonValue
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.model.ProjectDependency
-import com.chrynan.chat.model.ProjectLicense
+import com.chrynan.chat.feature.reaction.model.ProjectDependency
+import com.chrynan.chat.feature.reaction.model.ProjectLicense
 
 class ProjectDependencyConverter @Inject constructor() : Converter {
 

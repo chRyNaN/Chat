@@ -8,7 +8,7 @@ import androidx.cardview.widget.CardView
 import coil.api.load
 import com.chrynan.chat.R
 import com.chrynan.chat.media.MediaPlayerView
-import com.chrynan.chat.model.core.UriString
+import com.chrynan.chat.feature.reaction.model.core.UriString
 import com.google.android.exoplayer2.Player
 import kotlinx.android.synthetic.main.widget_video_item.view.*
 

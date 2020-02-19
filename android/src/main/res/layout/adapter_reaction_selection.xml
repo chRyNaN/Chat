@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/reactionEmojiImageView"
+        android:layout_width="@dimen/reaction_list_item_image_size"
+        android:layout_height="@dimen/reaction_list_item_image_size"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/cd_reaction_selection_image"
+        android:padding="@dimen/spacing_xxsmall"
+        android:scaleType="fitCenter"
+        android:stateListAnimator="@animator/reaction_item_selected_animator" />

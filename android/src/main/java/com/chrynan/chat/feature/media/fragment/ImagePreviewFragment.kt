@@ -13,7 +13,7 @@ import com.chrynan.chat.feature.media.util.ToggleSystemUIListener
 import com.chrynan.chat.feature.media.util.ToggleSystemUITouchListener
 import com.chrynan.chat.feature.media.view.ImagePreviewView
 import com.chrynan.chat.feature.media.viewmodel.MediaItemViewModel
-import com.chrynan.chat.model.core.UriString
+import com.chrynan.chat.feature.reaction.model.core.UriString
 import com.chrynan.chat.ui.fragment.BaseFragment
 import com.chrynan.chat.utils.loadAndDecrypt
 import kotlinx.android.synthetic.main.fragment_image_preview.*

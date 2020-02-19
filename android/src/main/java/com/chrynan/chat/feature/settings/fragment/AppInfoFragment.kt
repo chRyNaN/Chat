@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.chrynan.chat.R
-import com.chrynan.chat.model.ColorInt
+import com.chrynan.chat.feature.reaction.model.ColorInt
 import com.chrynan.chat.feature.settings.presenter.AppInfoPresenter
 import com.chrynan.chat.ui.fragment.BaseFragment
 import com.chrynan.chat.feature.settings.view.AppInfoView

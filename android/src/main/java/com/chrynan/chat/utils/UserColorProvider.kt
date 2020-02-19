@@ -1,7 +1,7 @@
 package com.chrynan.chat.utils
 
 import com.chrynan.chat.R
-import com.chrynan.chat.model.ColorInt
+import com.chrynan.chat.feature.reaction.model.ColorInt
 import com.chrynan.chat.resources.ResourceAccessor
 import com.chrynan.chat.resources.ResourceProvider
 import javax.inject.Inject

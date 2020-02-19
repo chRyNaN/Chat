@@ -1,6 +1,6 @@
 package com.chrynan.chat.feature.settings.view
 
-import com.chrynan.chat.model.ColorInt
+import com.chrynan.chat.feature.reaction.model.ColorInt
 import com.chrynan.chat.view.View
 
 interface AppInfoView : View {

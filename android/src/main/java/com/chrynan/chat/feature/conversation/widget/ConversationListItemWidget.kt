@@ -7,7 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.chrynan.chat.R
 import com.chrynan.chat.delegates.textView
 import com.chrynan.chat.feature.conversation.view.ConversationListItemView
-import com.chrynan.chat.model.UserImage
+import com.chrynan.chat.feature.reaction.model.UserImage
 import kotlinx.android.synthetic.main.widget_conversation_list_item.view.*
 
 class ConversationListItemWidget @JvmOverloads constructor(

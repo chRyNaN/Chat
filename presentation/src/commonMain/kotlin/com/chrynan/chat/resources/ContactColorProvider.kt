@@ -1,7 +1,7 @@
 package com.chrynan.chat.resources
 
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.model.ColorInt
+import com.chrynan.chat.feature.reaction.model.ColorInt
 
 class ContactColorProvider @Inject constructor(private val colors: Colors) {
 

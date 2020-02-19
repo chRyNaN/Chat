@@ -3,14 +3,17 @@ package com.chrynan.chat.feature.conversation.adapter.message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.chrynan.aaaah.*
+import com.chrynan.aaaah.Adapter
+import com.chrynan.aaaah.AdapterViewType
+import com.chrynan.aaaah.ViewType
+import com.chrynan.aaaah.from
 import com.chrynan.chat.R
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.feature.conversation.viewmodel.MessageActionItemViewModel
-import com.chrynan.chat.model.Reaction
+import com.chrynan.chat.feature.conversation.viewmodel.MessageReactionItemViewModel
+import com.chrynan.chat.feature.reaction.model.Reaction
 import com.chrynan.chat.ui.adapter.core.BaseAdapter
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
-import com.chrynan.chat.feature.conversation.viewmodel.MessageReactionItemViewModel
 import kotlinx.android.synthetic.main.adapter_message_action.view.*
 import javax.inject.Inject
 import javax.inject.Named
@@ -38,7 +41,7 @@ class MessageActionAdapter @Inject constructor(
                     item
                 )
             }
-            messageReactionImageView?.setOnClickListener { }
+            messageReactionImageView?.setOnClickListener { listener.onSelectReactionSelected() }
             messageStatusTextView?.text = item.status
             messageStatusTextView?.setCompoundDrawablesRelativeWithIntrinsicBounds(
                 0,
@@ -55,6 +58,8 @@ class MessageActionAdapter @Inject constructor(
     interface MessageActionListener {
 
         fun onMessageThreadSelected(item: MessageActionItemViewModel)
+
+        fun onSelectReactionSelected()
 
         fun onRemoveReactionSelected(reaction: Reaction, item: MessageReactionItemViewModel)
 

@@ -1,7 +1,7 @@
 package com.chrynan.chat.feature.conversation.viewmodel
 
-import com.chrynan.chat.model.UserImage
-import com.chrynan.chat.model.core.ID
+import com.chrynan.chat.feature.reaction.model.UserImage
+import com.chrynan.chat.feature.reaction.model.core.ID
 import com.chrynan.chat.viewmodel.ViewModel
 
 data class ConversationListItemViewModel(

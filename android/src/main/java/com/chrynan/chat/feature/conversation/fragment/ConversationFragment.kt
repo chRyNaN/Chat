@@ -23,7 +23,9 @@ import com.chrynan.chat.feature.conversation.viewmodel.*
 import com.chrynan.chat.feature.conversation.widget.MessageEditorLayout
 import com.chrynan.chat.feature.media.activity.MediaPreviewActivity
 import com.chrynan.chat.feature.media.viewmodel.MediaItemViewModel
-import com.chrynan.chat.model.Reaction
+import com.chrynan.chat.feature.reaction.fragment.ReactionListFragment
+import com.chrynan.chat.feature.reaction.model.Emoji
+import com.chrynan.chat.feature.reaction.model.Reaction
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.ui.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_conversation.*
@@ -40,7 +42,8 @@ class ConversationFragment : BaseFragment(),
     MessageEditorView,
     AttachmentActionTypeAdapter.AttachmentActionTypeListener,
     AttachmentGalleryAdapter.AttachmentGalleryListener,
-    MessageEditorLayout.MessageEditorListener {
+    MessageEditorLayout.MessageEditorListener,
+    ReactionListFragment.ReactionEmojiSelectedListener {
 
     companion object {
 
@@ -73,6 +76,8 @@ class ConversationFragment : BaseFragment(),
     lateinit var attachmentGalleryAdapter: BaseManagerAdapter<AdapterItem>
 
     private val spacingSmall by lazy { resources.getDimensionPixelSize(R.dimen.spacing_small) }
+
+    private val reactionListDialogFragment by lazy { ReactionListFragment.newInstance() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -114,6 +119,10 @@ class ConversationFragment : BaseFragment(),
 
     override fun showMessageItems(items: List<MessageListItemViewModel>) {
         adapter.items = items
+    }
+
+    override fun onSelectReactionSelected() {
+        reactionListDialogFragment.show(childFragmentManager, "ReactionListFragment")
     }
 
     override fun onRemoveReactionSelected(reaction: Reaction, item: MessageReactionItemViewModel) {
@@ -179,4 +188,8 @@ class ConversationFragment : BaseFragment(),
     override fun onAttachmentButtonSelected() = presenter.handleAttachmentButtonSelected()
 
     override fun onActionButtonSelected() = presenter.handleActionButtonSelected()
+
+    override fun onReactionEmojiSelected(emoji: Emoji) {
+
+    }
 }

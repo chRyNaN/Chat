@@ -1,6 +1,6 @@
 package com.chrynan.chat.resources
 
-import com.chrynan.chat.model.ColorInt
+import com.chrynan.chat.feature.reaction.model.ColorInt
 
 interface ResourceAccessor {
 

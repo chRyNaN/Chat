@@ -12,7 +12,7 @@ enum class Dependencies(
     ANDROID_APP_COMPAT(path = "androidx.appcompat:appcompat", version = "1.1.0"),
     ANDROID_CONSTRAINT_LAYOUT(path = "androidx.constraintlayout:constraintlayout", version = "1.1.3"),
     ANDROID_RECYCLER_VIEW(path = "androidx.recyclerview:recyclerview", version = "1.2.0-alpha01"),
-    ANDROID_MATERIAL_DESIGN(path = "com.google.android.material:material", version = "1.0.0"),
+    ANDROID_MATERIAL_DESIGN(path = "com.google.android.material:material", version = "1.2.0-alpha04"),
     ANDROID_CARD_VIEW(path = "androidx.cardview:cardview", version = "1.0.0"),
     ANDROID_COORDINATOR_LAYOUT(path = "androidx.coordinatorlayout:coordinatorlayout", version = "1.1.0"),
     ANDROID_CIRCLE_VIEW(path = "de.hdodenhof:circleimageview", version = "3.0.1"),
@@ -37,5 +37,7 @@ enum class Dependencies(
     LOGGER(path = "com.chrynan.logger:logger-core", version = "1.2.1"),
     LOGGER_ANDROID(path = "com.chrynan.logger:logger-android", version = "1.2.1"),
     LOGGER_ANDROID_TIMBER(path = "com.chrynan.logger:logger-android-timber", version = "1.2.1"),
-    PHOTO_VIEW(path = "com.github.chrisbanes:PhotoView", version = "2.0.0")
+    PHOTO_VIEW(path = "com.github.chrisbanes:PhotoView", version = "2.0.0"),
+    EMOJI(path = "com.vanniktech:emoji", version = "0.6.0"),
+    EMOJI_GOOGLE(path = "com.vanniktech:emoji-google", version = "0.6.0")
 }

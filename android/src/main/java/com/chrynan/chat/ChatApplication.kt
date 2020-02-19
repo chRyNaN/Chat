@@ -7,6 +7,8 @@ import com.chrynan.chat.di.component.DaggerApplicationComponent
 import com.chrynan.logger.AndroidLogger
 import com.chrynan.logger.Loggable
 import com.chrynan.logger.Logger
+import com.vanniktech.emoji.EmojiManager
+import com.vanniktech.emoji.EmojiProvider
 import dagger.android.support.DaggerApplication
 import kotlinx.coroutines.SupervisorJob
 import javax.inject.Inject
@@ -24,10 +26,14 @@ class ChatApplication : DaggerApplication(),
     @Inject
     lateinit var loggable: Loggable
 
+    @Inject
+    lateinit var emojiProvider: EmojiProvider
+
     override fun onCreate() {
         super.onCreate()
 
         Logger.loggable = AndroidLogger
+        EmojiManager.install(emojiProvider)
     }
 
     override fun applicationInjector(): ApplicationComponent =

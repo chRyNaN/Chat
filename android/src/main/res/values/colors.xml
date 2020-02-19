@@ -63,4 +63,10 @@
 
     <color name="referral_background_color">@color/accent_four_color</color>
 
+    <color name="bottom_sheet_dialog_background_color">@color/white</color>
+
+    <color name="reaction_category_icon_selected_color">@color/text_secondary_color</color>
+    <color name="reaction_category_icon_unselected_color">@color/text_secondary_subtle_color</color>
+    <color name="reaction_category_list_background">@color/colorPrimary</color>
+
 </resources>

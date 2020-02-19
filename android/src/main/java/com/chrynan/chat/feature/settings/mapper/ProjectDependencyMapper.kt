@@ -1,7 +1,7 @@
 package com.chrynan.chat.feature.settings.mapper
 
 import com.chrynan.chat.mapper.Mapper
-import com.chrynan.chat.model.ProjectDependency
+import com.chrynan.chat.feature.reaction.model.ProjectDependency
 import com.chrynan.chat.feature.settings.viewmodel.ProjectDependencyItemViewModel
 import javax.inject.Inject
 

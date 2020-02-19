@@ -29,4 +29,6 @@ object AndroidModuleDependencies {
     val LOGGER_ANDROID = Dependencies.LOGGER_ANDROID
     val LOGGER_ANDROID_TIMBER = Dependencies.LOGGER_ANDROID_TIMBER
     val PHOTO_VIEW = Dependencies.PHOTO_VIEW
+    val EMOJI = Dependencies.EMOJI
+    val EMOJI_GOOGLE = Dependencies.EMOJI_GOOGLE
 }

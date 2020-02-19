@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reactionListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/reaction_list_height"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/spacing_large"
+            android:paddingTop="@dimen/spacing_medium"
+            android:paddingEnd="@dimen/spacing_medium"
+            android:paddingBottom="@dimen/spacing_medium" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reactionCategoryListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/reaction_list_category_height"
+            android:background="@color/reaction_category_list_background" />
+
+</LinearLayout>

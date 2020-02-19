@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <style name="LauncherTheme" parent="AppTheme"></style>
@@ -50,6 +51,15 @@
         <item name="android:textColorHint">@color/text_secondary_subtle_color</item>
         <item name="colorAccent">@color/text_secondary_color</item>
         <item name="hintTextAppearance">@style/TextAppearance.Label.Secondary.Subtle</item>
+    </style>
+
+    <!-- Bottom Sheet Dialog -->
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
+    </style>
+
+    <style name="AppBottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet_dialog_fragment</item>
     </style>
 
 </resources>

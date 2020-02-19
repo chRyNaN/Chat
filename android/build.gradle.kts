@@ -21,7 +21,10 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -107,6 +110,10 @@ dependencies {
     // Logging
     internal(AndroidModuleDependencies.LOGGER_ANDROID)
     internal(AndroidModuleDependencies.LOGGER_ANDROID_TIMBER)
+
+    // Emoji
+    internal(AndroidModuleDependencies.EMOJI)
+    internal(AndroidModuleDependencies.EMOJI_GOOGLE)
 }
 
 androidExtensions {

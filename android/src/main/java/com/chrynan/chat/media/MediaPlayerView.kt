@@ -1,6 +1,6 @@
 package com.chrynan.chat.media
 
-import com.chrynan.chat.model.core.UriString
+import com.chrynan.chat.feature.reaction.model.core.UriString
 import com.chrynan.chat.view.View
 import com.google.android.exoplayer2.Player
 

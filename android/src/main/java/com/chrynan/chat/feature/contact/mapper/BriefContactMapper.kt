@@ -3,8 +3,8 @@ package com.chrynan.chat.feature.contact.mapper
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.feature.contact.viewmodel.ContactItemViewModel
 import com.chrynan.chat.mapper.Mapper
-import com.chrynan.chat.model.UserImage
-import com.chrynan.chat.model.contact.BriefContact
+import com.chrynan.chat.feature.reaction.model.UserImage
+import com.chrynan.chat.feature.reaction.model.contact.BriefContact
 import com.chrynan.chat.resources.Colors
 import com.chrynan.chat.utils.UserColorProvider
 

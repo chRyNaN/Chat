@@ -1,7 +1,7 @@
 package com.chrynan.chat.feature.settings.viewmodel
 
-import com.chrynan.chat.model.ColorInt
-import com.chrynan.chat.model.core.UriString
+import com.chrynan.chat.feature.reaction.model.ColorInt
+import com.chrynan.chat.feature.reaction.model.core.UriString
 import com.chrynan.chat.viewmodel.ViewModel
 
 data class AppInfoViewModel(

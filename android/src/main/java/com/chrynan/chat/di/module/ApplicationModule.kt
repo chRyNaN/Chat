@@ -8,10 +8,21 @@ import com.chrynan.chat.resources.*
 import com.chrynan.chat.utils.ApplicationContext
 import com.chrynan.chat.utils.Logger
 import com.chrynan.logger.Loggable
+import com.vanniktech.emoji.EmojiProvider
+import com.vanniktech.emoji.google.GoogleEmojiProvider
 import dagger.Binds
+import dagger.Provides
 
 @Module
 internal abstract class ApplicationModule {
+
+    @Module
+    companion object {
+
+        @Provides
+        @JvmStatic
+        fun provideEmojiProvider(): EmojiProvider = GoogleEmojiProvider()
+    }
 
     @Binds
     abstract fun bindAppContext(application: ChatApplication): ApplicationContext

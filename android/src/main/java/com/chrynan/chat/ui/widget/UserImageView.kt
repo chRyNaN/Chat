@@ -8,7 +8,7 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import coil.api.load
 import com.chrynan.chat.R
-import com.chrynan.chat.model.UserImage
+import com.chrynan.chat.feature.reaction.model.UserImage
 import com.chrynan.chat.ui.widget.outline.OvalViewOutlineProvider
 import com.chrynan.chat.utils.withOutline
 import kotlinx.android.synthetic.main.widget_user_image_view.view.*

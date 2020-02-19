@@ -20,5 +20,6 @@
     <string name="cd_conversation_action_button">Send or Talk Button</string>
     <string name="cd_message_editor_attachment_button">Add Attachment</string>
     <string name="cd_attachment_gallery_item_image">Gallery Image</string>
+    <string name="cd_reaction_selection_image">Reaction Emoji</string>
 
 </resources>

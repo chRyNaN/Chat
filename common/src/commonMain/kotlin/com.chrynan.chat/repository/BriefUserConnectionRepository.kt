@@ -1,9 +1,9 @@
 package com.chrynan.chat.repository
 
-import com.chrynan.chat.model.account.UserConnectionType
-import com.chrynan.chat.model.contact.BriefContact
-import com.chrynan.chat.model.contact.BriefContactEdge
-import com.chrynan.chat.model.core.ID
+import com.chrynan.chat.feature.reaction.model.account.UserConnectionType
+import com.chrynan.chat.feature.reaction.model.contact.BriefContact
+import com.chrynan.chat.feature.reaction.model.contact.BriefContactEdge
+import com.chrynan.chat.feature.reaction.model.core.ID
 
 interface BriefUserConnectionRepository {
 

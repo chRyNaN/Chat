@@ -7,7 +7,7 @@ import android.view.View
 import com.chrynan.chat.R
 import com.chrynan.chat.feature.conversation.fragment.ConversationFragment
 import com.chrynan.chat.feature.conversation.view.ConversationToolbarView
-import com.chrynan.chat.model.UserImage
+import com.chrynan.chat.feature.reaction.model.UserImage
 import com.chrynan.chat.ui.activity.BaseActivity
 import kotlinx.android.synthetic.main.activity_conversation.*
 

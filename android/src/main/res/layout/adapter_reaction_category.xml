@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/reactionCategoryIconImageView"
+        android:layout_width="@dimen/reaction_category_item_width"
+        android:layout_height="@dimen/reaction_category_item_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@string/cd_reaction_selection_image"
+        android:padding="@dimen/spacing_xxsmall"
+        android:scaleType="centerInside"
+        android:stateListAnimator="@animator/reaction_category_item_selected_animator"
+        android:tint="@color/reaction_category_icon_selector" />
