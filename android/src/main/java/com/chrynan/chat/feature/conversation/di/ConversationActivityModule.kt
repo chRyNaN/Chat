@@ -22,7 +22,8 @@ abstract class ConversationActivityModule {
             ConversationFragmentModule::class,
             MediaModule::class,
             AttachmentActionTypeModule::class,
-            AttachmentGalleryModule::class]
+            AttachmentGalleryModule::class,
+            MessageReactionListModule::class]
     )
     abstract fun conversationFragmentInjector(): ConversationFragment
 

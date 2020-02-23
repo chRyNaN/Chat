@@ -60,6 +60,8 @@
     <color name="message_action_color">@color/text_primary_subtle_color</color>
     <color name="message_item_text_background_color">@color/accent_four_color</color>
     <color name="message_item_typing_background_color">@color/accent_three_color</color>
+    <color name="message_reaction_item_background_unselected_color">@color/colorPrimary</color>
+    <color name="message_reaction_item_background_selected_color">@color/accent_two_color</color>
 
     <color name="referral_background_color">@color/accent_four_color</color>
 

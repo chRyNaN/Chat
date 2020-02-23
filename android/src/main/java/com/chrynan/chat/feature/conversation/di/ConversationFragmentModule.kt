@@ -15,7 +15,6 @@ import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.utils.ActivityContext
 import dagger.Binds
 import dagger.Provides
-import javax.inject.Named
 
 @Module
 abstract class ConversationFragmentModule {
@@ -78,16 +77,6 @@ abstract class ConversationFragmentModule {
         fun provideLayoutManager(context: ActivityContext) = LinearLayoutManager(context).apply {
             stackFromEnd = true
         }
-
-        @Provides
-        @JvmStatic
-        @FragmentScope
-        @Named("ReactionAdapter")
-        fun provideReactionAdapter(layoutManager: LinearLayoutManager): BaseManagerAdapter<AdapterItem> =
-            BaseManagerAdapter(
-                adapters = setOf(),
-                layoutManager = layoutManager
-            )
     }
 
     @Binds
@@ -113,6 +102,10 @@ abstract class ConversationFragmentModule {
     @Binds
     @FragmentScope
     abstract fun bindMessageFileSelectedListener(fragment: ConversationFragment): MessageFileAdapter.FileSelectedListener
+
+    @Binds
+    @FragmentScope
+    abstract fun bindMessageReactionSelectedListener(fragment: ConversationFragment): MessageReactionListItemAdapter.MessageReactionSelectedListener
 
     @Binds
     @FragmentScope

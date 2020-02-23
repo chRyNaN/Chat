@@ -9,10 +9,7 @@ import com.chrynan.chat.R
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.feature.conversation.adapter.AttachmentActionTypeAdapter
 import com.chrynan.chat.feature.conversation.adapter.AttachmentGalleryAdapter
-import com.chrynan.chat.feature.conversation.adapter.message.MessageActionAdapter
-import com.chrynan.chat.feature.conversation.adapter.message.MessageFileAdapter
-import com.chrynan.chat.feature.conversation.adapter.message.MessageImageAdapter
-import com.chrynan.chat.feature.conversation.adapter.message.MessageLinkPreviewAdapter
+import com.chrynan.chat.feature.conversation.adapter.message.*
 import com.chrynan.chat.feature.conversation.di.AttachmentActionTypeModule
 import com.chrynan.chat.feature.conversation.di.AttachmentGalleryModule
 import com.chrynan.chat.feature.conversation.model.AttachmentActionType
@@ -25,7 +22,6 @@ import com.chrynan.chat.feature.media.activity.MediaPreviewActivity
 import com.chrynan.chat.feature.media.viewmodel.MediaItemViewModel
 import com.chrynan.chat.feature.reaction.fragment.ReactionListFragment
 import com.chrynan.chat.feature.reaction.model.Emoji
-import com.chrynan.chat.feature.reaction.model.Reaction
 import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.ui.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_conversation.*
@@ -43,7 +39,8 @@ class ConversationFragment : BaseFragment(),
     AttachmentActionTypeAdapter.AttachmentActionTypeListener,
     AttachmentGalleryAdapter.AttachmentGalleryListener,
     MessageEditorLayout.MessageEditorListener,
-    ReactionListFragment.ReactionEmojiSelectedListener {
+    ReactionListFragment.ReactionEmojiSelectedListener,
+    MessageReactionListItemAdapter.MessageReactionSelectedListener {
 
     companion object {
 
@@ -125,16 +122,6 @@ class ConversationFragment : BaseFragment(),
         reactionListDialogFragment.show(childFragmentManager, "ReactionListFragment")
     }
 
-    override fun onRemoveReactionSelected(reaction: Reaction, item: MessageReactionItemViewModel) {
-
-    }
-
-    override fun onAddReactionSelected(
-        reaction: Reaction,
-        item: MessageReactionItemViewModel
-    ) {
-    }
-
     override fun onMessageThreadSelected(item: MessageActionItemViewModel) {
     }
 
@@ -190,6 +177,10 @@ class ConversationFragment : BaseFragment(),
     override fun onActionButtonSelected() = presenter.handleActionButtonSelected()
 
     override fun onReactionEmojiSelected(emoji: Emoji) {
+
+    }
+
+    override fun onMessageReactionSelected(item: MessageReactionListItemViewModel) {
 
     }
 }

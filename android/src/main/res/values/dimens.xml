@@ -36,6 +36,8 @@
     <dimen name="message_item_card_elevation">8dp</dimen>
     <dimen name="message_item_image_max_size">3600dp</dimen>
     <dimen name="message_item_image_min_size">140dp</dimen>
+    <dimen name="message_reaction_item_image_size">24dp</dimen>
+    <dimen name="message_reaction_item_background_corner_radius">8dp</dimen>
 
     <dimen name="message_group_header_divider_height">2dp</dimen>
 

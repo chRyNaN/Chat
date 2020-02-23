@@ -8,21 +8,14 @@ import com.chrynan.aaaah.AdapterViewType
 import com.chrynan.aaaah.ViewType
 import com.chrynan.aaaah.from
 import com.chrynan.chat.R
-import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.feature.conversation.viewmodel.MessageActionItemViewModel
-import com.chrynan.chat.feature.conversation.viewmodel.MessageReactionItemViewModel
-import com.chrynan.chat.feature.reaction.model.Reaction
 import com.chrynan.chat.ui.adapter.core.BaseAdapter
-import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import kotlinx.android.synthetic.main.adapter_message_action.view.*
 import javax.inject.Inject
-import javax.inject.Named
 
 @Adapter
-class MessageActionAdapter @Inject constructor(
-    private val listener: MessageActionListener,
-    @Named("ReactionAdapter") private val adapter: BaseManagerAdapter<AdapterItem>
-) : BaseAdapter<MessageActionItemViewModel>() {
+class MessageActionAdapter @Inject constructor(private val listener: MessageActionListener) :
+    BaseAdapter<MessageActionItemViewModel>() {
 
     override val viewType = AdapterViewType.from(this::class.java)
 
@@ -49,9 +42,6 @@ class MessageActionAdapter @Inject constructor(
                 item.statusImageResourceID,
                 0
             )
-            messageReactionRecyclerView?.visibility =
-                if (item.reactions.isEmpty()) View.GONE else View.VISIBLE
-            // TODO handle showing the selected reactions
         }
     }
 
@@ -60,9 +50,5 @@ class MessageActionAdapter @Inject constructor(
         fun onMessageThreadSelected(item: MessageActionItemViewModel)
 
         fun onSelectReactionSelected()
-
-        fun onRemoveReactionSelected(reaction: Reaction, item: MessageReactionItemViewModel)
-
-        fun onAddReactionSelected(reaction: Reaction, item: MessageReactionItemViewModel)
     }
 }

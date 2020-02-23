@@ -21,5 +21,6 @@
     <string name="cd_message_editor_attachment_button">Add Attachment</string>
     <string name="cd_attachment_gallery_item_image">Gallery Image</string>
     <string name="cd_reaction_selection_image">Reaction Emoji</string>
+    <string name="cd_reaction_item_emoji_image">Reaction Emoji</string>
 
 </resources>
