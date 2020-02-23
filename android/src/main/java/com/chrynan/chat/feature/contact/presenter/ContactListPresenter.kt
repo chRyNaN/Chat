@@ -11,44 +11,47 @@ import com.chrynan.chat.feature.reaction.model.contact.BriefContactEdge
 import com.chrynan.chat.presenter.BasePresenter
 import com.chrynan.chat.repository.BriefUserConnectionRepository
 import com.chrynan.chat.repository.PaginatedRepository
-import com.chrynan.chat.resources.Colors
+import com.chrynan.chat.utils.calculateAndDispatchDiff
+import com.chrynan.logger.Loggable
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class ContactListPresenter @Inject constructor(
-    private val dispatchers: CoroutineDispatchers,
-    adapterItemHandler: AdapterItemHandler<AdapterItem>,
+    dispatchers: CoroutineDispatchers,
+    private val adapterItemHandler: AdapterItemHandler<AdapterItem>,
     private val view: ContactListView,
     private val repository: BriefUserConnectionRepository,
     private val mapper: BriefContactMapper,
-    private val colors: Colors
-) : BasePresenter(dispatchers),
-    AdapterItemHandler<AdapterItem> by adapterItemHandler {
+    private val logger: Loggable
+) : BasePresenter(dispatchers) {
 
-    private var paginater: PaginatedRepository<BriefContact, BriefContactEdge>? = null
+    private val paginater: PaginatedRepository<BriefContact, BriefContactEdge> by lazy {
+        repository.paginate("contacts")
+    }
 
     @ExperimentalCoroutinesApi
     fun getContacts() {
-        repository.paginate("contacts").apply {
-            paginater = this
-        }.subscribe(first = 10)
+        paginater.subscribe(first = 10)
             .flowOn(dispatchers.io)
             .mapEachWith(mapper)
-            .calculateAndDispatchDiff()
+            .calculateAndDispatchDiff(adapterItemHandler)
             .launchIn(this)
     }
 
     fun loadMore() {
         val errorHandler = CoroutineExceptionHandler { _, throwable ->
-            // TODO handle exception
+            logger.logError(message = "Error loading more contacts.", throwable = throwable)
         }
 
         launch(errorHandler) {
-            paginater?.load(20)
+            withContext(dispatchers.io) { paginater.load(20) }
+
+            view.toggleLoading(isLoading = false)
         }
     }
 }

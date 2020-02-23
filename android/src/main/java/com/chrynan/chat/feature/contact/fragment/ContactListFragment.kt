@@ -51,10 +51,18 @@ class ContactListFragment : BaseFragment(),
 
         collapsingToolbarLayout?.title = titleText
 
-        contactRecyclerView?.adapter = adapter
-        contactRecyclerView?.layoutManager = layoutManager
+        contactListRecyclerView?.adapter = adapter
+        contactListRecyclerView?.layoutManager = layoutManager
+        contactListSwipeRefreshLayout?.setOnRefreshListener {
+            presenter.loadMore()
+        }
+        contactListNewFab?.setOnClickListener { }
 
         presenter.getContacts()
+    }
+
+    override fun toggleLoading(isLoading: Boolean) {
+        contactListSwipeRefreshLayout?.isRefreshing = isLoading
     }
 
     override fun onContactSelected(item: ContactItemViewModel) {

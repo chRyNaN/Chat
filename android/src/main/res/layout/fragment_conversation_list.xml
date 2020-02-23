@@ -5,13 +5,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/conversationListSwipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:paddingBottom="@dimen/spacing_xxlarge"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/conversationListRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/spacing_xxlarge" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <include layout="@layout/layout_collapsing_app_bar" />
 
@@ -23,7 +30,7 @@
             android:layout_marginBottom="@dimen/spacing_vertical_default"
             android:src="@drawable/ic_fab_plus"
             app:fabSize="normal"
-            app:layout_anchor="@+id/recyclerView"
+            app:layout_anchor="@+id/conversationListSwipeRefreshLayout"
             app:layout_anchorGravity="bottom|end"
             app:layout_behavior="com.google.android.material.floatingactionbutton.FloatingActionButton$Behavior" />
 

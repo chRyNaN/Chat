@@ -31,4 +31,5 @@ object AndroidModuleDependencies {
     val PHOTO_VIEW = Dependencies.PHOTO_VIEW
     val EMOJI = Dependencies.EMOJI
     val EMOJI_GOOGLE = Dependencies.EMOJI_GOOGLE
+    val SWIPE_REFRESH = Dependencies.SWIPE_REFRESH
 }

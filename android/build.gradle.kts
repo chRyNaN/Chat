@@ -95,6 +95,8 @@ dependencies {
     internal(AndroidModuleDependencies.AAAAH_ANNOTATION)
     kapt(AndroidModuleDependencies.AAAAH_COMPILER)
 
+    internal(AndroidModuleDependencies.SWIPE_REFRESH)
+
     // Dependency Injection - Dagger
     kapt(AndroidModuleDependencies.DAGGER_COMPILER)
     kapt(AndroidModuleDependencies.DAGGER_ANDROID_PROCESSOR)

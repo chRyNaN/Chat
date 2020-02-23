@@ -5,19 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.chrynan.aaaah.ManagerRecyclerViewAdapter
 import com.chrynan.chat.R
+import com.chrynan.chat.adapter.AdapterItem
+import com.chrynan.chat.feature.conversation.activity.ConversationActivity
 import com.chrynan.chat.feature.conversation.adapter.ConversationListItemAdapter
-import com.chrynan.chat.feature.conversation.binder.ConversationListItemBinder
+import com.chrynan.chat.feature.conversation.presenter.ConversationListPresenter
 import com.chrynan.chat.feature.conversation.view.ConversationListView
 import com.chrynan.chat.feature.conversation.viewmodel.ConversationListItemViewModel
+import com.chrynan.chat.ui.adapter.core.BaseManagerAdapter
 import com.chrynan.chat.ui.fragment.BaseFragment
-import com.chrynan.chat.viewmodel.ViewModel
-import com.google.android.material.appbar.CollapsingToolbarLayout
+import kotlinx.android.synthetic.main.fragment_conversation_list.*
+import kotlinx.android.synthetic.main.layout_collapsing_app_bar.*
+import javax.inject.Inject
 
 class ConversationListFragment : BaseFragment(),
-    ConversationListView {
+    ConversationListView,
+    ConversationListItemAdapter.ConversationListItemSelectedListener {
 
     companion object {
 
@@ -25,8 +28,14 @@ class ConversationListFragment : BaseFragment(),
             ConversationListFragment()
     }
 
-    private val collapsingToolbarLayout
-        get() = view!!.findViewById<CollapsingToolbarLayout>(R.id.collapsingToolbarLayout)
+    @Inject
+    override lateinit var presenter: ConversationListPresenter
+
+    @Inject
+    lateinit var adapter: BaseManagerAdapter<AdapterItem>
+
+    @Inject
+    lateinit var layoutManager: LinearLayoutManager
 
     private val titleText by lazy { getString(R.string.app_bar_title_conversations) }
 
@@ -39,37 +48,25 @@ class ConversationListFragment : BaseFragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        collapsingToolbarLayout.title = titleText
+        collapsingToolbarLayout?.title = titleText
 
-        val recyclerView = activity!!.findViewById<RecyclerView>(R.id.recyclerView)
-        val adapter =
-            ManagerRecyclerViewAdapter<ViewModel>(
-                adapters = setOf(
-                    ConversationListItemAdapter(
-                        binder = ConversationListItemBinder()
-                    )
-                )
-            )
+        conversationListRecyclerView.adapter = adapter
+        conversationListRecyclerView.layoutManager = layoutManager
 
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        conversationListSwipeRefreshLayout?.setOnRefreshListener {
+            presenter.loadMore()
+        }
 
-        adapter.items = listOf(
-            ConversationListItemViewModel(
-                conversationId = "",
-                title = "Title",
-                description = "Description",
-                userImage = null,
-                formattedDateTime = "Time",
-                showNewItemBadge = true
-            ),
-            ConversationListItemViewModel(
-                conversationId = "",
-                title = "Title Two",
-                description = "Description Two",
-                userImage = null,
-                formattedDateTime = "Time Two"
-            )
-        )
+        conversationListNewFab?.setOnClickListener { }
+
+        presenter.loadItems()
+    }
+
+    override fun toggleLoading(isLoading: Boolean) {
+        conversationListSwipeRefreshLayout?.isRefreshing = isLoading
+    }
+
+    override fun onConversationListItemSelected(item: ConversationListItemViewModel) {
+        startActivity(ConversationActivity.newIntent(context!!))
     }
 }

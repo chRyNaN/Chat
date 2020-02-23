@@ -1,6 +1,5 @@
 package com.chrynan.chat.feature.reaction.presenter
 
-import com.chrynan.aaaah.DiffResult
 import com.chrynan.chat.adapter.AdapterItem
 import com.chrynan.chat.adapter.AdapterItemHandler
 import com.chrynan.chat.coroutines.CoroutineDispatchers
@@ -15,7 +14,11 @@ import com.chrynan.chat.feature.reaction.view.ReactionListView
 import com.chrynan.chat.presenter.BasePresenter
 import com.chrynan.chat.repository.EmojiRepository
 import com.chrynan.chat.resources.ResourceID
-import kotlinx.coroutines.flow.*
+import com.chrynan.chat.utils.calculateAndDispatchDiff
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -68,9 +71,4 @@ class ReactionListPresenter @Inject constructor(
                 .launchIn(this)
         }
     }
-
-    private fun <VM : AdapterItem> Flow<Collection<VM>>.calculateAndDispatchDiff(itemHandler: AdapterItemHandler<VM>): Flow<DiffResult<VM>> =
-        itemHandler.run {
-            calculateAndDispatchDiff()
-        }
 }

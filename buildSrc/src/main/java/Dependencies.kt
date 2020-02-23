@@ -39,5 +39,6 @@ enum class Dependencies(
     LOGGER_ANDROID_TIMBER(path = "com.chrynan.logger:logger-android-timber", version = "1.2.1"),
     PHOTO_VIEW(path = "com.github.chrisbanes:PhotoView", version = "2.0.0"),
     EMOJI(path = "com.vanniktech:emoji", version = "0.6.0"),
-    EMOJI_GOOGLE(path = "com.vanniktech:emoji-google", version = "0.6.0")
+    EMOJI_GOOGLE(path = "com.vanniktech:emoji-google", version = "0.6.0"),
+    SWIPE_REFRESH(path = "androidx.swiperefreshlayout:swiperefreshlayout", version = "1.0.0")
 }

@@ -8,7 +8,6 @@ import com.chrynan.aaaah.AdapterViewType
 import com.chrynan.aaaah.ViewType
 import com.chrynan.aaaah.from
 import com.chrynan.chat.R
-import com.chrynan.chat.feature.conversation.activity.ConversationActivity
 import com.chrynan.chat.feature.conversation.binder.ConversationListItemBinder
 import com.chrynan.chat.feature.conversation.viewmodel.ConversationListItemViewModel
 import com.chrynan.chat.feature.conversation.widget.ConversationListItemWidget
@@ -17,8 +16,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @Adapter
-class ConversationListItemAdapter @Inject constructor(private val binder: ConversationListItemBinder) :
-    BaseAdapter<ConversationListItemViewModel>() {
+class ConversationListItemAdapter @Inject constructor(
+    private val binder: ConversationListItemBinder,
+    private val listener: ConversationListItemSelectedListener
+) : BaseAdapter<ConversationListItemViewModel>() {
 
     override val viewType = AdapterViewType.from(this::class.java)
 
@@ -37,15 +38,13 @@ class ConversationListItemAdapter @Inject constructor(private val binder: Conver
                 binder.view = view
                 binder.bind(item)
             }
-            setOnClickListener {
-                view.context?.let {
-                    it.startActivity(
-                        ConversationActivity.newIntent(
-                            it
-                        )
-                    )
-                }
-            }
+
+            setOnClickListener { listener.onConversationListItemSelected(item) }
         }
+    }
+
+    interface ConversationListItemSelectedListener {
+
+        fun onConversationListItemSelected(item: ConversationListItemViewModel)
     }
 }

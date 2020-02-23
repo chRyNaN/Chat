@@ -6,7 +6,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlin.coroutines.CoroutineContext
 
-abstract class BasePresenter(private val dispatchers: CoroutineDispatchers) : Presenter,
+abstract class BasePresenter(protected val dispatchers: CoroutineDispatchers) : Presenter,
     PresenterCoroutineScope {
 
     override val coroutineContext: CoroutineContext
