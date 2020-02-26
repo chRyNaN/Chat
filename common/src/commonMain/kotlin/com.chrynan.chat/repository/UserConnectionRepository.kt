@@ -4,6 +4,7 @@ import com.chrynan.chat.model.account.UserConnectionType
 import com.chrynan.chat.model.contact.FullContact
 import com.chrynan.chat.model.contact.FullContactEdge
 import com.chrynan.chat.model.core.ID
+import com.chrynan.chat.repository.paginate.PaginatedRepository
 
 interface UserConnectionRepository {
 

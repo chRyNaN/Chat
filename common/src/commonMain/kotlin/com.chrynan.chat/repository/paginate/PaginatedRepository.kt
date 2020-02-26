@@ -1,4 +1,4 @@
-package com.chrynan.chat.repository
+package com.chrynan.chat.repository.paginate
 
 import com.chrynan.chat.model.core.Connection
 import com.chrynan.chat.model.core.Cursor

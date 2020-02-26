@@ -6,11 +6,9 @@ import com.chrynan.chat.coroutines.CoroutineDispatchers
 import com.chrynan.chat.coroutines.mapEachWith
 import com.chrynan.chat.feature.contact.mapper.BriefContactMapper
 import com.chrynan.chat.feature.contact.view.ContactListView
-import com.chrynan.chat.model.contact.BriefContact
-import com.chrynan.chat.model.contact.BriefContactEdge
 import com.chrynan.chat.presenter.BasePresenter
 import com.chrynan.chat.repository.BriefUserConnectionRepository
-import com.chrynan.chat.repository.PaginatedRepository
+import com.chrynan.chat.repository.paginate.BriefUserConnectionPaginatedRepository
 import com.chrynan.chat.utils.calculateAndDispatchDiff
 import com.chrynan.logger.Loggable
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -30,8 +28,8 @@ class ContactListPresenter @Inject constructor(
     private val logger: Loggable
 ) : BasePresenter(dispatchers) {
 
-    private val paginater: PaginatedRepository<BriefContact, BriefContactEdge> by lazy {
-        repository.paginate("contacts")
+    private val paginater: BriefUserConnectionPaginatedRepository by lazy {
+        repository.paginate(type = "contacts")
     }
 
     @ExperimentalCoroutinesApi
@@ -49,7 +47,7 @@ class ContactListPresenter @Inject constructor(
         }
 
         launch(errorHandler) {
-            withContext(dispatchers.io) { paginater.load(20) }
+            withContext(dispatchers.io) { paginater.load(next = 20) }
 
             view.toggleLoading(isLoading = false)
         }

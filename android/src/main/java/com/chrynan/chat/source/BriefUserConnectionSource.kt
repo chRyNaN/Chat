@@ -6,21 +6,22 @@ import com.chrynan.chat.model.contact.BriefContact
 import com.chrynan.chat.model.contact.BriefContactConnection
 import com.chrynan.chat.model.contact.BriefContactEdge
 import com.chrynan.chat.model.contact.PersonName
+import com.chrynan.chat.model.core.Connection
+import com.chrynan.chat.model.core.Cursor
 import com.chrynan.chat.model.core.ID
 import com.chrynan.chat.model.core.PageInfo
-import com.chrynan.chat.repository.BasePaginatedSource
 import com.chrynan.chat.repository.BriefUserConnectionRepository
-import com.chrynan.chat.repository.PaginatedRepository
+import com.chrynan.chat.repository.paginate.BasePaginatedSource
+import com.chrynan.chat.repository.paginate.BriefUserConnectionPaginatedRepository
 import com.chrynan.logger.Loggable
 
 class BriefUserConnectionSource @Inject constructor(logger: Loggable) :
-    BriefUserConnectionRepository,
-    Loggable by logger {
+    BasePaginatedSource<BriefContact, BriefContactEdge>(),
+    BriefUserConnectionPaginatedRepository,
+    BriefUserConnectionRepository {
 
     override suspend fun get(id: ID): BriefContact {
         // TODO load real data
-        logWarning(message = "Testing")
-
         return BriefContact(
             id = "",
             imageUri = null,
@@ -32,8 +33,10 @@ class BriefUserConnectionSource @Inject constructor(logger: Loggable) :
         )
     }
 
-    override fun paginate(type: UserConnectionType): PaginatedRepository<BriefContact, BriefContactEdge> =
-        BasePaginatedSource { first, cursor ->
+    override fun paginate(type: UserConnectionType) = this
+
+    override val loadMoreFunction: suspend (first: Int, after: Cursor?) -> Connection<BriefContact, BriefContactEdge>
+        get() = { _, _ ->
             // TODO load real data
 
             val contactOne = BriefContact(
