@@ -1,5 +1,6 @@
 package com.chrynan.chat.feature.conversation.di
 
+import com.chrynan.chat.di.module.AdapterModule
 import com.chrynan.chat.di.module.MediaModule
 import com.chrynan.chat.di.module.Module
 import com.chrynan.chat.di.scope.ActivityScope
@@ -7,6 +8,7 @@ import com.chrynan.chat.di.scope.DialogFragmentScope
 import com.chrynan.chat.di.scope.FragmentScope
 import com.chrynan.chat.feature.conversation.activity.ConversationActivity
 import com.chrynan.chat.feature.conversation.fragment.ConversationFragment
+import com.chrynan.chat.feature.conversation.fragment.ConversationThreadFragment
 import com.chrynan.chat.feature.conversation.view.ConversationToolbarView
 import com.chrynan.chat.feature.reaction.di.ReactionListFragmentModule
 import com.chrynan.chat.feature.reaction.fragment.ReactionListFragment
@@ -26,6 +28,10 @@ abstract class ConversationActivityModule {
             MessageReactionListModule::class]
     )
     abstract fun conversationFragmentInjector(): ConversationFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [ConversationThreadFragmentModule::class, AdapterModule::class])
+    abstract fun conversationThreadFragmentInjector(): ConversationThreadFragment
 
     @DialogFragmentScope
     @ContributesAndroidInjector(modules = [ReactionListFragmentModule::class])
