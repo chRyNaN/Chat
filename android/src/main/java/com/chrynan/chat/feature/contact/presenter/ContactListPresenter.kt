@@ -6,8 +6,8 @@ import com.chrynan.chat.coroutines.CoroutineDispatchers
 import com.chrynan.chat.coroutines.mapEachWith
 import com.chrynan.chat.feature.contact.mapper.BriefContactMapper
 import com.chrynan.chat.feature.contact.view.ContactListView
-import com.chrynan.chat.feature.reaction.model.contact.BriefContact
-import com.chrynan.chat.feature.reaction.model.contact.BriefContactEdge
+import com.chrynan.chat.model.contact.BriefContact
+import com.chrynan.chat.model.contact.BriefContactEdge
 import com.chrynan.chat.presenter.BasePresenter
 import com.chrynan.chat.repository.BriefUserConnectionRepository
 import com.chrynan.chat.repository.PaginatedRepository

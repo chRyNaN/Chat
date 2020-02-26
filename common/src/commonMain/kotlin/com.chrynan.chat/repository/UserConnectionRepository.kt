@@ -1,9 +1,9 @@
 package com.chrynan.chat.repository
 
-import com.chrynan.chat.feature.reaction.model.account.UserConnectionType
-import com.chrynan.chat.feature.reaction.model.contact.FullContact
-import com.chrynan.chat.feature.reaction.model.contact.FullContactEdge
-import com.chrynan.chat.feature.reaction.model.core.ID
+import com.chrynan.chat.model.account.UserConnectionType
+import com.chrynan.chat.model.contact.FullContact
+import com.chrynan.chat.model.contact.FullContactEdge
+import com.chrynan.chat.model.core.ID
 
 interface UserConnectionRepository {
 

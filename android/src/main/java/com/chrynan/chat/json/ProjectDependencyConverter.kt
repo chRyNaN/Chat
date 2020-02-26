@@ -4,8 +4,8 @@ import com.beust.klaxon.Converter
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.JsonValue
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.feature.reaction.model.ProjectDependency
-import com.chrynan.chat.feature.reaction.model.ProjectLicense
+import com.chrynan.chat.model.ProjectDependency
+import com.chrynan.chat.model.ProjectLicense
 
 class ProjectDependencyConverter @Inject constructor() : Converter {
 
@@ -23,7 +23,8 @@ class ProjectDependencyConverter @Inject constructor() : Converter {
         val developers = obj.array<String>(ProjectDependency.NAME_DEVELOPERS)?.map { it } ?: emptyList()
         val licenses = obj.array<JsonObject>(ProjectDependency.NAME_LICENSES)?.mapChildren {
             ProjectLicense(
-                license = it.string(ProjectLicense.NAME_LICENSE) ?: "",
+                license = it.string(ProjectLicense.NAME_LICENSE)
+                    ?: "",
                 licenseUrl = it.string(ProjectLicense.NAME_LICENSE_URL)
             )
         }?.filterNotNull() ?: emptyList()

@@ -6,7 +6,7 @@ import com.chrynan.chat.coroutines.CoroutineDispatchers
 import com.chrynan.chat.feature.contact.view.ContactInfoView
 import com.chrynan.chat.feature.contact.viewmodel.ContactInfoActionItemViewModel
 import com.chrynan.chat.feature.contact.viewmodel.ContactInfoListItemViewModel
-import com.chrynan.chat.feature.reaction.model.core.ID
+import com.chrynan.chat.model.core.ID
 import com.chrynan.chat.presenter.BasePresenter
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf

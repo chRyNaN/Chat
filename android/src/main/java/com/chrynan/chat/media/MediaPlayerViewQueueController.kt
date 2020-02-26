@@ -2,7 +2,7 @@ package com.chrynan.chat.media
 
 import android.util.Log
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.feature.reaction.model.decrypted.DecryptedAttachment
+import com.chrynan.chat.model.decrypted.DecryptedAttachment
 import com.google.android.exoplayer2.Player
 
 class MediaPlayerViewQueueController @Inject constructor(

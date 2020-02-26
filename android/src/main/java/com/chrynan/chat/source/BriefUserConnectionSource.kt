@@ -1,13 +1,13 @@
 package com.chrynan.chat.source
 
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.feature.reaction.model.account.UserConnectionType
-import com.chrynan.chat.feature.reaction.model.contact.BriefContact
-import com.chrynan.chat.feature.reaction.model.contact.BriefContactConnection
-import com.chrynan.chat.feature.reaction.model.contact.BriefContactEdge
-import com.chrynan.chat.feature.reaction.model.contact.PersonName
-import com.chrynan.chat.feature.reaction.model.core.ID
-import com.chrynan.chat.feature.reaction.model.core.PageInfo
+import com.chrynan.chat.model.account.UserConnectionType
+import com.chrynan.chat.model.contact.BriefContact
+import com.chrynan.chat.model.contact.BriefContactConnection
+import com.chrynan.chat.model.contact.BriefContactEdge
+import com.chrynan.chat.model.contact.PersonName
+import com.chrynan.chat.model.core.ID
+import com.chrynan.chat.model.core.PageInfo
 import com.chrynan.chat.repository.BasePaginatedSource
 import com.chrynan.chat.repository.BriefUserConnectionRepository
 import com.chrynan.chat.repository.PaginatedRepository

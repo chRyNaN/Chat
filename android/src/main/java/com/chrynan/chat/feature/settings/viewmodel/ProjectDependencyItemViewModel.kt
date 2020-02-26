@@ -2,7 +2,7 @@ package com.chrynan.chat.feature.settings.viewmodel
 
 import com.chrynan.aaaah.asUniqueAdapterId
 import com.chrynan.chat.adapter.AdapterItem
-import com.chrynan.chat.feature.reaction.model.ProjectLicense
+import com.chrynan.chat.model.ProjectLicense
 
 data class ProjectDependencyItemViewModel(
     val name: String,

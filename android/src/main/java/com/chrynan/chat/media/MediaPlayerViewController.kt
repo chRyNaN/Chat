@@ -1,6 +1,6 @@
 package com.chrynan.chat.media
 
-import com.chrynan.chat.feature.reaction.model.decrypted.DecryptedAttachment
+import com.chrynan.chat.model.decrypted.DecryptedAttachment
 
 interface MediaPlayerViewController {
 

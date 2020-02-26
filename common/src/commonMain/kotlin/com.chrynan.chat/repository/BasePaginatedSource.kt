@@ -1,9 +1,9 @@
 package com.chrynan.chat.repository
 
-import com.chrynan.chat.feature.reaction.model.core.Connection
-import com.chrynan.chat.feature.reaction.model.core.Cursor
-import com.chrynan.chat.feature.reaction.model.core.Edge
-import com.chrynan.chat.feature.reaction.model.core.Node
+import com.chrynan.chat.model.core.Connection
+import com.chrynan.chat.model.core.Cursor
+import com.chrynan.chat.model.core.Edge
+import com.chrynan.chat.model.core.Node
 import com.chrynan.logger.Logger
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.cancel

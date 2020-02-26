@@ -5,8 +5,8 @@ import com.chrynan.chat.di.Inject
 import com.chrynan.chat.feature.conversation.viewmodel.*
 import com.chrynan.chat.mapper.Mapper
 import com.chrynan.chat.feature.reaction.model.UserImage
-import com.chrynan.chat.feature.reaction.model.decrypted.DecryptedAttachment
-import com.chrynan.chat.feature.reaction.model.decrypted.DecryptedMessage
+import com.chrynan.chat.model.decrypted.DecryptedAttachment
+import com.chrynan.chat.model.decrypted.DecryptedMessage
 import com.chrynan.chat.resources.Colors
 import com.chrynan.chat.resources.DrawableIDs
 import com.chrynan.chat.resources.Strings

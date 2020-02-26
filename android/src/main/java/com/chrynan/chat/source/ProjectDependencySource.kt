@@ -4,7 +4,7 @@ import com.beust.klaxon.Klaxon
 import com.chrynan.chat.coroutines.CoroutineDispatchers
 import com.chrynan.chat.di.Inject
 import com.chrynan.chat.json.ProjectDependencyConverter
-import com.chrynan.chat.feature.reaction.model.ProjectDependency
+import com.chrynan.chat.model.ProjectDependency
 import com.chrynan.chat.repository.ProjectDependencyRepository
 import com.chrynan.chat.utils.ApplicationContext
 import kotlinx.coroutines.withContext

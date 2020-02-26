@@ -1,10 +1,10 @@
 package com.chrynan.chat.source
 
 import com.chrynan.chat.di.Inject
-import com.chrynan.chat.feature.reaction.model.account.UserConnectionType
-import com.chrynan.chat.feature.reaction.model.contact.FullContact
-import com.chrynan.chat.feature.reaction.model.contact.FullContactEdge
-import com.chrynan.chat.feature.reaction.model.core.ID
+import com.chrynan.chat.model.account.UserConnectionType
+import com.chrynan.chat.model.contact.FullContact
+import com.chrynan.chat.model.contact.FullContactEdge
+import com.chrynan.chat.model.core.ID
 import com.chrynan.chat.repository.PaginatedRepository
 import com.chrynan.chat.repository.UserConnectionRepository
 

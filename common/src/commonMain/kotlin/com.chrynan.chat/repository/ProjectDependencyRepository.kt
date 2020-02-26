@@ -1,6 +1,6 @@
 package com.chrynan.chat.repository
 
-import com.chrynan.chat.feature.reaction.model.ProjectDependency
+import com.chrynan.chat.model.ProjectDependency
 
 interface ProjectDependencyRepository {
 

@@ -1,6 +1,6 @@
 package com.chrynan.chat.feature.reaction.model
 
-import com.chrynan.chat.feature.reaction.model.core.UriString
+import com.chrynan.chat.model.core.UriString
 
 data class UserImage(
     val name: String,
